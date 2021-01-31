@@ -6,6 +6,7 @@ using System.Drawing;
 using System.Text;
 using System.Windows.Forms;
 using System.IO;
+using Microsoft.VisualBasic.FileIO;
 
 namespace Human_Resource_Management
 {
@@ -29,13 +30,17 @@ namespace Human_Resource_Management
 
         private void button2_Click(object sender, EventArgs e)
         {
-            this.dataGridView1.Rows.Clear();
             this.DataLoad();
         }
 
         private void btnExport_Click(object sender, EventArgs e)
         {
             this.ExportFile();
+        }
+
+        private void btnSave_Click(object sender, EventArgs e)
+        {
+            SaveFile();
         }
 
 
@@ -62,25 +67,18 @@ namespace Human_Resource_Management
             {
                 string fileName = op.FileName;
 
-                string[] csvDataAll = File.ReadAllLines(op.FileName, Encoding.Default);
+                TextFieldParser parser = new TextFieldParser(op.FileName);
+                parser.TextFieldType = FieldType.Delimited;
+                parser.SetDelimiters(","); // 区切り文字はコンマ
 
-                DataGridViewRow[] rows = new DataGridViewRow[csvDataAll.Length];
+                dataGridView1.Rows.Clear();
 
-                for (int i = 0; i < csvDataAll.Length; i++)
+                while (!parser.EndOfData)
                 {
-                    string[] csv = csvDataAll[i].Split(',');
-                    string[] data = new string[9];
-                    Array.Copy(csv, 0, data, 0, 3);
-
-                    DataGridViewRow row = new DataGridViewRow();
-                    row.CreateCells(this.dataGridView1);
-                    row.SetValues(data);
-                    rows[i] = row;
+                    string[] row = parser.ReadFields(); 
+                                                        
+                    dataGridView1.Rows.Add(row);
                 }
-
-                this.dataGridView1.Rows.AddRange(rows);
-
-                FileName = op.FileName;
             }
             else if (result == DialogResult.Cancel)
             {
@@ -177,10 +175,7 @@ namespace Human_Resource_Management
 
         }
 
-        private void btnSave_Click(object sender, EventArgs e)
-        {
-            SaveFile();
-        }
+
     }
 }
 
