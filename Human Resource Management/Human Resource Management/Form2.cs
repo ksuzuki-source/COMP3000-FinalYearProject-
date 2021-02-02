@@ -10,8 +10,10 @@ using Microsoft.VisualBasic.FileIO;
 
 namespace Human_Resource_Management
 {
+    //this form is for viewing the data with CRUD  
     public partial class Form2 : Form
     {
+        //using BindingSource and datatable to make the search function more flexible
         private BindingSource bindingSource1;
         private DataTable table;
 
@@ -29,16 +31,7 @@ namespace Human_Resource_Management
 
         }
 
-        private void openFileDialog1_FileOk(object sender, CancelEventArgs e)
-        {
-
-        }
-
-        private void label1_Click(object sender, EventArgs e)
-        {
-
-        }
-
+        //press btn load to load the file with file dialog 
         private void button1_Click(object sender, EventArgs e)
         {
             OpenFileDialog op = new OpenFileDialog();
@@ -65,24 +58,6 @@ namespace Human_Resource_Management
 
         }
 
-        private void button2_Click(object sender, EventArgs e)
-        {
-            if (!String.IsNullOrEmpty(this.textBox1.Text))
-            {
-                this.table.DefaultView.RowFilter =
-                    "NAME LIKE '%" +
-                    this.textBox1.Text + "%'";
-
-
-                this.bindingSource1.ResetBindings(false);
-            }
-            else
-            {
-                this.table.DefaultView.RowFilter = "";
-            }
-
-
-        }
 
         private void button3_Click(object sender, EventArgs e)
         {
@@ -106,6 +81,41 @@ namespace Human_Resource_Management
             else if (result == DialogResult.Cancel)
             { }
         }
+
+
+        private void button4_Click(object sender, EventArgs e)
+        {
+            if (!String.IsNullOrEmpty(this.textBox1.Text))
+            {
+                if (radioButton1.Checked)
+                {
+                    this.table.DefaultView.RowFilter =
+                        "NAME LIKE '%" +
+                        this.textBox1.Text + "%'";
+
+
+                    this.bindingSource1.ResetBindings(false);
+                }
+                else if (radioButton2.Checked)
+                {
+                    this.table.DefaultView.RowFilter =
+                       "SEX '%" +
+                       this.textBox1.Text + "%'";
+
+
+                    this.bindingSource1.ResetBindings(false);
+                }
+                else
+                {
+                    MessageBox.Show("category is not chaecked");
+                }
+            }
+            else if (table != null)
+            {
+                this.table.DefaultView.RowFilter = "";
+            }
+        }
+
 
 
         public static DataTable read_csv(string path, bool header = true, char separator = ',')
@@ -210,7 +220,7 @@ namespace Human_Resource_Management
             }
         }
 
-
+        
     }
 
 
