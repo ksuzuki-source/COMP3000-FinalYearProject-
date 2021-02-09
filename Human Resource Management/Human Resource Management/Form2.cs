@@ -34,6 +34,33 @@ namespace Human_Resource_Management
         //press btn load to load the file with file dialog 
         private void button1_Click(object sender, EventArgs e)
         {
+            OpenFileDialog();
+        }
+
+
+        private void button3_Click(object sender, EventArgs e)
+        {
+            SavefileDialog();
+
+        }
+
+
+        private void button4_Click(object sender, EventArgs e)
+        {
+            SearchFilter();
+        }
+
+
+
+        /// <summary>
+        /// below is some methods because table is private variable, I don`t want to change table from other class.
+        /// </summary>
+
+
+
+
+        public void OpenFileDialog()
+        {
             OpenFileDialog op = new OpenFileDialog();
             op.Title = "OPEN FILE";
             op.InitialDirectory = @"C:\";
@@ -46,7 +73,7 @@ namespace Human_Resource_Management
             {
 
                 this.table =
-                    read_csv(op.FileName);
+                    Readcsv.read_csv(op.FileName);
 
 
                 this.bindingSource1.DataSource = this.table;
@@ -54,14 +81,11 @@ namespace Human_Resource_Management
             }
             else if (result == DialogResult.Cancel)
             { }
-
-
         }
 
 
-        private void button3_Click(object sender, EventArgs e)
+        public void SavefileDialog()
         {
-
             SaveFileDialog sa = new SaveFileDialog();
             sa.Title = "OPEN FILE";
             sa.InitialDirectory = @"C:\";
@@ -69,161 +93,83 @@ namespace Human_Resource_Management
             sa.Filter = "CSV file(*.csv)|*.csv";
             sa.FilterIndex = 1;
 
-            DialogResult result = sa.ShowDialog();
-            if (result == DialogResult.OK)
+            if (table != null)
             {
-                SaveDataTableAsCsv(this.table, sa.FileName);
-                this.table =
-                read_csv(sa.FileName);
+                DialogResult result = sa.ShowDialog();
+                if (result == DialogResult.OK)
+                {
+                     Savecsv csv = new Savecsv();
+                    csv.SaveDataTableAsCsv(this.table, sa.FileName);
+                    this.table = Readcsv.read_csv(sa.FileName);
 
 
+                }
+                else if (result == DialogResult.Cancel)
+                { }
             }
-            else if (result == DialogResult.Cancel)
-            { }
+            else
+            {
+                MessageBox.Show("Table is null");
+            }
+
         }
 
-
-        private void button4_Click(object sender, EventArgs e)
+        public void SearchFilter()
         {
             if (!String.IsNullOrEmpty(this.textBox1.Text))
             {
-                if (radioButton1.Checked)
+                if (table != null)
                 {
-                    this.table.DefaultView.RowFilter =
+                    if (radioButton1.Checked)
+                    {
+                        this.table.DefaultView.RowFilter =
                         "NAME LIKE '%" +
                         this.textBox1.Text + "%'";
 
 
-                    this.bindingSource1.ResetBindings(false);
-                }
-                else if (radioButton2.Checked)
-                {
-                    this.table.DefaultView.RowFilter =
-                       "SEX '%" +
-                       this.textBox1.Text + "%'";
-
-
-                    this.bindingSource1.ResetBindings(false);
-                }
-                else
-                {
-                    MessageBox.Show("category is not chaecked");
-                }
-            }
-            else if (table != null)
-            {
-                this.table.DefaultView.RowFilter = "";
-            }
-        }
-
-
-
-        public static DataTable read_csv(string path, bool header = true, char separator = ',')
-        {
-
-            using (TextFieldParser tfp =
-                           new TextFieldParser(path))
-            {
-
-                tfp.TextFieldType = FieldType.Delimited;
-
-
-                tfp.Delimiters = new string[] { "," };
-
-
-                tfp.HasFieldsEnclosedInQuotes = true;
-
-                tfp.TrimWhiteSpace = true;
-
-                string[] headers = tfp.ReadFields();
-                int fieldCount = headers.Length;
-
-                DataTable dt = new DataTable();
-                DataRow dr;
-                DataColumn dc;
-
-                dt.Columns.Clear();
-
-                for (int i = 0; i < fieldCount; i++)
-                {
-                    dc = new DataColumn(headers[i], typeof(String));
-                    dt.Columns.Add(dc);
-                }
-
-                while (!tfp.EndOfData)
-                {
-                    string[] fields = tfp.ReadFields();
-
-                    dr = dt.NewRow();
-                    for (int i = 0; i < fieldCount; i++)
-                    {
-                        dr[headers[i]] = fields[i];
+                        this.bindingSource1.ResetBindings(false);
                     }
-                    dt.Rows.Add(dr);
+
+                    else if (radioButton2.Checked)
+                    {
+                        this.table.DefaultView.RowFilter =
+                        "SEX LIKE '%" +
+                        this.textBox1.Text + "%'";
+
+                        this.bindingSource1.ResetBindings(false);
+                    }
+
+                    else if (radioButton3.Checked)
+                    {
+                        this.table.DefaultView.RowFilter =
+                        "ROLE LIKE '%" +
+                        this.textBox1.Text + "%'";
+
+                        this.bindingSource1.ResetBindings(false);
+                    }
+
+
+                    else
+                    {
+                        MessageBox.Show("category is not chaecked");
+
+                    }
                 }
-                return dt;
+
+
+
+
+
+                else if (table != null)
+                {
+                    this.table.DefaultView.RowFilter = "";
+                }
                 
             }
-        
 
-    }
-
-
-
-        private void SaveDataTableAsCsv(DataTable dt, string path, bool isHeaderRequired = true)
-        {
-            int colCount = dt.Columns.Count;
-            int lastColIndex = colCount - 1;
-
-            using (var sr = new StreamWriter(path))
-            {
-
-                if (isHeaderRequired)
-                {
-                    for (int i = 0; i < colCount; i++)
-                    {
-                        string header = dt.Columns[i].Caption;
-
-                        sr.Write(header);
-                        if (lastColIndex > i)
-                        {
-                            sr.Write(',');
-                        }
-                    }
-                    sr.Write("\r\n");
-                }
-
-                foreach (DataRow row in dt.Rows)
-                {
-                    if (row.RowState == DataRowState.Unchanged ||
-                        row.RowState == DataRowState.Added ||
-                        row.RowState == DataRowState.Modified)
-                    {
-
-                        for (int i = 0; i < colCount; i++)
-                        {
-                            string field =
-                                row[i, DataRowVersion.Current].ToString();
-
- 
-
-                            sr.Write(field);
-                            if (lastColIndex > i)
-                            {
-                                sr.Write(',');
-                            }
-
-                        }
-                        sr.Write("\r\n");
-                    }
-                }
-            }
         }
-
-        
     }
-
-
 }
+
 
 

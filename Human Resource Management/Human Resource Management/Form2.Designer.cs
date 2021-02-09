@@ -45,7 +45,7 @@ namespace Human_Resource_Management
             // 
             // btnLoad
             // 
-            this.btnLoad.Location = new System.Drawing.Point(292, 152);
+            this.btnLoad.Location = new System.Drawing.Point(218, 62);
             this.btnLoad.Name = "btnLoad";
             this.btnLoad.Size = new System.Drawing.Size(75, 23);
             this.btnLoad.TabIndex = 0;
@@ -55,7 +55,7 @@ namespace Human_Resource_Management
             // 
             // btnExport
             // 
-            this.btnExport.Location = new System.Drawing.Point(381, 152);
+            this.btnExport.Location = new System.Drawing.Point(299, 62);
             this.btnExport.Name = "btnExport";
             this.btnExport.Size = new System.Drawing.Size(75, 23);
             this.btnExport.TabIndex = 2;
@@ -65,7 +65,7 @@ namespace Human_Resource_Management
             // 
             // btnSearch
             // 
-            this.btnSearch.Location = new System.Drawing.Point(520, 108);
+            this.btnSearch.Location = new System.Drawing.Point(338, 8);
             this.btnSearch.Name = "btnSearch";
             this.btnSearch.Size = new System.Drawing.Size(75, 23);
             this.btnSearch.TabIndex = 3;
@@ -76,7 +76,7 @@ namespace Human_Resource_Management
             // label1
             // 
             this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(292, 85);
+            this.label1.Location = new System.Drawing.Point(218, 12);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(98, 15);
             this.label1.TabIndex = 4;
@@ -85,14 +85,14 @@ namespace Human_Resource_Management
             // dataGridView1
             // 
             this.dataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dataGridView1.Location = new System.Drawing.Point(292, 181);
+            this.dataGridView1.Location = new System.Drawing.Point(15, 127);
             this.dataGridView1.Name = "dataGridView1";
-            this.dataGridView1.Size = new System.Drawing.Size(384, 246);
+            this.dataGridView1.Size = new System.Drawing.Size(773, 302);
             this.dataGridView1.TabIndex = 5;
             // 
             // textBox1
             // 
-            this.textBox1.Location = new System.Drawing.Point(292, 108);
+            this.textBox1.Location = new System.Drawing.Point(218, 33);
             this.textBox1.Name = "textBox1";
             this.textBox1.Size = new System.Drawing.Size(195, 23);
             this.textBox1.TabIndex = 6;
@@ -102,9 +102,9 @@ namespace Human_Resource_Management
             this.groupBox1.Controls.Add(this.radioButton3);
             this.groupBox1.Controls.Add(this.radioButton2);
             this.groupBox1.Controls.Add(this.radioButton1);
-            this.groupBox1.Location = new System.Drawing.Point(50, 33);
+            this.groupBox1.Location = new System.Drawing.Point(12, 12);
             this.groupBox1.Name = "groupBox1";
-            this.groupBox1.Size = new System.Drawing.Size(200, 100);
+            this.groupBox1.Size = new System.Drawing.Size(200, 109);
             this.groupBox1.TabIndex = 7;
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "Search feature";
@@ -114,10 +114,10 @@ namespace Human_Resource_Management
             this.radioButton3.AutoSize = true;
             this.radioButton3.Location = new System.Drawing.Point(3, 75);
             this.radioButton3.Name = "radioButton3";
-            this.radioButton3.Size = new System.Drawing.Size(52, 19);
+            this.radioButton3.Size = new System.Drawing.Size(53, 19);
             this.radioButton3.TabIndex = 2;
             this.radioButton3.TabStop = true;
-            this.radioButton3.Text = "Team";
+            this.radioButton3.Text = "ROLE";
             this.radioButton3.UseVisualStyleBackColor = true;
             // 
             // radioButton2
