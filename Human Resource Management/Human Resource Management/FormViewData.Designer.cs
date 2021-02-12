@@ -1,7 +1,7 @@
 ﻿
 namespace Human_Resource_Management
 {
-    partial class Form2
+    partial class FormViewData
     {
         /// <summary>
         /// Required designer variable.
@@ -39,6 +39,7 @@ namespace Human_Resource_Management
             this.radioButton3 = new System.Windows.Forms.RadioButton();
             this.radioButton2 = new System.Windows.Forms.RadioButton();
             this.radioButton1 = new System.Windows.Forms.RadioButton();
+            this.btnEdit = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
             this.groupBox1.SuspendLayout();
             this.SuspendLayout();
@@ -142,11 +143,21 @@ namespace Human_Resource_Management
             this.radioButton1.Text = "NAME";
             this.radioButton1.UseVisualStyleBackColor = true;
             // 
-            // Form2
+            // btnEdit
+            // 
+            this.btnEdit.Location = new System.Drawing.Point(713, 98);
+            this.btnEdit.Name = "btnEdit";
+            this.btnEdit.Size = new System.Drawing.Size(75, 23);
+            this.btnEdit.TabIndex = 8;
+            this.btnEdit.Text = "Edit";
+            this.btnEdit.UseVisualStyleBackColor = true;
+            // 
+            // FormViewData
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(800, 450);
+            this.Controls.Add(this.btnEdit);
             this.Controls.Add(this.groupBox1);
             this.Controls.Add(this.textBox1);
             this.Controls.Add(this.dataGridView1);
@@ -154,7 +165,7 @@ namespace Human_Resource_Management
             this.Controls.Add(this.btnSearch);
             this.Controls.Add(this.btnExport);
             this.Controls.Add(this.btnLoad);
-            this.Name = "Form2";
+            this.Name = "FormViewData";
             this.Text = "Search";
             this.Load += new System.EventHandler(this.Form2_Load);
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).EndInit();
@@ -177,5 +188,6 @@ namespace Human_Resource_Management
         private System.Windows.Forms.RadioButton radioButton3;
         private System.Windows.Forms.RadioButton radioButton2;
         private System.Windows.Forms.RadioButton radioButton1;
+        private System.Windows.Forms.Button btnEdit;
     }
 }

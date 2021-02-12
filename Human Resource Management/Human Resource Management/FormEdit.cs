@@ -8,11 +8,20 @@ using System.Windows.Forms;
 
 namespace Human_Resource_Management
 {
-    public partial class Form5 : Form
+    public partial class FormEdit : Form
     {
-        public Form5()
+        public FormEdit()
         {
             InitializeComponent();
+            FormViewData FVD;
         }
+
+
+        string updateName;
+        string updateSex;
+        string updateRole;
+        string updatePassword;
+        string updatePostcode;
+        string updateAge;
     }
 }

@@ -11,13 +11,13 @@ using Microsoft.VisualBasic.FileIO;
 namespace Human_Resource_Management
 {
     //this form is for viewing the data with CRUD  
-    public partial class Form2 : Form
+    public partial class FormViewData : Form
     {
         //using BindingSource and datatable to make the search function more flexible
-        private BindingSource bindingSource1;
-        private DataTable table;
+        public BindingSource bindingSource1;
+        public DataTable table;
 
-        public Form2()
+        public FormViewData()
         {
             InitializeComponent();
             this.components = new Container();
@@ -53,7 +53,7 @@ namespace Human_Resource_Management
 
 
         /// <summary>
-        /// below is some methods because table is private variable, I don`t want to change table from other class.
+        /// Function Section
         /// </summary>
 
 
@@ -72,11 +72,11 @@ namespace Human_Resource_Management
             if (result == DialogResult.OK)
             {
 
-                this.table =
+                table =
                     Readcsv.read_csv(op.FileName);
 
 
-                this.bindingSource1.DataSource = this.table;
+                bindingSource1.DataSource = table;
 
             }
             else if (result == DialogResult.Cancel)
@@ -98,9 +98,9 @@ namespace Human_Resource_Management
                 DialogResult result = sa.ShowDialog();
                 if (result == DialogResult.OK)
                 {
-                     Savecsv csv = new Savecsv();
-                    csv.SaveDataTableAsCsv(this.table, sa.FileName);
-                    this.table = Readcsv.read_csv(sa.FileName);
+                    Savecsv csv = new Savecsv();
+                    csv.SaveDataTableAsCsv(table, sa.FileName);
+                    table = Readcsv.read_csv(sa.FileName);
 
 
                 }
@@ -155,10 +155,6 @@ namespace Human_Resource_Management
 
                     }
                 }
-
-
-
-
 
                 else if (table != null)
                 {

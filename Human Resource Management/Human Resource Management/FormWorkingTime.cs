@@ -8,11 +8,16 @@ using System.Windows.Forms;
 
 namespace Human_Resource_Management
 {
-    public partial class Form4 : Form
+    public partial class FormWorkingTime : Form
     {
-        public Form4()
+        public FormWorkingTime()
         {
             InitializeComponent();
+        }
+
+        private void FormWorkingTime_Load(object sender, EventArgs e)
+        {
+
         }
     }
 }

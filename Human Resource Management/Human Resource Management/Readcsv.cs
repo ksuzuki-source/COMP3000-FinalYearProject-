@@ -7,6 +7,7 @@ using System.Text;
 using System.Windows.Forms;
 using System.IO;
 using Microsoft.VisualBasic.FileIO;
+using CsvHelper;
 
 namespace Human_Resource_Management
 {
@@ -15,47 +16,28 @@ namespace Human_Resource_Management
 
         public static DataTable read_csv(string path, bool header = true, char separator = ',')
         {
-
-            using (TextFieldParser tfp =
-                           new TextFieldParser(path))
+            using (var reader = new StreamReader(path))
+            using (var csv = new CsvReader(reader, System.Globalization.CultureInfo.CurrentCulture))
             {
-
-                tfp.TextFieldType = FieldType.Delimited;
-
-
-                tfp.Delimiters = new string[] { "," };
-
-
-                tfp.HasFieldsEnclosedInQuotes = true;
-
-                tfp.TrimWhiteSpace = true;
-
-                string[] headers = tfp.ReadFields();
-                int fieldCount = headers.Length;
+      
+                csv.Configuration.HasHeaderRecord = true;
+                var people = csv.GetRecords<Person>();
 
                 DataTable dt = new DataTable();
-                DataRow dr;
-                DataColumn dc;
-
                 dt.Columns.Clear();
+                dt.Columns.Add("Name");
+                dt.Columns.Add("Sex");
+                dt.Columns.Add("Role");
+                dt.Columns.Add("Password");
+                dt.Columns.Add("Postcode");
+                dt.Columns.Add("Age");
 
-                for (int i = 0; i < fieldCount; i++)
+                foreach (var person in people)
                 {
-                    dc = new DataColumn(headers[i], typeof(String));
-                    dt.Columns.Add(dc);
+                    
+                    dt.Rows.Add(person.Name, person.Sex, person.Role, person.Password, person.Postcode, person.Age);
                 }
 
-                while (!tfp.EndOfData)
-                {
-                    string[] fields = tfp.ReadFields();
-
-                    dr = dt.NewRow();
-                    for (int i = 0; i < fieldCount; i++)
-                    {
-                        dr[headers[i]] = fields[i];
-                    }
-                    dt.Rows.Add(dr);
-                }
                 return dt;
 
             }
