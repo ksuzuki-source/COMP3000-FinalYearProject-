@@ -50,6 +50,21 @@ namespace Human_Resource_Management
             SearchFilter();
         }
 
+        private void btnDelete_Click(object sender, EventArgs e)
+        {
+
+            foreach (DataGridViewRow row in dataGridView1.SelectedRows)
+            {
+                dataGridView1.Rows.Remove(row);
+            }
+        }
+
+        private void btnReset_Click(object sender, EventArgs e)
+        {
+            this.table.DefaultView.RowFilter = "";
+        }
+
+
 
 
         /// <summary>
@@ -164,6 +179,8 @@ namespace Human_Resource_Management
             }
 
         }
+
+
     }
 }
 

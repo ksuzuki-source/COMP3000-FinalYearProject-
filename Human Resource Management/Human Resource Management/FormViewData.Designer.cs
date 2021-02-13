@@ -36,17 +36,21 @@ namespace Human_Resource_Management
             this.dataGridView1 = new System.Windows.Forms.DataGridView();
             this.textBox1 = new System.Windows.Forms.TextBox();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
+            this.btnReset = new System.Windows.Forms.Button();
             this.radioButton3 = new System.Windows.Forms.RadioButton();
             this.radioButton2 = new System.Windows.Forms.RadioButton();
             this.radioButton1 = new System.Windows.Forms.RadioButton();
             this.btnEdit = new System.Windows.Forms.Button();
+            this.btnDelete = new System.Windows.Forms.Button();
+            this.panel1 = new System.Windows.Forms.Panel();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
             this.groupBox1.SuspendLayout();
+            this.panel1.SuspendLayout();
             this.SuspendLayout();
             // 
             // btnLoad
             // 
-            this.btnLoad.Location = new System.Drawing.Point(218, 62);
+            this.btnLoad.Location = new System.Drawing.Point(213, 88);
             this.btnLoad.Name = "btnLoad";
             this.btnLoad.Size = new System.Drawing.Size(75, 23);
             this.btnLoad.TabIndex = 0;
@@ -56,7 +60,7 @@ namespace Human_Resource_Management
             // 
             // btnExport
             // 
-            this.btnExport.Location = new System.Drawing.Point(299, 62);
+            this.btnExport.Location = new System.Drawing.Point(294, 88);
             this.btnExport.Name = "btnExport";
             this.btnExport.Size = new System.Drawing.Size(75, 23);
             this.btnExport.TabIndex = 2;
@@ -66,7 +70,7 @@ namespace Human_Resource_Management
             // 
             // btnSearch
             // 
-            this.btnSearch.Location = new System.Drawing.Point(338, 8);
+            this.btnSearch.Location = new System.Drawing.Point(409, 22);
             this.btnSearch.Name = "btnSearch";
             this.btnSearch.Size = new System.Drawing.Size(75, 23);
             this.btnSearch.TabIndex = 3;
@@ -77,7 +81,7 @@ namespace Human_Resource_Management
             // label1
             // 
             this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(218, 12);
+            this.label1.Location = new System.Drawing.Point(208, 2);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(98, 15);
             this.label1.TabIndex = 4;
@@ -93,22 +97,33 @@ namespace Human_Resource_Management
             // 
             // textBox1
             // 
-            this.textBox1.Location = new System.Drawing.Point(218, 33);
+            this.textBox1.Location = new System.Drawing.Point(208, 23);
             this.textBox1.Name = "textBox1";
             this.textBox1.Size = new System.Drawing.Size(195, 23);
             this.textBox1.TabIndex = 6;
             // 
             // groupBox1
             // 
+            this.groupBox1.Controls.Add(this.btnReset);
             this.groupBox1.Controls.Add(this.radioButton3);
             this.groupBox1.Controls.Add(this.radioButton2);
             this.groupBox1.Controls.Add(this.radioButton1);
-            this.groupBox1.Location = new System.Drawing.Point(12, 12);
+            this.groupBox1.Location = new System.Drawing.Point(2, 2);
             this.groupBox1.Name = "groupBox1";
             this.groupBox1.Size = new System.Drawing.Size(200, 109);
             this.groupBox1.TabIndex = 7;
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "Search feature";
+            // 
+            // btnReset
+            // 
+            this.btnReset.Location = new System.Drawing.Point(121, 17);
+            this.btnReset.Name = "btnReset";
+            this.btnReset.Size = new System.Drawing.Size(73, 26);
+            this.btnReset.TabIndex = 10;
+            this.btnReset.Text = "No Filter";
+            this.btnReset.UseVisualStyleBackColor = true;
+            this.btnReset.Click += new System.EventHandler(this.btnReset_Click);
             // 
             // radioButton3
             // 
@@ -152,27 +167,47 @@ namespace Human_Resource_Management
             this.btnEdit.Text = "Edit";
             this.btnEdit.UseVisualStyleBackColor = true;
             // 
+            // btnDelete
+            // 
+            this.btnDelete.Location = new System.Drawing.Point(610, 88);
+            this.btnDelete.Name = "btnDelete";
+            this.btnDelete.Size = new System.Drawing.Size(75, 23);
+            this.btnDelete.TabIndex = 9;
+            this.btnDelete.Text = "Delete";
+            this.btnDelete.UseVisualStyleBackColor = true;
+            this.btnDelete.Click += new System.EventHandler(this.btnDelete_Click);
+            // 
+            // panel1
+            // 
+            this.panel1.Controls.Add(this.btnDelete);
+            this.panel1.Controls.Add(this.groupBox1);
+            this.panel1.Controls.Add(this.textBox1);
+            this.panel1.Controls.Add(this.label1);
+            this.panel1.Controls.Add(this.btnSearch);
+            this.panel1.Controls.Add(this.btnExport);
+            this.panel1.Controls.Add(this.btnLoad);
+            this.panel1.Location = new System.Drawing.Point(10, 12);
+            this.panel1.Name = "panel1";
+            this.panel1.Size = new System.Drawing.Size(788, 430);
+            this.panel1.TabIndex = 10;
+            // 
             // FormViewData
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(800, 450);
             this.Controls.Add(this.btnEdit);
-            this.Controls.Add(this.groupBox1);
-            this.Controls.Add(this.textBox1);
             this.Controls.Add(this.dataGridView1);
-            this.Controls.Add(this.label1);
-            this.Controls.Add(this.btnSearch);
-            this.Controls.Add(this.btnExport);
-            this.Controls.Add(this.btnLoad);
+            this.Controls.Add(this.panel1);
             this.Name = "FormViewData";
             this.Text = "Search";
             this.Load += new System.EventHandler(this.Form2_Load);
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).EndInit();
             this.groupBox1.ResumeLayout(false);
             this.groupBox1.PerformLayout();
+            this.panel1.ResumeLayout(false);
+            this.panel1.PerformLayout();
             this.ResumeLayout(false);
-            this.PerformLayout();
 
         }
 
@@ -189,5 +224,8 @@ namespace Human_Resource_Management
         private System.Windows.Forms.RadioButton radioButton2;
         private System.Windows.Forms.RadioButton radioButton1;
         private System.Windows.Forms.Button btnEdit;
+        private System.Windows.Forms.Button btnDelete;
+        private System.Windows.Forms.Button btnReset;
+        private System.Windows.Forms.Panel panel1;
     }
 }
