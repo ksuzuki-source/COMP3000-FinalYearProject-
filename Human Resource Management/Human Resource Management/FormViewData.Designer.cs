@@ -43,6 +43,7 @@ namespace Human_Resource_Management
             this.btnEdit = new System.Windows.Forms.Button();
             this.btnDelete = new System.Windows.Forms.Button();
             this.panel1 = new System.Windows.Forms.Panel();
+            this.listBox1 = new System.Windows.Forms.ListBox();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
             this.groupBox1.SuspendLayout();
             this.panel1.SuspendLayout();
@@ -166,6 +167,7 @@ namespace Human_Resource_Management
             this.btnEdit.TabIndex = 8;
             this.btnEdit.Text = "Edit";
             this.btnEdit.UseVisualStyleBackColor = true;
+            this.btnEdit.Click += new System.EventHandler(this.btnEdit_Click);
             // 
             // btnDelete
             // 
@@ -179,6 +181,7 @@ namespace Human_Resource_Management
             // 
             // panel1
             // 
+            this.panel1.Controls.Add(this.listBox1);
             this.panel1.Controls.Add(this.btnDelete);
             this.panel1.Controls.Add(this.groupBox1);
             this.panel1.Controls.Add(this.textBox1);
@@ -190,6 +193,15 @@ namespace Human_Resource_Management
             this.panel1.Name = "panel1";
             this.panel1.Size = new System.Drawing.Size(788, 430);
             this.panel1.TabIndex = 10;
+            // 
+            // listBox1
+            // 
+            this.listBox1.FormattingEnabled = true;
+            this.listBox1.ItemHeight = 15;
+            this.listBox1.Location = new System.Drawing.Point(550, 9);
+            this.listBox1.Name = "listBox1";
+            this.listBox1.Size = new System.Drawing.Size(169, 34);
+            this.listBox1.TabIndex = 10;
             // 
             // FormViewData
             // 
@@ -217,7 +229,6 @@ namespace Human_Resource_Management
         private System.Windows.Forms.Button btnExport;
         private System.Windows.Forms.Button btnSearch;
         private System.Windows.Forms.Label label1;
-        private System.Windows.Forms.DataGridView dataGridView1;
         private System.Windows.Forms.TextBox textBox1;
         private System.Windows.Forms.GroupBox groupBox1;
         private System.Windows.Forms.RadioButton radioButton3;
@@ -227,5 +238,7 @@ namespace Human_Resource_Management
         private System.Windows.Forms.Button btnDelete;
         private System.Windows.Forms.Button btnReset;
         private System.Windows.Forms.Panel panel1;
+        private System.Windows.Forms.ListBox listBox1;
+        public System.Windows.Forms.DataGridView dataGridView1;
     }
 }

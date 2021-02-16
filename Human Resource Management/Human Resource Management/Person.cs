@@ -23,6 +23,6 @@ namespace Human_Resource_Management
         public string Postcode { get; set; }
 
         [Index(5)]
-        public string Age { get; set; }
+        public int Age { get; set; }
     }
 }

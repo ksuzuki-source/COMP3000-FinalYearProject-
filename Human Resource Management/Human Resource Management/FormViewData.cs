@@ -35,6 +35,7 @@ namespace Human_Resource_Management
         private void button1_Click(object sender, EventArgs e)
         {
             OpenFileDialog();
+            
         }
 
 
@@ -52,7 +53,7 @@ namespace Human_Resource_Management
 
         private void btnDelete_Click(object sender, EventArgs e)
         {
-
+            
             foreach (DataGridViewRow row in dataGridView1.SelectedRows)
             {
                 dataGridView1.Rows.Remove(row);
@@ -92,7 +93,7 @@ namespace Human_Resource_Management
 
 
                 bindingSource1.DataSource = table;
-
+               
             }
             else if (result == DialogResult.Cancel)
             { }
@@ -117,7 +118,7 @@ namespace Human_Resource_Management
                     csv.SaveDataTableAsCsv(table, sa.FileName);
                     table = Readcsv.read_csv(sa.FileName);
 
-
+                    
                 }
                 else if (result == DialogResult.Cancel)
                 { }
@@ -177,6 +178,24 @@ namespace Human_Resource_Management
                 }
                 
             }
+
+        }
+
+        
+        public void btnEdit_Click(object sender, EventArgs e)
+        {
+
+           
+
+            if (table != null)
+            {
+                this.bindingSource1.ResetBindings(false);
+                FormEdit fe = new FormEdit(dataGridView1.CurrentRow);
+                listBox1.Items.Add(this.dataGridView1.CurrentRow.Cells[0].Value);
+                fe.Show();
+
+            }
+
 
         }
 
