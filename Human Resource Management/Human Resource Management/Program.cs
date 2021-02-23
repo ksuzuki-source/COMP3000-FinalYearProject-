@@ -17,7 +17,7 @@ namespace Human_Resource_Management
             Application.SetHighDpiMode(HighDpiMode.SystemAware);
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
-            Application.Run(new FormViewData());
+            Application.Run(new FormMain());
         }
     }
 }

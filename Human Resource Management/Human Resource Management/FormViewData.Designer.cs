@@ -43,6 +43,8 @@ namespace Human_Resource_Management
             this.btnEdit = new System.Windows.Forms.Button();
             this.btnDelete = new System.Windows.Forms.Button();
             this.panel1 = new System.Windows.Forms.Panel();
+            this.btnReflesh = new System.Windows.Forms.Button();
+            this.btnAdd = new System.Windows.Forms.Button();
             this.listBox1 = new System.Windows.Forms.ListBox();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
             this.groupBox1.SuspendLayout();
@@ -61,7 +63,7 @@ namespace Human_Resource_Management
             // 
             // btnExport
             // 
-            this.btnExport.Location = new System.Drawing.Point(294, 88);
+            this.btnExport.Location = new System.Drawing.Point(375, 88);
             this.btnExport.Name = "btnExport";
             this.btnExport.Size = new System.Drawing.Size(75, 23);
             this.btnExport.TabIndex = 2;
@@ -90,9 +92,11 @@ namespace Human_Resource_Management
             // 
             // dataGridView1
             // 
+            this.dataGridView1.AllowUserToAddRows = false;
             this.dataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dataGridView1.Location = new System.Drawing.Point(15, 127);
             this.dataGridView1.Name = "dataGridView1";
+            this.dataGridView1.ReadOnly = true;
             this.dataGridView1.Size = new System.Drawing.Size(773, 302);
             this.dataGridView1.TabIndex = 5;
             // 
@@ -181,6 +185,8 @@ namespace Human_Resource_Management
             // 
             // panel1
             // 
+            this.panel1.Controls.Add(this.btnReflesh);
+            this.panel1.Controls.Add(this.btnAdd);
             this.panel1.Controls.Add(this.listBox1);
             this.panel1.Controls.Add(this.btnDelete);
             this.panel1.Controls.Add(this.groupBox1);
@@ -193,6 +199,26 @@ namespace Human_Resource_Management
             this.panel1.Name = "panel1";
             this.panel1.Size = new System.Drawing.Size(788, 430);
             this.panel1.TabIndex = 10;
+            // 
+            // btnReflesh
+            // 
+            this.btnReflesh.Location = new System.Drawing.Point(294, 88);
+            this.btnReflesh.Name = "btnReflesh";
+            this.btnReflesh.Size = new System.Drawing.Size(75, 23);
+            this.btnReflesh.TabIndex = 12;
+            this.btnReflesh.Text = "Reflesh";
+            this.btnReflesh.UseVisualStyleBackColor = true;
+            this.btnReflesh.Click += new System.EventHandler(this.btnReflesh_Click);
+            // 
+            // btnAdd
+            // 
+            this.btnAdd.Location = new System.Drawing.Point(529, 88);
+            this.btnAdd.Name = "btnAdd";
+            this.btnAdd.Size = new System.Drawing.Size(75, 23);
+            this.btnAdd.TabIndex = 11;
+            this.btnAdd.Text = "Add";
+            this.btnAdd.UseVisualStyleBackColor = true;
+            this.btnAdd.Click += new System.EventHandler(this.btnAdd_Click);
             // 
             // listBox1
             // 
@@ -240,5 +266,7 @@ namespace Human_Resource_Management
         private System.Windows.Forms.Panel panel1;
         private System.Windows.Forms.ListBox listBox1;
         public System.Windows.Forms.DataGridView dataGridView1;
+        private System.Windows.Forms.Button btnAdd;
+        private System.Windows.Forms.Button btnReflesh;
     }
 }

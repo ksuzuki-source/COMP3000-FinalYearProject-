@@ -18,14 +18,14 @@ namespace Human_Resource_Management
 
         private void button1_Click(object sender, EventArgs e)
         {
-            Form adminForm = new FormAdminLogin();
-            adminForm.Show();
+            FormAdminLogin fal = new FormAdminLogin();
+            fal.Show();
         }
 
         private void button2_Click(object sender, EventArgs e)
         {
-            Form workingForm = new FormWorkingTime();
-            workingForm.Show();
+            FormUserLogin ful = new FormUserLogin();
+            ful.Show();
         }
     }
 }

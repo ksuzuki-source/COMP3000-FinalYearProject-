@@ -22,12 +22,12 @@ namespace Human_Resource_Management
                 new BindingSource(this.components);
         }
 
-        public void AdminLogin()
+        public void Login()
         {
             userName = this.textBox1.Text;
             password = this.textBox2.Text;
             string test = "test";
-            table = Readcsv.read_csv(test + ".csv");
+            table = Readcsv.Read_csv(test + ".csv");
             bindingSource1.DataSource = table;
             int numOfrows = table.Rows.Count;
             int numOfcolumns = table.Columns.Count;
@@ -40,12 +40,12 @@ namespace Human_Resource_Management
                 {
                     if (table.Rows[j][3].ToString() == password)
                     {
-                            MessageBox.Show("Success!");
-                            FormViewData form2 = new FormViewData();
+                        MessageBox.Show("Success!");
+                        FormWorkingTime fwt = new FormWorkingTime("data/" + userName + ".csv");
 
-                            form2.Show();
-                            this.Close();
-                            break;
+                        fwt.Show();
+                        this.Hide();
+                        break;
                     }
                     else MessageBox.Show("Tryagain");
                 }
@@ -63,6 +63,11 @@ namespace Human_Resource_Management
 
 
 
+        }
+
+        private void btnLogin_Click(object sender, EventArgs e)
+        {
+            Login();
         }
     }
 }

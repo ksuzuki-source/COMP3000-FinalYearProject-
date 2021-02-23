@@ -16,10 +16,12 @@ namespace Human_Resource_Management
         //using BindingSource and datatable to make the search function more flexible
         public BindingSource bindingSource1;
         public DataTable table;
+        public string path;
 
-        public FormViewData()
+        public FormViewData(DataTable dataTable)
         {
             InitializeComponent();
+            table = dataTable;
             this.components = new Container();
             this.bindingSource1 =
                 new BindingSource(this.components);
@@ -31,33 +33,36 @@ namespace Human_Resource_Management
 
         }
 
-        //press btn load to load the file with file dialog 
+        //press btn load to load the file 
         private void button1_Click(object sender, EventArgs e)
         {
             OpenFileDialog();
-            
+            //table = Readcsv.read_csv("test.csv");
+            //bindingSource1.DataSource = table;
         }
 
-
+        //press btn export to save the file 
         private void button3_Click(object sender, EventArgs e)
         {
-            SavefileDialog();
-
+            if (path != null)
+            {
+                //SavefileDialog();
+                Savecsv sa = new Savecsv();
+                sa.SaveDataTableAsCsv(table, path);
+                MessageBox.Show("Saved");
+            }
         }
 
-
+        //let the user to search with their selected condition 
         private void button4_Click(object sender, EventArgs e)
         {
             SearchFilter();
         }
 
+        //let the user to delete the record from the file 
         private void btnDelete_Click(object sender, EventArgs e)
         {
-            
-            foreach (DataGridViewRow row in dataGridView1.SelectedRows)
-            {
-                dataGridView1.Rows.Remove(row);
-            }
+            DeleteRecord();
         }
 
         private void btnReset_Click(object sender, EventArgs e)
@@ -66,6 +71,37 @@ namespace Human_Resource_Management
         }
 
 
+        public void btnEdit_Click(object sender, EventArgs e)
+        {
+            if (path != null)
+            {
+                //this.bindingSource1.ResetBindings(false);
+                FormEdit fe = new FormEdit(table, dataGridView1.CurrentRow);
+                fe.Show();
+            }
+        }
+
+        private void btnAdd_Click(object sender, EventArgs e)
+        {
+            if (path != null)
+            {
+                FormAdd fa = new FormAdd(table);
+                fa.Show();
+                
+
+            }
+        }
+
+
+        private void btnReflesh_Click(object sender, EventArgs e)
+        {
+            if (path != null)
+            {
+                table = Readcsv.Read_csv(path);
+                bindingSource1.DataSource = table;
+            }
+
+        }
 
 
         /// <summary>
@@ -83,13 +119,14 @@ namespace Human_Resource_Management
             op.FileName = null;
             op.Filter = "CSV file(*.csv)|*.csv";
             op.FilterIndex = 1;
-
+            
             DialogResult result = op.ShowDialog();
             if (result == DialogResult.OK)
             {
+                path = op.FileName;
 
                 table =
-                    Readcsv.read_csv(op.FileName);
+                    Readcsv.Read_csv(path);
 
 
                 bindingSource1.DataSource = table;
@@ -116,7 +153,7 @@ namespace Human_Resource_Management
                 {
                     Savecsv csv = new Savecsv();
                     csv.SaveDataTableAsCsv(table, sa.FileName);
-                    table = Readcsv.read_csv(sa.FileName);
+                    table = Readcsv.Read_csv(sa.FileName);
 
                     
                 }
@@ -179,28 +216,34 @@ namespace Human_Resource_Management
                 
             }
 
-        }
 
-        
-        public void btnEdit_Click(object sender, EventArgs e)
+        }
+        public void DeleteRecord()
         {
-
-           
-
-            if (table != null)
+            if (dataGridView1.SelectedRows != null)
             {
-                this.bindingSource1.ResetBindings(false);
-                FormEdit fe = new FormEdit(dataGridView1.CurrentRow);
-                listBox1.Items.Add(this.dataGridView1.CurrentRow.Cells[0].Value);
-                fe.Show();
-
+                DialogResult dr = MessageBox.Show("Are you sure？", "Comfirmation", MessageBoxButtons.YesNo);
+                if (dr == System.Windows.Forms.DialogResult.Yes)
+                {
+                    foreach (DataGridViewRow row in dataGridView1.SelectedRows)
+                    {
+                        dataGridView1.Rows.Remove(row);
+                    }
+                }
+                else
+                { }
             }
-
-
+            else
+            {
+                MessageBox.Show("Select the row you want to delete");
+            }
         }
 
 
-    }
+
+
+
+}
 }
 
 

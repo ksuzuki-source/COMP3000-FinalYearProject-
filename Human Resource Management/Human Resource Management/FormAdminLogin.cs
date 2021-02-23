@@ -44,7 +44,7 @@ namespace Human_Resource_Management
             userName = this.textBox1.Text;
             password = this.textBox2.Text;
             string test = "test";
-            table = Readcsv.read_csv(test + ".csv");
+            table = Readcsv.Read_csv(test + ".csv");
             bindingSource1.DataSource = table;
             int numOfrows = table.Rows.Count;
             int numOfcolumns = table.Columns.Count;
@@ -59,7 +59,7 @@ namespace Human_Resource_Management
                         if (table.Rows[j][2].ToString() == admin)
                         {
                             MessageBox.Show("Success!");
-                            FormViewData form2 = new FormViewData();
+                            FormViewData form2 = new FormViewData(table);
                             
                             form2.Show();
                             this.Close();
