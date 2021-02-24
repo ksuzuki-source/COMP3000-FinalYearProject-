@@ -1,6 +1,6 @@
 # COMP3000-FinalYearProject-
 
-This is a repository for Final Year Project.
+This is a repository for Final Year Project of Kohei Suzuki.
 
 Supervisor: Martin Read
 
