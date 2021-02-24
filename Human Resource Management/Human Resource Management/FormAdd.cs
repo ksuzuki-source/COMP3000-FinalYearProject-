@@ -54,32 +54,58 @@ namespace Human_Resource_Management
         
         public void addNew()
         {
-            int a = Convert.ToInt32(txtAge.Text);       //convert into int
-            if (txtName.Text != null && (txtSex.Text == "Man" || txtSex.Text == "Female" || txtSex.Text == "Other")           //check the input values
-                && (txtRole.Text == "User" || txtRole.Text == "Admin")
-                && txtPassword.Text != null 
-                && txtPostcode.Text != null 
+            
+            int count = 0;
+            if (txtName.Text != null && (selectSex.Text == "Man" || selectSex.Text == "Female" || selectSex.Text == "Other")           //check the input values
+                && (selectRole.Text == "User" || selectRole.Text == "Admin")
+                && txtPassword.Text != null
+                && txtPostcode.Text != null
                 && txtAge.Text != null)
+            {
 
-                if (a > 0 && a < 99)
+
+                int a = Convert.ToInt32(txtAge.Text);       //convert into int
+
+                for (int i = 0; i < table.Rows.Count; i++)
+                    if (txtName.Text == (string)table.Rows[i][0])
+                    {
+                        MessageBox.Show("this name is already exist, please add something at the end of name");
+                    }
+                    else
+                    {
+                        count += 1;
+
+                    }
+
+
+                if (count == table.Rows.Count)
                 {
-                    table.Rows.Add(txtName.Text, txtSex.Text, txtRole.Text, txtPassword.Text, txtPostcode.Text, txtAge.Text);   //if the value is valid, add new row to the table
-                    Savecsv sc = new Savecsv();
-                    sc.SaveDataTableAsCsv(table, "test.csv");
-                    DataTable wktable = new DataTable();            //create new table and new file automatically with the input name 
-                    wktable.Columns.Add("Working in", typeof(DateTime));            
-                    wktable.Columns.Add("Leave work", typeof(DateTime));
-                    wktable.Columns.Add("Working Duration", typeof(DateTime));
-                    wktable.Rows.Add(DateTime.Now, DateTime.Now);           //initialize with account created date      
-                    Savecsv sa = new Savecsv();
-                    sa.SaveDataTableAsCsv(wktable, "data/" + txtName.Text + ".csv");
-                    FormViewData fvd = new FormViewData(table);
-                    this.Close();
+                    if (a > 0 && a < 99)
+                    {
+                        table.Rows.Add(txtName.Text, selectSex.Text, selectRole.Text, txtPassword.Text, txtPostcode.Text, txtAge.Text);   //if the value is valid, add new row to the table
+                        Savecsv sc = new Savecsv();
+                        sc.SaveDataTableAsCsv(table, "test.csv");
+                        DataTable wktable = new DataTable();            //create new table and new file automatically with the input name 
+                        wktable.Columns.Add("Working in", typeof(DateTime));
+                        wktable.Columns.Add("Leave work", typeof(DateTime));
+                        wktable.Columns.Add("Working Duration", typeof(DateTime));
+                        wktable.Rows.Add(DateTime.Now, DateTime.Now);           //initialize with account created date      
+                        Savecsv sa = new Savecsv();
+                        sa.SaveDataTableAsCsv(wktable, "data/WorkingData" + txtName.Text + ".csv");
+                        FormViewData fvd = new FormViewData(table);
+                        this.Close();
+                    }
+                    else
+                    {
+                        MessageBox.Show("invalid input");
+                    }
                 }
-                else
-                {
-                    MessageBox.Show("invalid input");
-                }
+            else
+            {
+                MessageBox.Show("invalid input");
+            }
+
+            }
         }
     }
 }

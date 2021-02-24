@@ -32,13 +32,19 @@ namespace Human_Resource_Management
             this.btnIn = new System.Windows.Forms.Button();
             this.btnLeave = new System.Windows.Forms.Button();
             this.btnCheck = new System.Windows.Forms.Button();
+            this.label1 = new System.Windows.Forms.Label();
+            this.label2 = new System.Windows.Forms.Label();
             this.SuspendLayout();
             // 
             // btnIn
             // 
-            this.btnIn.Location = new System.Drawing.Point(127, 162);
+            this.btnIn.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.btnIn.Font = new System.Drawing.Font("Meiryo UI", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.btnIn.Location = new System.Drawing.Point(116, 143);
             this.btnIn.Name = "btnIn";
-            this.btnIn.Size = new System.Drawing.Size(167, 108);
+            this.btnIn.Size = new System.Drawing.Size(204, 151);
             this.btnIn.TabIndex = 0;
             this.btnIn.Text = "In";
             this.btnIn.UseVisualStyleBackColor = true;
@@ -46,9 +52,13 @@ namespace Human_Resource_Management
             // 
             // btnLeave
             // 
-            this.btnLeave.Location = new System.Drawing.Point(468, 162);
+            this.btnLeave.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.btnLeave.Font = new System.Drawing.Font("Meiryo UI", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.btnLeave.Location = new System.Drawing.Point(457, 143);
             this.btnLeave.Name = "btnLeave";
-            this.btnLeave.Size = new System.Drawing.Size(179, 108);
+            this.btnLeave.Size = new System.Drawing.Size(216, 151);
             this.btnLeave.TabIndex = 1;
             this.btnLeave.Text = "Leave";
             this.btnLeave.UseVisualStyleBackColor = true;
@@ -56,25 +66,54 @@ namespace Human_Resource_Management
             // 
             // btnCheck
             // 
-            this.btnCheck.Location = new System.Drawing.Point(263, 366);
+            this.btnCheck.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.btnCheck.Font = new System.Drawing.Font("Meiryo UI", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.btnCheck.Location = new System.Drawing.Point(252, 347);
             this.btnCheck.Name = "btnCheck";
-            this.btnCheck.Size = new System.Drawing.Size(247, 23);
+            this.btnCheck.Size = new System.Drawing.Size(284, 66);
             this.btnCheck.TabIndex = 2;
             this.btnCheck.Text = "Check your working";
             this.btnCheck.UseVisualStyleBackColor = true;
+            this.btnCheck.Click += new System.EventHandler(this.btnCheck_Click);
+            // 
+            // label1
+            // 
+            this.label1.AutoSize = true;
+            this.label1.Font = new System.Drawing.Font("Meiryo UI", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.label1.Location = new System.Drawing.Point(188, 49);
+            this.label1.Name = "label1";
+            this.label1.Size = new System.Drawing.Size(442, 24);
+            this.label1.TabIndex = 3;
+            this.label1.Text = "Press the Buttom to record your Working time.";
+            // 
+            // label2
+            // 
+            this.label2.AutoSize = true;
+            this.label2.Font = new System.Drawing.Font("Meiryo UI", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.label2.Location = new System.Drawing.Point(41, 86);
+            this.label2.Name = "label2";
+            this.label2.Size = new System.Drawing.Size(725, 24);
+            this.label2.TabIndex = 4;
+            this.label2.Text = "If you want to check your working record, press the buttom under 2 buttoms";
+            this.label2.Click += new System.EventHandler(this.label2_Click);
             // 
             // FormWorkingTime
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(800, 450);
+            this.Controls.Add(this.label2);
+            this.Controls.Add(this.label1);
             this.Controls.Add(this.btnCheck);
             this.Controls.Add(this.btnLeave);
             this.Controls.Add(this.btnIn);
             this.Name = "FormWorkingTime";
-            this.Text = "Form4";
+            this.Text = "If you want to check your working record, press the buttom ander 2 buttoms";
             this.Load += new System.EventHandler(this.FormWorkingTime_Load);
             this.ResumeLayout(false);
+            this.PerformLayout();
 
         }
 
@@ -83,5 +122,7 @@ namespace Human_Resource_Management
         private System.Windows.Forms.Button btnIn;
         private System.Windows.Forms.Button btnLeave;
         private System.Windows.Forms.Button btnCheck;
+        private System.Windows.Forms.Label label1;
+        private System.Windows.Forms.Label label2;
     }
 }

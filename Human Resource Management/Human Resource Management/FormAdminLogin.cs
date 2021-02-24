@@ -43,7 +43,7 @@ namespace Human_Resource_Management
         {
             userName = this.textBox1.Text;
             password = this.textBox2.Text;
-            string test = "test";
+            string test = "data/test";
             table = Readcsv.Read_csv(test + ".csv");
             bindingSource1.DataSource = table;
             int numOfrows = table.Rows.Count;

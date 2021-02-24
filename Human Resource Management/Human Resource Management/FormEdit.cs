@@ -40,8 +40,8 @@ namespace Human_Resource_Management
             originalAge = (string)currentRow.Cells[5].Value;
 
             textBox1.Text = originalName;
-            textBox2.Text = originalSex;
-            textBox3.Text = originalRole;
+            selectSex.Text = originalSex;
+            SelectRole.Text = originalRole;
             textBox4.Text = originalPassword;
             textBox5.Text = originalPostcode;
             textBox6.Text = originalAge;
@@ -68,19 +68,18 @@ namespace Human_Resource_Management
                 if ((((string)table.Rows[i][0] == (string)currentRow.Cells[0].Value) && ((string)table.Rows[i][3] == (string)currentRow.Cells[3].Value))
                     || ((string)table.Rows[i][0] == (string)currentRow.Cells[0].Value) && ((string)table.Rows[i][3] == (string)currentRow.Cells[4].Value))
                 {
-                    if (textBox1.Text != null && (textBox2.Text == "Man" || textBox2.Text == "Female" || textBox2.Text == "Other")           //check the input values
-                    && (textBox3.Text == "User" || textBox3.Text == "Admin")
+                    if (textBox1.Text != null && (selectSex.Text == "Man" || selectSex.Text == "Female" || selectSex.Text == "Other")           //check the input values
+                    && (SelectRole.Text == "User" || SelectRole.Text == "Admin")
                     && textBox4.Text != null
                     && textBox5.Text != null
                     && textBox6.Text != null)
                     {
                         table.Rows[i][0] = textBox1.Text;
-                        table.Rows[i][1] = textBox2.Text;
-                        table.Rows[i][2] = textBox3.Text;
+                        table.Rows[i][1] = selectSex.Text;
+                        table.Rows[i][2] = SelectRole.Text;
                         table.Rows[i][3] = textBox4.Text;
                         table.Rows[i][4] = textBox5.Text;
                         table.Rows[i][5] = textBox6.Text;
-                        listBox1.Items.Add(table.Rows[i][0]);
                     }
                     else
                     {
@@ -99,6 +98,34 @@ namespace Human_Resource_Management
             //sa.SaveDataTableAsCsv(table, path);
             FormViewData fvd = new FormViewData(table);
             this.Close();
+        }
+
+        private void btnDelete_Click(object sender, EventArgs e)
+        {
+            for (i = 0; i < table.Rows.Count; i++)
+            {
+                if ((((string)table.Rows[i][0] == (string)currentRow.Cells[0].Value) && ((string)table.Rows[i][3] == (string)currentRow.Cells[3].Value))
+                    || ((string)table.Rows[i][0] == (string)currentRow.Cells[0].Value) && ((string)table.Rows[i][3] == (string)currentRow.Cells[4].Value))
+                {
+                    DialogResult dr = MessageBox.Show(
+                        "Record of" + table.Rows[i][0] + "will be deleted." + Environment.NewLine + "Are you sure?", "Comfirmation", MessageBoxButtons.YesNo);
+                    if (dr == System.Windows.Forms.DialogResult.Yes)
+                    {
+                        table.Rows.Remove(table.Rows[i]);
+                    }
+                }
+            }
+            this.Close();
+        }
+
+        private void label3_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void label8_Click(object sender, EventArgs e)
+        {
+
         }
     }
 }

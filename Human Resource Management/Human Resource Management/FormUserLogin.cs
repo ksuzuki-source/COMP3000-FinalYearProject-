@@ -26,7 +26,7 @@ namespace Human_Resource_Management
         {
             userName = this.textBox1.Text;
             password = this.textBox2.Text;
-            string test = "test";
+            string test = "data/test";
             table = Readcsv.Read_csv(test + ".csv");
             bindingSource1.DataSource = table;
             int numOfrows = table.Rows.Count;
@@ -41,7 +41,7 @@ namespace Human_Resource_Management
                     if (table.Rows[j][3].ToString() == password)
                     {
                         MessageBox.Show("Success!");
-                        FormWorkingTime fwt = new FormWorkingTime("data/" + userName + ".csv");
+                        FormWorkingTime fwt = new FormWorkingTime("data/WorkingData/" + userName + ".csv");
 
                         fwt.Show();
                         this.Hide();

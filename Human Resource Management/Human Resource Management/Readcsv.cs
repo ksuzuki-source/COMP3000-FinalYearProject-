@@ -32,7 +32,7 @@ namespace Human_Resource_Management
                 dt.Columns.Add("Postcode");
                 dt.Columns.Add("Age");
                     
-                foreach (var person in people)                  //flow the data into table
+                foreach (Person person in people)                  //flow the data into table
                 {
                     
                     dt.Rows.Add(person.Name, person.Sex, person.Role, person.Password, person.Postcode, person.Age);

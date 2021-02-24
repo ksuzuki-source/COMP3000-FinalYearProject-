@@ -12,7 +12,9 @@ namespace Human_Resource_Management
     {
         public string path;
         public DataTable table;
-        public DateTime WorkIn;
+        public string TmpWorkIn;
+        public string TmpLeaveWork;
+        public DateTime  WorkIn;
         public DateTime LeaveWork;
         public FormWorkingTime(string rcvpath)
         {
@@ -27,43 +29,54 @@ namespace Human_Resource_Management
 
         private void btnIn_Click(object sender, EventArgs e)
         {
-            table.Rows.Add(DateTime.Now.ToString());           //add new row and give the date
+            fncWorkIn();
+        }
+
+        private void btnLeave_Click(object sender, EventArgs e)
+        {
+
+            fncLeaveWork();
+        }
+
+
+        public void fncWorkIn()
+        {
+            table.Rows.Add(DateTime.Now);           //add new row and give the date
             Savecsv sc = new Savecsv();
             sc.SaveDataTableAsCsv(table, path);
             MessageBox.Show("recorded!" + DateTime.Now);
         }
 
-        private void btnLeave_Click(object sender, EventArgs e)
+        public void fncLeaveWork()
         {
-            for (int i = 0; i < table.Rows.Count; i++)
+            int latestRow = table.Rows.Count - 1;
+            if (table.Rows[latestRow][1].ToString() == "")
             {
-                if(table.Rows[i][1] == null || (string)table.Rows[i][1] == "")                
-                {   
-                    table.Rows[i][1] = DateTime.Now.ToString();
+                table.Rows[latestRow][1] = DateTime.Now;
+                TmpWorkIn = (string)table.Rows[latestRow][0];
+                TmpLeaveWork = (string)table.Rows[latestRow][1];
+                WorkIn = DateTime.Parse(TmpWorkIn);
+                LeaveWork = DateTime.Parse(TmpLeaveWork);
 
-                    table.Rows[i][0] = WorkIn;
-                    table.Rows[i][1] = LeaveWork;
+                TimeSpan ts1 = LeaveWork - WorkIn;         //culculate the working time with leave time - work in time
+                table.Rows[latestRow][2] = ts1.ToString();
 
-                    TimeSpan ts1 = LeaveWork - WorkIn;         //culculate the working time with leave time - work in time
-                    table.Rows[i][2] = ts1.ToString();
-
-                    MessageBox.Show("recorded!" + DateTime.Now);
-                    Savecsv sc = new Savecsv();                 //save to file 
-                    sc.SaveDataTableAsCsv(table, path);
-
-                }
-                //if(table.Rows[i][2] == null)
-                //{
-                  //  table.Rows[i][0] = WorkIn;
-                    //table.Rows[i][1] = LeaveWork;
-
-                   // TimeSpan ts1 = LeaveWork - WorkIn;         //culculate the working time with leave time - work in time
-                    //table.Rows[i][2] = ts1.ToString();
-
-                    //Savecsv sc = new Savecsv();                 //save to file 
-                   //sc.SaveDataTableAsCsv(table, path);
-               // }
+                MessageBox.Show("recorded!" + DateTime.Now);
+                Savecsv sc = new Savecsv();                 //save to file 
+                sc.SaveDataTableAsCsv(table, path);
             }
+        }
+
+        private void btnCheck_Click(object sender, EventArgs e)
+        {
+            FormCheckWork fcw = new FormCheckWork(table, path);
+            fcw.Show();
+
+        }
+
+        private void label2_Click(object sender, EventArgs e)
+        {
+
         }
     }
 }

@@ -115,7 +115,7 @@ namespace Human_Resource_Management
         {
             OpenFileDialog op = new OpenFileDialog();
             op.Title = "OPEN FILE";
-            op.InitialDirectory = @"C:\";
+            op.InitialDirectory = @Environment.GetFolderPath(Environment.SpecialFolder.Desktop);
             op.FileName = null;
             op.Filter = "CSV file(*.csv)|*.csv";
             op.FilterIndex = 1;
