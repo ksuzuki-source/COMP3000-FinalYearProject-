@@ -68,9 +68,9 @@ namespace Human_Resource_Management
             this.label1.Font = new System.Drawing.Font("Meiryo UI", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
             this.label1.Location = new System.Drawing.Point(195, 96);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(370, 26);
+            this.label1.Size = new System.Drawing.Size(366, 26);
             this.label1.TabIndex = 2;
-            this.label1.Text = "Welcome to RR, Resouse Recorder!";
+            this.label1.Text = "Welcome to RR, Resouse Manager!";
             // 
             // FormMain
             // 

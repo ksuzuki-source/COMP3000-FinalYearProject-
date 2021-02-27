@@ -1,7 +1,7 @@
 ﻿
 namespace Human_Resource_Management
 {
-    partial class FormAdd
+    partial class FormAdminAdd
     {
         /// <summary>
         /// Required designer variable.
@@ -43,9 +43,9 @@ namespace Human_Resource_Management
             this.btnCancel = new System.Windows.Forms.Button();
             this.label7 = new System.Windows.Forms.Label();
             this.label8 = new System.Windows.Forms.Label();
-            this.selectRole = new System.Windows.Forms.DomainUpDown();
-            this.selectSex = new System.Windows.Forms.DomainUpDown();
             this.label9 = new System.Windows.Forms.Label();
+            this.SexBox1 = new System.Windows.Forms.ComboBox();
+            this.RoleBox2 = new System.Windows.Forms.ComboBox();
             this.SuspendLayout();
             // 
             // label1
@@ -57,9 +57,9 @@ namespace Human_Resource_Management
             this.label1.Font = new System.Drawing.Font("Meiryo UI", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
             this.label1.Location = new System.Drawing.Point(281, 73);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(52, 19);
+            this.label1.Size = new System.Drawing.Size(83, 19);
             this.label1.TabIndex = 0;
-            this.label1.Text = "Name";
+            this.label1.Text = "Full Name";
             // 
             // txtName
             // 
@@ -69,7 +69,7 @@ namespace Human_Resource_Management
             this.txtName.Font = new System.Drawing.Font("Meiryo UI", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
             this.txtName.Location = new System.Drawing.Point(282, 95);
             this.txtName.Name = "txtName";
-            this.txtName.Size = new System.Drawing.Size(233, 27);
+            this.txtName.Size = new System.Drawing.Size(235, 27);
             this.txtName.TabIndex = 1;
             // 
             // label2
@@ -106,7 +106,7 @@ namespace Human_Resource_Management
             this.txtPassword.Font = new System.Drawing.Font("Meiryo UI", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
             this.txtPassword.Location = new System.Drawing.Point(282, 256);
             this.txtPassword.Name = "txtPassword";
-            this.txtPassword.Size = new System.Drawing.Size(233, 27);
+            this.txtPassword.Size = new System.Drawing.Size(235, 27);
             this.txtPassword.TabIndex = 7;
             // 
             // label4
@@ -130,7 +130,7 @@ namespace Human_Resource_Management
             this.txtPostcode.Font = new System.Drawing.Font("Meiryo UI", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
             this.txtPostcode.Location = new System.Drawing.Point(282, 312);
             this.txtPostcode.Name = "txtPostcode";
-            this.txtPostcode.Size = new System.Drawing.Size(233, 27);
+            this.txtPostcode.Size = new System.Drawing.Size(235, 27);
             this.txtPostcode.TabIndex = 9;
             // 
             // label5
@@ -154,7 +154,7 @@ namespace Human_Resource_Management
             this.txtAge.Font = new System.Drawing.Font("Meiryo UI", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
             this.txtAge.Location = new System.Drawing.Point(282, 370);
             this.txtAge.Name = "txtAge";
-            this.txtAge.Size = new System.Drawing.Size(233, 27);
+            this.txtAge.Size = new System.Drawing.Size(235, 27);
             this.txtAge.TabIndex = 11;
             this.txtAge.TextChanged += new System.EventHandler(this.txtAge_TextChanged);
             this.txtAge.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtAge_KeyPress_1);
@@ -180,7 +180,7 @@ namespace Human_Resource_Management
             this.btnAdd.Font = new System.Drawing.Font("Meiryo UI", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
             this.btnAdd.Location = new System.Drawing.Point(281, 409);
             this.btnAdd.Name = "btnAdd";
-            this.btnAdd.Size = new System.Drawing.Size(105, 35);
+            this.btnAdd.Size = new System.Drawing.Size(107, 35);
             this.btnAdd.TabIndex = 12;
             this.btnAdd.Text = "Add";
             this.btnAdd.UseVisualStyleBackColor = true;
@@ -194,7 +194,7 @@ namespace Human_Resource_Management
             this.btnCancel.Font = new System.Drawing.Font("Meiryo UI", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
             this.btnCancel.Location = new System.Drawing.Point(408, 409);
             this.btnCancel.Name = "btnCancel";
-            this.btnCancel.Size = new System.Drawing.Size(107, 35);
+            this.btnCancel.Size = new System.Drawing.Size(109, 35);
             this.btnCancel.TabIndex = 13;
             this.btnCancel.Text = "Cancel";
             this.btnCancel.UseVisualStyleBackColor = true;
@@ -226,29 +226,6 @@ namespace Human_Resource_Management
             this.label8.TabIndex = 15;
             this.label8.Text = "If the same name labour is already exist, add some thing at the end. ";
             // 
-            // selectRole
-            // 
-            this.selectRole.Font = new System.Drawing.Font("Meiryo UI", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.selectRole.Items.Add("User");
-            this.selectRole.Items.Add("Admin");
-            this.selectRole.Location = new System.Drawing.Point(282, 207);
-            this.selectRole.Name = "selectRole";
-            this.selectRole.Size = new System.Drawing.Size(233, 27);
-            this.selectRole.TabIndex = 16;
-            this.selectRole.Text = "Select User type";
-            // 
-            // selectSex
-            // 
-            this.selectSex.Font = new System.Drawing.Font("Meiryo UI", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.selectSex.Items.Add("Man");
-            this.selectSex.Items.Add("Female");
-            this.selectSex.Items.Add("Other");
-            this.selectSex.Location = new System.Drawing.Point(282, 149);
-            this.selectSex.Name = "selectSex";
-            this.selectSex.Size = new System.Drawing.Size(233, 27);
-            this.selectSex.TabIndex = 17;
-            this.selectSex.Text = "Select Sex(Man,Demale,Other)";
-            // 
             // label9
             // 
             this.label9.AutoSize = true;
@@ -259,14 +236,48 @@ namespace Human_Resource_Management
             this.label9.TabIndex = 18;
             this.label9.Text = "(e.g. User → User1)";
             // 
-            // FormAdd
+            // SexBox1
+            // 
+            this.SexBox1.AutoCompleteCustomSource.AddRange(new string[] {
+            "M",
+            "F",
+            "O"});
+            this.SexBox1.Font = new System.Drawing.Font("Meiryo UI", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.SexBox1.FormattingEnabled = true;
+            this.SexBox1.Items.AddRange(new object[] {
+            "M",
+            "F",
+            "O"});
+            this.SexBox1.Location = new System.Drawing.Point(281, 147);
+            this.SexBox1.Name = "SexBox1";
+            this.SexBox1.Size = new System.Drawing.Size(236, 27);
+            this.SexBox1.TabIndex = 19;
+            this.SexBox1.Text = "Select sex(Man, Female, Other)";
+            // 
+            // RoleBox2
+            // 
+            this.RoleBox2.AutoCompleteCustomSource.AddRange(new string[] {
+            "Admin",
+            "User"});
+            this.RoleBox2.Font = new System.Drawing.Font("Meiryo UI", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.RoleBox2.FormattingEnabled = true;
+            this.RoleBox2.Items.AddRange(new object[] {
+            "User",
+            "Admin"});
+            this.RoleBox2.Location = new System.Drawing.Point(281, 203);
+            this.RoleBox2.Name = "RoleBox2";
+            this.RoleBox2.Size = new System.Drawing.Size(236, 27);
+            this.RoleBox2.TabIndex = 20;
+            this.RoleBox2.Text = "Select Role(User, Admin)";
+            // 
+            // FormAdminAdd
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(800, 450);
+            this.ClientSize = new System.Drawing.Size(802, 450);
+            this.Controls.Add(this.RoleBox2);
+            this.Controls.Add(this.SexBox1);
             this.Controls.Add(this.label9);
-            this.Controls.Add(this.selectSex);
-            this.Controls.Add(this.selectRole);
             this.Controls.Add(this.label8);
             this.Controls.Add(this.label7);
             this.Controls.Add(this.btnCancel);
@@ -281,7 +292,7 @@ namespace Human_Resource_Management
             this.Controls.Add(this.label2);
             this.Controls.Add(this.txtName);
             this.Controls.Add(this.label1);
-            this.Name = "FormAdd";
+            this.Name = "FormAdminAdd";
             this.Text = "Form2";
             this.ResumeLayout(false);
             this.PerformLayout();
@@ -305,8 +316,8 @@ namespace Human_Resource_Management
         private System.Windows.Forms.TextBox txt;
         private System.Windows.Forms.Label label7;
         private System.Windows.Forms.Label label8;
-        private System.Windows.Forms.DomainUpDown selectRole;
-        private System.Windows.Forms.DomainUpDown selectSex;
         private System.Windows.Forms.Label label9;
+        private System.Windows.Forms.ComboBox SexBox1;
+        private System.Windows.Forms.ComboBox RoleBox2;
     }
 }

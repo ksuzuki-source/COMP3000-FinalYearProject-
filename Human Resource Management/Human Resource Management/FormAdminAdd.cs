@@ -8,14 +8,16 @@ using System.Windows.Forms;
 
 namespace Human_Resource_Management
 {
-    public partial class FormAdd : Form
+    public partial class FormAdminAdd : Form
     {
         public DataTable table;         
         public string filepath;
-        public FormAdd(DataTable rcvtable)          //take the arg value from previous form. So, this form also be able to refference same table 
+        public string path;
+        public FormAdminAdd(DataTable rcvtable, string rcvpath)          //take the arg value from previous form. So, this form also be able to refference same table 
         {
             InitializeComponent();
             table = rcvtable;
+            path = rcvpath;
         }
 
 
@@ -56,8 +58,8 @@ namespace Human_Resource_Management
         {
             
             int count = 0;
-            if (txtName.Text != null && (selectSex.Text == "Man" || selectSex.Text == "Female" || selectSex.Text == "Other")           //check the input values
-                && (selectRole.Text == "User" || selectRole.Text == "Admin")
+            if (txtName.Text != null && (SexBox1.Text == "M" || SexBox1.Text == "F" || SexBox1.Text == "O")           //check the input values
+                && (RoleBox2.Text == "User" || RoleBox2.Text == "Admin")
                 && txtPassword.Text != null
                 && txtPostcode.Text != null
                 && txtAge.Text != null)
@@ -82,7 +84,7 @@ namespace Human_Resource_Management
                 {
                     if (a > 0 && a < 99)
                     {
-                        table.Rows.Add(txtName.Text, selectSex.Text, selectRole.Text, txtPassword.Text, txtPostcode.Text, txtAge.Text);   //if the value is valid, add new row to the table
+                        table.Rows.Add(txtName.Text, SexBox1.Text, RoleBox2.Text, txtPassword.Text, txtPostcode.Text, txtAge.Text);   //if the value is valid, add new row to the table
                         Savecsv sc = new Savecsv();
                         sc.SaveDataTableAsCsv(table, "test.csv");
                         DataTable wktable = new DataTable();            //create new table and new file automatically with the input name 
@@ -91,8 +93,9 @@ namespace Human_Resource_Management
                         wktable.Columns.Add("Working Duration", typeof(DateTime));
                         wktable.Rows.Add(DateTime.Now, DateTime.Now);           //initialize with account created date      
                         Savecsv sa = new Savecsv();
-                        sa.SaveDataTableAsCsv(wktable, "data/WorkingData" + txtName.Text + ".csv");
+                        sa.SaveDataTableAsCsv(wktable, "data/WorkingData/" + txtName.Text + ".csv");
                         FormViewData fvd = new FormViewData(table);
+                        sa.SaveDataTableAsCsv(table, path);
                         this.Close();
                     }
                     else

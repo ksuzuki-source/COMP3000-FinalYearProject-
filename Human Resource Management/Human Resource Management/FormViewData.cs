@@ -17,6 +17,7 @@ namespace Human_Resource_Management
         public BindingSource bindingSource1;
         public DataTable table;
         public string path;
+        
 
         public FormViewData(DataTable dataTable)
         {
@@ -26,6 +27,7 @@ namespace Human_Resource_Management
             this.bindingSource1 =
                 new BindingSource(this.components);
             this.dataGridView1.DataSource = this.bindingSource1;
+            path = "data/test.csv";
         }
 
         private void Form2_Load(object sender, EventArgs e)
@@ -36,9 +38,9 @@ namespace Human_Resource_Management
         //press btn load to load the file 
         private void button1_Click(object sender, EventArgs e)
         {
-            OpenFileDialog();
-            //table = Readcsv.read_csv("test.csv");
-            //bindingSource1.DataSource = table;
+            //OpenFileDialog();
+            table = Readcsv.Read_csv("data/test.csv");
+            bindingSource1.DataSource = table;
         }
 
         //press btn export to save the file 
@@ -85,7 +87,7 @@ namespace Human_Resource_Management
         {
             if (path != null)
             {
-                FormAdd fa = new FormAdd(table);
+                FormAdminAdd fa = new FormAdminAdd(table, path);
                 fa.Show();
                 
 
