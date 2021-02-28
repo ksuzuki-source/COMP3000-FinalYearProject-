@@ -40,8 +40,8 @@ namespace Human_Resource_Management
             originalAge = (string)currentRow.Cells[5].Value;
 
             textBox1.Text = originalName;
-            selectSex.Text = originalSex;
-            SelectRole.Text = originalRole;
+            SexBox1.Text = originalSex;
+            RoleBox2.Text = originalRole;
             textBox4.Text = originalPassword;
             textBox5.Text = originalPostcode;
             textBox6.Text = originalAge;
@@ -68,15 +68,15 @@ namespace Human_Resource_Management
                 if ((((string)table.Rows[i][0] == (string)currentRow.Cells[0].Value) && ((string)table.Rows[i][3] == (string)currentRow.Cells[3].Value))
                     || ((string)table.Rows[i][0] == (string)currentRow.Cells[0].Value) && ((string)table.Rows[i][3] == (string)currentRow.Cells[4].Value))
                 {
-                    if (textBox1.Text != null && (selectSex.Text == "Man" || selectSex.Text == "Female" || selectSex.Text == "Other")           //check the input values
-                    && (SelectRole.Text == "User" || SelectRole.Text == "Admin")
+                    if (textBox1.Text != null && (SexBox1.Text == "M" || SexBox1.Text == "F" || SexBox1.Text == "O")           //check the input values
+                    && (RoleBox2.Text == "User" || RoleBox2.Text == "Admin")
                     && textBox4.Text != null
                     && textBox5.Text != null
                     && textBox6.Text != null)
                     {
                         table.Rows[i][0] = textBox1.Text;
-                        table.Rows[i][1] = selectSex.Text;
-                        table.Rows[i][2] = SelectRole.Text;
+                        table.Rows[i][1] = SexBox1.Text;
+                        table.Rows[i][2] = RoleBox2.Text;
                         table.Rows[i][3] = textBox4.Text;
                         table.Rows[i][4] = textBox5.Text;
                         table.Rows[i][5] = textBox6.Text;

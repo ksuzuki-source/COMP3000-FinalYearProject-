@@ -31,7 +31,7 @@ namespace Human_Resource_Management
         {
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
             this.btnLoad = new System.Windows.Forms.Button();
-            this.btnExport = new System.Windows.Forms.Button();
+            this.btnSave = new System.Windows.Forms.Button();
             this.btnSearch = new System.Windows.Forms.Button();
             this.label1 = new System.Windows.Forms.Label();
             this.dataGridView1 = new System.Windows.Forms.DataGridView();
@@ -63,21 +63,21 @@ namespace Human_Resource_Management
             this.btnLoad.TabIndex = 0;
             this.btnLoad.Text = "Load";
             this.btnLoad.UseVisualStyleBackColor = true;
-            this.btnLoad.Click += new System.EventHandler(this.button1_Click);
+            this.btnLoad.Click += new System.EventHandler(this.btnLoad_Click);
             // 
-            // btnExport
+            // btnSave
             // 
-            this.btnExport.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            this.btnSave.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
             | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
-            this.btnExport.Font = new System.Drawing.Font("Meiryo UI", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.btnExport.Location = new System.Drawing.Point(375, 88);
-            this.btnExport.Name = "btnExport";
-            this.btnExport.Size = new System.Drawing.Size(75, 23);
-            this.btnExport.TabIndex = 2;
-            this.btnExport.Text = "Save";
-            this.btnExport.UseVisualStyleBackColor = true;
-            this.btnExport.Click += new System.EventHandler(this.button3_Click);
+            this.btnSave.Font = new System.Drawing.Font("Meiryo UI", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.btnSave.Location = new System.Drawing.Point(375, 88);
+            this.btnSave.Name = "btnSave";
+            this.btnSave.Size = new System.Drawing.Size(75, 23);
+            this.btnSave.TabIndex = 2;
+            this.btnSave.Text = "Save";
+            this.btnSave.UseVisualStyleBackColor = true;
+            this.btnSave.Click += new System.EventHandler(this.btnSave_Click);
             // 
             // btnSearch
             // 
@@ -91,7 +91,7 @@ namespace Human_Resource_Management
             this.btnSearch.TabIndex = 3;
             this.btnSearch.Text = "Search";
             this.btnSearch.UseVisualStyleBackColor = true;
-            this.btnSearch.Click += new System.EventHandler(this.button4_Click);
+            this.btnSearch.Click += new System.EventHandler(this.btnSearch_Click);
             // 
             // label1
             // 
@@ -236,7 +236,7 @@ namespace Human_Resource_Management
             this.panel1.Controls.Add(this.textBox1);
             this.panel1.Controls.Add(this.label1);
             this.panel1.Controls.Add(this.btnSearch);
-            this.panel1.Controls.Add(this.btnExport);
+            this.panel1.Controls.Add(this.btnSave);
             this.panel1.Controls.Add(this.btnLoad);
             this.panel1.Location = new System.Drawing.Point(10, 12);
             this.panel1.Name = "panel1";
@@ -253,7 +253,7 @@ namespace Human_Resource_Management
             this.btnReflesh.Name = "btnReflesh";
             this.btnReflesh.Size = new System.Drawing.Size(75, 23);
             this.btnReflesh.TabIndex = 12;
-            this.btnReflesh.Text = "Reflesh";
+            this.btnReflesh.Text = "Reload";
             this.btnReflesh.UseVisualStyleBackColor = true;
             this.btnReflesh.Click += new System.EventHandler(this.btnReflesh_Click);
             // 
@@ -293,7 +293,7 @@ namespace Human_Resource_Management
         #endregion
 
         private System.Windows.Forms.Button btnLoad;
-        private System.Windows.Forms.Button btnExport;
+        private System.Windows.Forms.Button btnSave;
         private System.Windows.Forms.Button btnSearch;
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.TextBox textBox1;

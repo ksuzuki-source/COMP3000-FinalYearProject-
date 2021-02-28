@@ -36,7 +36,7 @@ namespace Human_Resource_Management
         }
 
         //press btn load to load the file 
-        private void button1_Click(object sender, EventArgs e)
+        private void btnLoad_Click(object sender, EventArgs e)
         {
             //OpenFileDialog();
             table = Readcsv.Read_csv("data/test.csv");
@@ -44,7 +44,7 @@ namespace Human_Resource_Management
         }
 
         //press btn export to save the file 
-        private void button3_Click(object sender, EventArgs e)
+        private void btnSave_Click(object sender, EventArgs e)
         {
             if (path != null)
             {
@@ -56,7 +56,7 @@ namespace Human_Resource_Management
         }
 
         //let the user to search with their selected condition 
-        private void button4_Click(object sender, EventArgs e)
+        private void btnSearch_Click(object sender, EventArgs e)
         {
             SearchFilter();
         }

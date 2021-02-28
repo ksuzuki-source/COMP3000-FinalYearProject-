@@ -41,10 +41,10 @@ namespace Human_Resource_Management
             this.btnDelete = new System.Windows.Forms.Button();
             this.label6 = new System.Windows.Forms.Label();
             this.textBox6 = new System.Windows.Forms.TextBox();
-            this.selectSex = new System.Windows.Forms.DomainUpDown();
-            this.SelectRole = new System.Windows.Forms.DomainUpDown();
             this.label7 = new System.Windows.Forms.Label();
             this.label8 = new System.Windows.Forms.Label();
+            this.RoleBox2 = new System.Windows.Forms.ComboBox();
+            this.SexBox1 = new System.Windows.Forms.ComboBox();
             this.SuspendLayout();
             // 
             // textBox1
@@ -199,39 +199,6 @@ namespace Human_Resource_Management
             this.textBox6.Size = new System.Drawing.Size(254, 27);
             this.textBox6.TabIndex = 13;
             // 
-            // selectSex
-            // 
-            this.selectSex.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
-            | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
-            this.selectSex.Font = new System.Drawing.Font("Yu Gothic UI", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.selectSex.ForeColor = System.Drawing.SystemColors.Window;
-            this.selectSex.Items.Add("Man");
-            this.selectSex.Items.Add("Female");
-            this.selectSex.Items.Add("Other");
-            this.selectSex.Location = new System.Drawing.Point(272, 169);
-            this.selectSex.Name = "selectSex";
-            this.selectSex.ReadOnly = true;
-            this.selectSex.Size = new System.Drawing.Size(254, 27);
-            this.selectSex.TabIndex = 14;
-            this.selectSex.Text = "Select Sex";
-            // 
-            // SelectRole
-            // 
-            this.SelectRole.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
-            | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
-            this.SelectRole.Font = new System.Drawing.Font("Yu Gothic UI", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.SelectRole.ForeColor = System.Drawing.SystemColors.Window;
-            this.SelectRole.Items.Add("Admin");
-            this.SelectRole.Items.Add("User");
-            this.SelectRole.Location = new System.Drawing.Point(272, 222);
-            this.SelectRole.Name = "SelectRole";
-            this.SelectRole.ReadOnly = true;
-            this.SelectRole.Size = new System.Drawing.Size(254, 27);
-            this.SelectRole.TabIndex = 15;
-            this.SelectRole.Text = "Select Role";
-            // 
             // label7
             // 
             this.label7.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
@@ -258,15 +225,49 @@ namespace Human_Resource_Management
             this.label8.TabIndex = 17;
             this.label8.Text = "Please remaind to save the work after edit the data";
             // 
+            // RoleBox2
+            // 
+            this.RoleBox2.AutoCompleteCustomSource.AddRange(new string[] {
+            "Admin",
+            "User"});
+            this.RoleBox2.Font = new System.Drawing.Font("Meiryo UI", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.RoleBox2.FormattingEnabled = true;
+            this.RoleBox2.Items.AddRange(new object[] {
+            "User",
+            "Admin"});
+            this.RoleBox2.Location = new System.Drawing.Point(272, 222);
+            this.RoleBox2.Name = "RoleBox2";
+            this.RoleBox2.Size = new System.Drawing.Size(254, 27);
+            this.RoleBox2.TabIndex = 22;
+            this.RoleBox2.Text = "Select Role(User, Admin)";
+            // 
+            // SexBox1
+            // 
+            this.SexBox1.AutoCompleteCustomSource.AddRange(new string[] {
+            "M",
+            "F",
+            "O"});
+            this.SexBox1.Font = new System.Drawing.Font("Meiryo UI", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.SexBox1.FormattingEnabled = true;
+            this.SexBox1.Items.AddRange(new object[] {
+            "M",
+            "F",
+            "O"});
+            this.SexBox1.Location = new System.Drawing.Point(271, 169);
+            this.SexBox1.Name = "SexBox1";
+            this.SexBox1.Size = new System.Drawing.Size(255, 27);
+            this.SexBox1.TabIndex = 21;
+            this.SexBox1.Text = "Select sex(Man, Female, Other)";
+            // 
             // FormEdit
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(800, 450);
+            this.Controls.Add(this.RoleBox2);
+            this.Controls.Add(this.SexBox1);
             this.Controls.Add(this.label8);
             this.Controls.Add(this.label7);
-            this.Controls.Add(this.SelectRole);
-            this.Controls.Add(this.selectSex);
             this.Controls.Add(this.textBox6);
             this.Controls.Add(this.label6);
             this.Controls.Add(this.btnDelete);
@@ -300,9 +301,9 @@ namespace Human_Resource_Management
         private System.Windows.Forms.Button btnDelete;
         private System.Windows.Forms.Label label6;
         public System.Windows.Forms.TextBox textBox6;
-        private System.Windows.Forms.DomainUpDown selectSex;
-        private System.Windows.Forms.DomainUpDown SelectRole;
         private System.Windows.Forms.Label label7;
         private System.Windows.Forms.Label label8;
+        private System.Windows.Forms.ComboBox RoleBox2;
+        private System.Windows.Forms.ComboBox SexBox1;
     }
 }
