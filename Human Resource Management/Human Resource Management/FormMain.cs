@@ -27,5 +27,10 @@ namespace Human_Resource_Management
             FormUserLogin ful = new FormUserLogin();
             ful.Show();
         }
+
+        private void label2_Click(object sender, EventArgs e)
+        {
+
+        }
     }
 }

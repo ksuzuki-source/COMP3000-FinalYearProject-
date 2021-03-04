@@ -7,9 +7,8 @@ using System.Text;
 using System.Windows.Forms;
 using System.IO;
 
-namespace Human_Resource_Management.UserControl
+namespace Human_Resource_Management
 {
-
     public partial class FormRegister : Form
     {
         public DataTable table;
@@ -18,6 +17,7 @@ namespace Human_Resource_Management.UserControl
         public FormRegister(DataTable rcvtable, string rcvpath)
         {
             InitializeComponent();
+
             table = rcvtable;
             path = rcvpath;
         }
@@ -91,6 +91,14 @@ namespace Human_Resource_Management.UserControl
                         FormViewData fvd = new FormViewData(table);
                         sa.SaveDataTableAsCsv(table, path);
 
+                        using (StreamWriter cvsw = new StreamWriter("data/Details/CV/" + txtName.Text + ".txt"))
+                        {
+                            cvsw.WriteLine("Write your CV here");
+                        }
+                        using (StreamWriter othersw = new StreamWriter("data/Details/Other/" + txtName.Text + ".txt"))
+                        {
+                            othersw.WriteLine("Write your background here");
+                        }
                         this.Close();
                     }
                     else

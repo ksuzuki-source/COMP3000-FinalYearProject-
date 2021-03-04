@@ -11,6 +11,7 @@ namespace Human_Resource_Management
     public partial class FormWorkingTime : Form
     {
         public string path;
+        public string rcvpath1;
         public DataTable table;
         public string TmpWorkIn;
         public string TmpLeaveWork;
@@ -19,12 +20,14 @@ namespace Human_Resource_Management
         public FormWorkingTime(string rcvpath)
         {
             InitializeComponent();
-            path = rcvpath;
+            path = ("data/WorkingData/" + rcvpath + ".csv");
+            rcvpath1 = rcvpath;
         }
 
         private void FormWorkingTime_Load(object sender, EventArgs e)
         {
             table = Readcsv.Read_PersonCsv(path);
+            
         }
 
         private void btnIn_Click(object sender, EventArgs e)

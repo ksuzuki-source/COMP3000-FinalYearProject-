@@ -9,25 +9,26 @@ using System.IO;
 
 namespace Human_Resource_Management
 {
-    public partial class FormLabourDetails : Form
+    public partial class FormCV : Form
     {
         string path;
-        public FormLabourDetails(string rcvpath)
+        public FormCV(string rcvpath)
         {
             InitializeComponent();
-            path = ("data/Details/Other/" + rcvpath + ".txt");
+            path = rcvpath;
         }
 
-        private void FormLabourDetails_Load(object sender, EventArgs e)
+        private void FormCV_Load(object sender, EventArgs e)
         {
-            using (StreamReader sr = new StreamReader(path))
+            using (StreamReader sr = new StreamReader("data/Details/CV/" + path + ".txt"))
             {
                 string line = "";
-
+               
                 while ((line = sr.ReadLine()) != null)
                 {
                     textBox1.Text += (line + "\r\n");
                 }
+
             }
         }
 
@@ -40,6 +41,7 @@ namespace Human_Resource_Management
                     sr.WriteLine(textBox1.Lines[i]);
                 }
             }
+
             MessageBox.Show("Saved");
         }
     }

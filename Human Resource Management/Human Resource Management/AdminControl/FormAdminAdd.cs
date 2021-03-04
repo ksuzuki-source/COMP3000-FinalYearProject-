@@ -5,6 +5,7 @@ using System.Data;
 using System.Drawing;
 using System.Text;
 using System.Windows.Forms;
+using System.IO;
 
 namespace Human_Resource_Management
 {
@@ -96,6 +97,16 @@ namespace Human_Resource_Management
                         sa.SaveDataTableAsCsv(wktable, "data/WorkingData/" + txtName.Text + ".csv");
                         FormViewData fvd = new FormViewData(table);
                         sa.SaveDataTableAsCsv(table, path);
+
+                        using (StreamWriter cvsw = new StreamWriter("data/Details/CV/" + txtName.Text + ".txt"))
+                        {
+                            cvsw.WriteLine("Write your CV here");
+                        }
+                        using (StreamWriter othersw = new StreamWriter("data/Details/Other/" + txtName.Text + ".txt"))
+                        {
+                            othersw.WriteLine("Write your background here");
+                        }
+
                         this.Close();
                     }
                     else

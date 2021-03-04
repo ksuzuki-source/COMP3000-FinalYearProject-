@@ -22,6 +22,13 @@ namespace Human_Resource_Management
                 new BindingSource(this.components);
         }
 
+
+        private void btnLogin_Click(object sender, EventArgs e)
+        {
+            Login();
+        }
+
+
         public void Login()
         {
             userName = this.textBox1.Text;
@@ -41,9 +48,10 @@ namespace Human_Resource_Management
                     if (table.Rows[j][3].ToString() == password)
                     {
                         MessageBox.Show("Success!");
-                        FormWorkingTime fwt = new FormWorkingTime("data/WorkingData/" + userName + ".csv");
-
-                        fwt.Show();
+                        //FormWorkingTime fwt = new FormWorkingTime(userName);
+                        FormUserMain FUM = new FormUserMain(userName);
+                        FUM.Show();
+                        //fwt.Show();
                         this.Hide();
                         break;
                     }
@@ -65,9 +73,6 @@ namespace Human_Resource_Management
 
         }
 
-        private void btnLogin_Click(object sender, EventArgs e)
-        {
-            Login();
-        }
+
     }
 }

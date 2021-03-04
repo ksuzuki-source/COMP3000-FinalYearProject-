@@ -1,5 +1,5 @@
 ﻿
-namespace Human_Resource_Management.UserControl
+namespace Human_Resource_Management
 {
     partial class FormRegister
     {
@@ -61,7 +61,7 @@ namespace Human_Resource_Management.UserControl
             this.RoleBox2.Location = new System.Drawing.Point(297, 202);
             this.RoleBox2.Name = "RoleBox2";
             this.RoleBox2.Size = new System.Drawing.Size(236, 27);
-            this.RoleBox2.TabIndex = 37;
+            this.RoleBox2.TabIndex = 54;
             this.RoleBox2.Text = "User";
             // 
             // SexBox1
@@ -79,7 +79,7 @@ namespace Human_Resource_Management.UserControl
             this.SexBox1.Location = new System.Drawing.Point(297, 146);
             this.SexBox1.Name = "SexBox1";
             this.SexBox1.Size = new System.Drawing.Size(236, 27);
-            this.SexBox1.TabIndex = 36;
+            this.SexBox1.TabIndex = 53;
             this.SexBox1.Text = "Select sex(Man, Female, Other)";
             // 
             // label9
@@ -89,7 +89,7 @@ namespace Human_Resource_Management.UserControl
             this.label9.Location = new System.Drawing.Point(546, 56);
             this.label9.Name = "label9";
             this.label9.Size = new System.Drawing.Size(167, 20);
-            this.label9.TabIndex = 35;
+            this.label9.TabIndex = 52;
             this.label9.Text = "(e.g. User → User1)";
             // 
             // label8
@@ -102,7 +102,7 @@ namespace Human_Resource_Management.UserControl
             this.label8.Location = new System.Drawing.Point(74, 32);
             this.label8.Name = "label8";
             this.label8.Size = new System.Drawing.Size(653, 24);
-            this.label8.TabIndex = 34;
+            this.label8.TabIndex = 51;
             this.label8.Text = "If the same name labour is already exist, add some thing at the end. ";
             // 
             // label7
@@ -115,7 +115,7 @@ namespace Human_Resource_Management.UserControl
             this.label7.Location = new System.Drawing.Point(297, 8);
             this.label7.Name = "label7";
             this.label7.Size = new System.Drawing.Size(257, 24);
-            this.label7.TabIndex = 33;
+            this.label7.TabIndex = 50;
             this.label7.Text = "Adding a new labour data.";
             // 
             // btnCancel
@@ -127,7 +127,7 @@ namespace Human_Resource_Management.UserControl
             this.btnCancel.Location = new System.Drawing.Point(424, 408);
             this.btnCancel.Name = "btnCancel";
             this.btnCancel.Size = new System.Drawing.Size(109, 35);
-            this.btnCancel.TabIndex = 32;
+            this.btnCancel.TabIndex = 49;
             this.btnCancel.Text = "Cancel";
             this.btnCancel.UseVisualStyleBackColor = true;
             this.btnCancel.Click += new System.EventHandler(this.btnCancel_Click);
@@ -141,7 +141,7 @@ namespace Human_Resource_Management.UserControl
             this.btnAdd.Location = new System.Drawing.Point(297, 408);
             this.btnAdd.Name = "btnAdd";
             this.btnAdd.Size = new System.Drawing.Size(107, 35);
-            this.btnAdd.TabIndex = 31;
+            this.btnAdd.TabIndex = 48;
             this.btnAdd.Text = "Add";
             this.btnAdd.UseVisualStyleBackColor = true;
             this.btnAdd.Click += new System.EventHandler(this.btnAdd_Click);
@@ -155,7 +155,7 @@ namespace Human_Resource_Management.UserControl
             this.txtAge.Location = new System.Drawing.Point(298, 369);
             this.txtAge.Name = "txtAge";
             this.txtAge.Size = new System.Drawing.Size(235, 27);
-            this.txtAge.TabIndex = 30;
+            this.txtAge.TabIndex = 47;
             // 
             // label6
             // 
@@ -167,7 +167,7 @@ namespace Human_Resource_Management.UserControl
             this.label6.Location = new System.Drawing.Point(298, 346);
             this.label6.Name = "label6";
             this.label6.Size = new System.Drawing.Size(37, 19);
-            this.label6.TabIndex = 29;
+            this.label6.TabIndex = 46;
             this.label6.Text = "Age";
             // 
             // txtPostcode
@@ -179,7 +179,7 @@ namespace Human_Resource_Management.UserControl
             this.txtPostcode.Location = new System.Drawing.Point(298, 311);
             this.txtPostcode.Name = "txtPostcode";
             this.txtPostcode.Size = new System.Drawing.Size(235, 27);
-            this.txtPostcode.TabIndex = 28;
+            this.txtPostcode.TabIndex = 45;
             // 
             // label5
             // 
@@ -191,7 +191,7 @@ namespace Human_Resource_Management.UserControl
             this.label5.Location = new System.Drawing.Point(298, 288);
             this.label5.Name = "label5";
             this.label5.Size = new System.Drawing.Size(75, 19);
-            this.label5.TabIndex = 27;
+            this.label5.TabIndex = 44;
             this.label5.Text = "Postcode";
             // 
             // txtPassword
@@ -203,7 +203,7 @@ namespace Human_Resource_Management.UserControl
             this.txtPassword.Location = new System.Drawing.Point(298, 255);
             this.txtPassword.Name = "txtPassword";
             this.txtPassword.Size = new System.Drawing.Size(235, 27);
-            this.txtPassword.TabIndex = 26;
+            this.txtPassword.TabIndex = 43;
             // 
             // label4
             // 
@@ -215,7 +215,7 @@ namespace Human_Resource_Management.UserControl
             this.label4.Location = new System.Drawing.Point(298, 232);
             this.label4.Name = "label4";
             this.label4.Size = new System.Drawing.Size(77, 19);
-            this.label4.TabIndex = 25;
+            this.label4.TabIndex = 42;
             this.label4.Text = "Password";
             // 
             // label3
@@ -228,7 +228,7 @@ namespace Human_Resource_Management.UserControl
             this.label3.Location = new System.Drawing.Point(298, 184);
             this.label3.Name = "label3";
             this.label3.Size = new System.Drawing.Size(41, 19);
-            this.label3.TabIndex = 24;
+            this.label3.TabIndex = 41;
             this.label3.Text = "Role";
             // 
             // label2
@@ -241,7 +241,7 @@ namespace Human_Resource_Management.UserControl
             this.label2.Location = new System.Drawing.Point(298, 124);
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(36, 19);
-            this.label2.TabIndex = 23;
+            this.label2.TabIndex = 40;
             this.label2.Text = "Sex";
             // 
             // txtName
@@ -253,7 +253,7 @@ namespace Human_Resource_Management.UserControl
             this.txtName.Location = new System.Drawing.Point(298, 94);
             this.txtName.Name = "txtName";
             this.txtName.Size = new System.Drawing.Size(235, 27);
-            this.txtName.TabIndex = 22;
+            this.txtName.TabIndex = 39;
             // 
             // label1
             // 
@@ -265,7 +265,7 @@ namespace Human_Resource_Management.UserControl
             this.label1.Location = new System.Drawing.Point(297, 72);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(83, 19);
-            this.label1.TabIndex = 21;
+            this.label1.TabIndex = 38;
             this.label1.Text = "Full Name";
             // 
             // FormRegister
