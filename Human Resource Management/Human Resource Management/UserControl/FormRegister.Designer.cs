@@ -291,6 +291,7 @@ namespace Human_Resource_Management
             this.Controls.Add(this.txtName);
             this.Controls.Add(this.label1);
             this.Name = "FormRegister";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "FormRegister";
             this.ResumeLayout(false);
             this.PerformLayout();

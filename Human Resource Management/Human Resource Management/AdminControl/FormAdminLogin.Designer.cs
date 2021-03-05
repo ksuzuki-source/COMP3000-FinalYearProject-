@@ -126,6 +126,7 @@ namespace Human_Resource_Management
             this.Controls.Add(this.lblPassword);
             this.Controls.Add(this.lblUsername);
             this.Name = "FormAdminLogin";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Form5";
             this.ResumeLayout(false);
             this.PerformLayout();

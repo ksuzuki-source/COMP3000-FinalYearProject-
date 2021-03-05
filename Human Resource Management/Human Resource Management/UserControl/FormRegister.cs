@@ -90,6 +90,8 @@ namespace Human_Resource_Management
                         sa.SaveDataTableAsCsv(wktable, "data/WorkingData/" + txtName.Text + ".csv");
                         FormViewData fvd = new FormViewData(table);
                         sa.SaveDataTableAsCsv(table, path);
+                        FormUserMain FUM = new FormUserMain(txtName.Text);
+                        FUM.Show();
 
                         using (StreamWriter cvsw = new StreamWriter("data/Details/CV/" + txtName.Text + ".txt"))
                         {

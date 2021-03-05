@@ -39,12 +39,12 @@ namespace Human_Resource_Management
             originalPostcode = (string)currentRow.Cells[4].Value;
             originalAge = (string)currentRow.Cells[5].Value;
 
-            textBox1.Text = originalName;
+            txtName.Text = originalName;
             SexBox1.Text = originalSex;
             RoleBox2.Text = originalRole;
-            textBox4.Text = originalPassword;
-            textBox5.Text = originalPostcode;
-            textBox6.Text = originalAge;
+            txtPassword.Text = originalPassword;
+            txtPostcode.Text = originalPostcode;
+            txtAge.Text = originalAge;
 
             
         }
@@ -68,18 +68,18 @@ namespace Human_Resource_Management
                 if ((((string)table.Rows[i][0] == (string)currentRow.Cells[0].Value) && ((string)table.Rows[i][3] == (string)currentRow.Cells[3].Value))
                     || ((string)table.Rows[i][0] == (string)currentRow.Cells[0].Value) && ((string)table.Rows[i][3] == (string)currentRow.Cells[4].Value))
                 {
-                    if (textBox1.Text != null && (SexBox1.Text == "M" || SexBox1.Text == "F" || SexBox1.Text == "O")           //check the input values
+                    if (txtName.Text != null && (SexBox1.Text == "M" || SexBox1.Text == "F" || SexBox1.Text == "O")           //check the input values
                     && (RoleBox2.Text == "User" || RoleBox2.Text == "Admin")
-                    && textBox4.Text != null
-                    && textBox5.Text != null
-                    && textBox6.Text != null)
+                    && txtPassword.Text != null
+                    && txtPostcode.Text != null
+                    && txtAge.Text != null)
                     {
-                        table.Rows[i][0] = textBox1.Text;
+                        table.Rows[i][0] = txtName.Text;
                         table.Rows[i][1] = SexBox1.Text;
                         table.Rows[i][2] = RoleBox2.Text;
-                        table.Rows[i][3] = textBox4.Text;
-                        table.Rows[i][4] = textBox5.Text;
-                        table.Rows[i][5] = textBox6.Text;
+                        table.Rows[i][3] = txtPassword.Text;
+                        table.Rows[i][4] = txtPostcode.Text;
+                        table.Rows[i][5] = txtAge.Text;
                     }
                     else
                     {
@@ -126,6 +126,25 @@ namespace Human_Resource_Management
         private void label8_Click(object sender, EventArgs e)
         {
 
+        }
+
+        private void btnShowCV_Click(object sender, EventArgs e)
+        {
+            FormCV FCV = new FormCV(txtName.Text);
+            FCV.Show();
+        }
+
+        private void btnShowBackground_Click(object sender, EventArgs e)
+        {
+            FormBackground FBG = new FormBackground(txtName.Text);
+            FBG.Show();
+        }
+
+        private void btnWorkingRecord_Click(object sender, EventArgs e)
+        {
+            string path = ("data/WorkingData/" + txtName.Text + ".csv");
+            FormCheckWork FCW = new FormCheckWork(path);
+            FCW.Show();
         }
     }
 }

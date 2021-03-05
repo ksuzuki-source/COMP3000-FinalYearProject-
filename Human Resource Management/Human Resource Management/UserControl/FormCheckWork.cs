@@ -13,11 +13,12 @@ namespace Human_Resource_Management
         public BindingSource bindingSource1;
         DataTable table;
         string path;
-        public FormCheckWork(DataTable rcvTable, string rcvpath)
+        public FormCheckWork(string rcvpath)
         {
             InitializeComponent();
-            table = rcvTable;
             path = rcvpath;
+            table = Readcsv.Read_WokingDataCsv(path);
+            
             this.components = new Container();
             this.bindingSource1 =
                 new BindingSource(this.components);

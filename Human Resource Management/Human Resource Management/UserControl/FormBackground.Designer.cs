@@ -1,7 +1,7 @@
 ﻿
 namespace Human_Resource_Management
 {
-    partial class FormLabourDetails
+    partial class FormBackground
     {
         /// <summary>
         /// Required designer variable.
@@ -51,9 +51,9 @@ namespace Human_Resource_Management
             this.label1.Font = new System.Drawing.Font("Meiryo UI", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
             this.label1.Location = new System.Drawing.Point(53, 9);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(238, 24);
+            this.label1.Size = new System.Drawing.Size(526, 24);
             this.label1.TabIndex = 10;
-            this.label1.Text = "This is Labour data page";
+            this.label1.Text = "This is Background page, please write your background";
             // 
             // textBox1
             // 
@@ -64,15 +64,16 @@ namespace Human_Resource_Management
             this.textBox1.Size = new System.Drawing.Size(754, 444);
             this.textBox1.TabIndex = 9;
             // 
-            // FormLabourDetails
+            // FormBackground
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(852, 557);
+            this.ClientSize = new System.Drawing.Size(872, 555);
             this.Controls.Add(this.button1);
             this.Controls.Add(this.label1);
             this.Controls.Add(this.textBox1);
-            this.Name = "FormLabourDetails";
+            this.Name = "FormBackground";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "LabourDetails";
             this.Load += new System.EventHandler(this.FormLabourDetails_Load);
             this.ResumeLayout(false);

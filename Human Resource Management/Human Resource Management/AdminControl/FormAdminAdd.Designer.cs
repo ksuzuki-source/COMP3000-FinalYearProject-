@@ -293,6 +293,7 @@ namespace Human_Resource_Management
             this.Controls.Add(this.txtName);
             this.Controls.Add(this.label1);
             this.Name = "FormAdminAdd";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Form2";
             this.ResumeLayout(false);
             this.PerformLayout();

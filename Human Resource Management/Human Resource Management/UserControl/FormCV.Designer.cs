@@ -51,9 +51,10 @@ namespace Human_Resource_Management
             this.label1.Font = new System.Drawing.Font("Meiryo UI", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
             this.label1.Location = new System.Drawing.Point(72, 9);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(152, 24);
+            this.label1.Size = new System.Drawing.Size(784, 24);
             this.label1.TabIndex = 7;
-            this.label1.Text = "This is CV page";
+            this.label1.Text = "This is CV page, please write your CV data here(e.g.Driving lisense, your any ski" +
+    "lls)";
             // 
             // textBox1
             // 
@@ -73,6 +74,7 @@ namespace Human_Resource_Management
             this.Controls.Add(this.label1);
             this.Controls.Add(this.textBox1);
             this.Name = "FormCV";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "FormCV";
             this.Load += new System.EventHandler(this.FormCV_Load);
             this.ResumeLayout(false);

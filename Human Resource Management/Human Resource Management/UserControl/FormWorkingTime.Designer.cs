@@ -84,19 +84,19 @@ namespace Human_Resource_Management
             this.label1.Font = new System.Drawing.Font("Meiryo UI", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
             this.label1.Location = new System.Drawing.Point(188, 49);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(442, 24);
+            this.label1.Size = new System.Drawing.Size(424, 24);
             this.label1.TabIndex = 3;
-            this.label1.Text = "Press the Buttom to record your Working time.";
+            this.label1.Text = "Press the Butto to record your Working time.";
             // 
             // label2
             // 
             this.label2.AutoSize = true;
             this.label2.Font = new System.Drawing.Font("Meiryo UI", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.label2.Location = new System.Drawing.Point(41, 86);
+            this.label2.Location = new System.Drawing.Point(25, 82);
             this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(725, 24);
+            this.label2.Size = new System.Drawing.Size(763, 24);
             this.label2.TabIndex = 4;
-            this.label2.Text = "If you want to check your working record, press the buttom under 2 buttoms";
+            this.label2.Text = "If you want to check your working record, press the button \"check your working\"";
             this.label2.Click += new System.EventHandler(this.label2_Click);
             // 
             // FormWorkingTime
@@ -110,6 +110,7 @@ namespace Human_Resource_Management
             this.Controls.Add(this.btnLeave);
             this.Controls.Add(this.btnIn);
             this.Name = "FormWorkingTime";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "If you want to check your working record, press the buttom ander 2 buttoms";
             this.Load += new System.EventHandler(this.FormWorkingTime_Load);
             this.ResumeLayout(false);

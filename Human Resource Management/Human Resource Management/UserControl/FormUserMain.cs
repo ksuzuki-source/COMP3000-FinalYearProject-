@@ -33,7 +33,7 @@ namespace Human_Resource_Management
 
         private void btnDetail_Click(object sender, EventArgs e)
         {
-            FormLabourDetails FLD = new FormLabourDetails(path);
+            FormBackground FLD = new FormBackground(path);
             FLD.Show();
         }
     }

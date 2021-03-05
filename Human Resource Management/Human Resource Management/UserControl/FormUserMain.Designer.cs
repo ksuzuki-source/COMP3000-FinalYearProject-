@@ -47,6 +47,7 @@ namespace Human_Resource_Management
             // 
             // btnDetail
             // 
+            this.btnDetail.Font = new System.Drawing.Font("Meiryo UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
             this.btnDetail.Location = new System.Drawing.Point(544, 238);
             this.btnDetail.Name = "btnDetail";
             this.btnDetail.Size = new System.Drawing.Size(192, 120);
@@ -57,6 +58,7 @@ namespace Human_Resource_Management
             // 
             // btnCV
             // 
+            this.btnCV.Font = new System.Drawing.Font("Meiryo UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
             this.btnCV.Location = new System.Drawing.Point(305, 238);
             this.btnCV.Name = "btnCV";
             this.btnCV.Size = new System.Drawing.Size(182, 120);
@@ -67,6 +69,7 @@ namespace Human_Resource_Management
             // 
             // btnWTR
             // 
+            this.btnWTR.Font = new System.Drawing.Font("Meiryo UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
             this.btnWTR.Location = new System.Drawing.Point(64, 238);
             this.btnWTR.Name = "btnWTR";
             this.btnWTR.Size = new System.Drawing.Size(189, 120);
@@ -85,6 +88,7 @@ namespace Human_Resource_Management
             this.Controls.Add(this.btnCV);
             this.Controls.Add(this.btnWTR);
             this.Name = "FormUserMain";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "FormUserMain";
             this.ResumeLayout(false);
             this.PerformLayout();

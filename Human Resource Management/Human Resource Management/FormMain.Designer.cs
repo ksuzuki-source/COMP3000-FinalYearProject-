@@ -83,6 +83,7 @@ namespace Human_Resource_Management
             this.btnRegister.TabIndex = 3;
             this.btnRegister.Text = "Register";
             this.btnRegister.UseVisualStyleBackColor = true;
+            this.btnRegister.Click += new System.EventHandler(this.btnRegister_Click);
             // 
             // label2
             // 
@@ -106,6 +107,7 @@ namespace Human_Resource_Management
             this.Controls.Add(this.button2);
             this.Controls.Add(this.button1);
             this.Name = "FormMain";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Form3";
             this.ResumeLayout(false);
             this.PerformLayout();

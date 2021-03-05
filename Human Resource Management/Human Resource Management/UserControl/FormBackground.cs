@@ -9,10 +9,10 @@ using System.IO;
 
 namespace Human_Resource_Management
 {
-    public partial class FormLabourDetails : Form
+    public partial class FormBackground : Form
     {
         string path;
-        public FormLabourDetails(string rcvpath)
+        public FormBackground(string rcvpath)
         {
             InitializeComponent();
             path = ("data/Details/Other/" + rcvpath + ".txt");

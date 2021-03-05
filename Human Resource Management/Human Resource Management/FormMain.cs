@@ -32,5 +32,13 @@ namespace Human_Resource_Management
         {
 
         }
+
+        private void btnRegister_Click(object sender, EventArgs e)
+        {
+            string path = "data/test.csv";
+            DataTable table = Readcsv.Read_csv(path);
+            FormRegister FR = new FormRegister(table, path);
+            FR.Show();
+        }
     }
 }

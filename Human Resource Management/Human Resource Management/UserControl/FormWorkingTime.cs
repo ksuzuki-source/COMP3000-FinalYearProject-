@@ -26,7 +26,7 @@ namespace Human_Resource_Management
 
         private void FormWorkingTime_Load(object sender, EventArgs e)
         {
-            table = Readcsv.Read_PersonCsv(path);
+            table = Readcsv.Read_WokingDataCsv(path);
             
         }
 
@@ -72,7 +72,7 @@ namespace Human_Resource_Management
 
         private void btnCheck_Click(object sender, EventArgs e)
         {
-            FormCheckWork fcw = new FormCheckWork(table, path);
+            FormCheckWork fcw = new FormCheckWork(path);
             fcw.Show();
 
         }

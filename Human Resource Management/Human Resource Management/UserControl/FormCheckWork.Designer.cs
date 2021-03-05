@@ -81,6 +81,7 @@ namespace Human_Resource_Management
             this.Controls.Add(this.dataGridView1);
             this.Controls.Add(this.label1);
             this.Name = "FormCheckWork";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Form1";
             this.Load += new System.EventHandler(this.Form1_Load);
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).EndInit();

@@ -45,7 +45,7 @@ namespace Human_Resource_Management
 
         }
 
-        public static DataTable Read_PersonCsv(string path, bool header = true, char separator = ',')       //this is a read function for working time
+        public static DataTable Read_WokingDataCsv(string path, bool header = true, char separator = ',')       //this is a read function for working time
         {
             using (var reader = new StreamReader(path))
             using (var csv = new CsvReader(reader, System.Globalization.CultureInfo.CurrentCulture))
