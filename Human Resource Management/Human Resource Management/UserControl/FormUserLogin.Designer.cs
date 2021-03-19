@@ -91,24 +91,27 @@ namespace Human_Resource_Management
             this.btnLogin.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
             | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
+            this.btnLogin.BackColor = System.Drawing.Color.Cyan;
             this.btnLogin.Font = new System.Drawing.Font("Meiryo UI", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
             this.btnLogin.Location = new System.Drawing.Point(328, 330);
             this.btnLogin.Name = "btnLogin";
             this.btnLogin.Size = new System.Drawing.Size(112, 45);
             this.btnLogin.TabIndex = 4;
             this.btnLogin.Text = "Login";
-            this.btnLogin.UseVisualStyleBackColor = true;
+            this.btnLogin.UseVisualStyleBackColor = false;
             this.btnLogin.Click += new System.EventHandler(this.btnLogin_Click);
             // 
             // label3
             // 
             this.label3.AutoSize = true;
             this.label3.Font = new System.Drawing.Font("Meiryo UI", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.label3.Location = new System.Drawing.Point(241, 33);
+            this.label3.Location = new System.Drawing.Point(136, 33);
             this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(302, 24);
+            this.label3.Size = new System.Drawing.Size(547, 48);
             this.label3.TabIndex = 5;
-            this.label3.Text = "Login page to record your work";
+            this.label3.Text = "This is user login page\r\nplease login with your registered username and password\r" +
+    "\n";
+            this.label3.TextAlign = System.Drawing.ContentAlignment.TopCenter;
             // 
             // FormUserLogin
             // 

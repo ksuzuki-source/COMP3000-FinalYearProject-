@@ -29,10 +29,12 @@ namespace Human_Resource_Management
         /// </summary>
         private void InitializeComponent()
         {
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(FormUserMain));
             this.label1 = new System.Windows.Forms.Label();
             this.btnDetail = new System.Windows.Forms.Button();
             this.btnCV = new System.Windows.Forms.Button();
             this.btnWTR = new System.Windows.Forms.Button();
+            this.label2 = new System.Windows.Forms.Label();
             this.SuspendLayout();
             // 
             // label1
@@ -41,25 +43,24 @@ namespace Human_Resource_Management
             this.label1.Font = new System.Drawing.Font("Meiryo UI", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
             this.label1.Location = new System.Drawing.Point(253, 93);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(256, 24);
+            this.label1.Size = new System.Drawing.Size(0, 24);
             this.label1.TabIndex = 11;
-            this.label1.Text = "This is main page for user!";
             // 
             // btnDetail
             // 
             this.btnDetail.Font = new System.Drawing.Font("Meiryo UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.btnDetail.Location = new System.Drawing.Point(544, 238);
+            this.btnDetail.Location = new System.Drawing.Point(679, 321);
             this.btnDetail.Name = "btnDetail";
             this.btnDetail.Size = new System.Drawing.Size(192, 120);
             this.btnDetail.TabIndex = 10;
-            this.btnDetail.Text = "View/Edit your Details";
+            this.btnDetail.Text = "View/Edit your \r\nextra details";
             this.btnDetail.UseVisualStyleBackColor = true;
             this.btnDetail.Click += new System.EventHandler(this.btnDetail_Click);
             // 
             // btnCV
             // 
             this.btnCV.Font = new System.Drawing.Font("Meiryo UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.btnCV.Location = new System.Drawing.Point(305, 238);
+            this.btnCV.Location = new System.Drawing.Point(377, 321);
             this.btnCV.Name = "btnCV";
             this.btnCV.Size = new System.Drawing.Size(182, 120);
             this.btnCV.TabIndex = 9;
@@ -70,7 +71,7 @@ namespace Human_Resource_Management
             // btnWTR
             // 
             this.btnWTR.Font = new System.Drawing.Font("Meiryo UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.btnWTR.Location = new System.Drawing.Point(64, 238);
+            this.btnWTR.Location = new System.Drawing.Point(73, 321);
             this.btnWTR.Name = "btnWTR";
             this.btnWTR.Size = new System.Drawing.Size(189, 120);
             this.btnWTR.TabIndex = 8;
@@ -78,11 +79,26 @@ namespace Human_Resource_Management
             this.btnWTR.UseVisualStyleBackColor = true;
             this.btnWTR.Click += new System.EventHandler(this.btnWTR_Click);
             // 
+            // label2
+            // 
+            this.label2.AutoSize = true;
+            this.label2.Font = new System.Drawing.Font("Meiryo UI", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.label2.Location = new System.Drawing.Point(77, 9);
+            this.label2.Name = "label2";
+            this.label2.Size = new System.Drawing.Size(762, 48);
+            this.label2.TabIndex = 12;
+            this.label2.Text = "Welcome to RM user main page, at this point you can choose to \r\nrecord your work " +
+    "or viewing/edit your CV or viewing/editing your other details ! \r\n";
+            this.label2.TextAlign = System.Drawing.ContentAlignment.TopCenter;
+            // 
             // FormUserMain
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(800, 450);
+            this.BackColor = System.Drawing.SystemColors.ButtonHighlight;
+            this.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("$this.BackgroundImage")));
+            this.ClientSize = new System.Drawing.Size(919, 520);
+            this.Controls.Add(this.label2);
             this.Controls.Add(this.label1);
             this.Controls.Add(this.btnDetail);
             this.Controls.Add(this.btnCV);
@@ -90,6 +106,7 @@ namespace Human_Resource_Management
             this.Name = "FormUserMain";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "FormUserMain";
+            this.Load += new System.EventHandler(this.FormUserMain_Load);
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -101,5 +118,6 @@ namespace Human_Resource_Management
         private System.Windows.Forms.Button btnDetail;
         private System.Windows.Forms.Button btnCV;
         private System.Windows.Forms.Button btnWTR;
+        private System.Windows.Forms.Label label2;
     }
 }

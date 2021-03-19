@@ -17,6 +17,7 @@ namespace Human_Resource_Management
             InitializeComponent();
             path = rcvopath;
             sendpath = rcvopath;
+            
         }
 
         private void btnWTR_Click(object sender, EventArgs e)
@@ -35,6 +36,11 @@ namespace Human_Resource_Management
         {
             FormBackground FLD = new FormBackground(path);
             FLD.Show();
+        }
+
+        private void FormUserMain_Load(object sender, EventArgs e)
+        {
+            label1.Text = ("Welcome " + path + "!!");
         }
     }
 }

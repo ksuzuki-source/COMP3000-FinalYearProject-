@@ -40,5 +40,10 @@ namespace Human_Resource_Management
             FormRegister FR = new FormRegister(table, path);
             FR.Show();
         }
+
+        private void FormMain_Load(object sender, EventArgs e)
+        {
+
+        }
     }
 }

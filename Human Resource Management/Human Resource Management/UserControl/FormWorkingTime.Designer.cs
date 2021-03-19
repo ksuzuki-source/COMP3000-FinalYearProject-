@@ -41,13 +41,14 @@ namespace Human_Resource_Management
             this.btnIn.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
             | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
+            this.btnIn.BackColor = System.Drawing.Color.DeepSkyBlue;
             this.btnIn.Font = new System.Drawing.Font("Meiryo UI", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
             this.btnIn.Location = new System.Drawing.Point(116, 143);
             this.btnIn.Name = "btnIn";
             this.btnIn.Size = new System.Drawing.Size(204, 151);
             this.btnIn.TabIndex = 0;
             this.btnIn.Text = "In";
-            this.btnIn.UseVisualStyleBackColor = true;
+            this.btnIn.UseVisualStyleBackColor = false;
             this.btnIn.Click += new System.EventHandler(this.btnIn_Click);
             // 
             // btnLeave
@@ -55,13 +56,14 @@ namespace Human_Resource_Management
             this.btnLeave.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
             | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
+            this.btnLeave.BackColor = System.Drawing.Color.DarkSeaGreen;
             this.btnLeave.Font = new System.Drawing.Font("Meiryo UI", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
             this.btnLeave.Location = new System.Drawing.Point(457, 143);
             this.btnLeave.Name = "btnLeave";
             this.btnLeave.Size = new System.Drawing.Size(216, 151);
             this.btnLeave.TabIndex = 1;
             this.btnLeave.Text = "Leave";
-            this.btnLeave.UseVisualStyleBackColor = true;
+            this.btnLeave.UseVisualStyleBackColor = false;
             this.btnLeave.Click += new System.EventHandler(this.btnLeave_Click);
             // 
             // btnCheck
@@ -69,13 +71,14 @@ namespace Human_Resource_Management
             this.btnCheck.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
             | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
+            this.btnCheck.BackColor = System.Drawing.Color.Khaki;
             this.btnCheck.Font = new System.Drawing.Font("Meiryo UI", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
             this.btnCheck.Location = new System.Drawing.Point(252, 347);
             this.btnCheck.Name = "btnCheck";
             this.btnCheck.Size = new System.Drawing.Size(284, 66);
             this.btnCheck.TabIndex = 2;
             this.btnCheck.Text = "Check your working";
-            this.btnCheck.UseVisualStyleBackColor = true;
+            this.btnCheck.UseVisualStyleBackColor = false;
             this.btnCheck.Click += new System.EventHandler(this.btnCheck_Click);
             // 
             // label1
