@@ -175,10 +175,10 @@ namespace Human_Resource_Management
             // label7
             // 
             this.label7.AutoSize = true;
-            this.label7.Font = new System.Drawing.Font("Meiryo UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.label7.Location = new System.Drawing.Point(139, 25);
+            this.label7.Font = new System.Drawing.Font("Meiryo UI", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.label7.Location = new System.Drawing.Point(144, 39);
             this.label7.Name = "label7";
-            this.label7.Size = new System.Drawing.Size(175, 20);
+            this.label7.Size = new System.Drawing.Size(229, 26);
             this.label7.TabIndex = 16;
             this.label7.Text = "Edit the labour\'s data";
             this.label7.TextAlign = System.Drawing.ContentAlignment.TopCenter;
@@ -275,10 +275,10 @@ namespace Human_Resource_Management
             // label8
             // 
             this.label8.AutoSize = true;
-            this.label8.Font = new System.Drawing.Font("Meiryo UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.label8.Location = new System.Drawing.Point(336, 25);
+            this.label8.Font = new System.Drawing.Font("Meiryo UI", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.label8.Location = new System.Drawing.Point(370, 39);
             this.label8.Name = "label8";
-            this.label8.Size = new System.Drawing.Size(406, 20);
+            this.label8.Size = new System.Drawing.Size(536, 26);
             this.label8.TabIndex = 17;
             this.label8.Text = "Please remaind to save the work after edit the data";
             // 

@@ -127,7 +127,7 @@ namespace Human_Resource_Management
         {
             if (table != null)
             {
-                FormAdminAdd fa = new FormAdminAdd(table, path);
+                FormAdminAdd fa = new FormAdminAdd(table);
                 fa.Show();
                 
 
