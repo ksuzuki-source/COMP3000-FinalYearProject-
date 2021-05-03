@@ -17,8 +17,9 @@ namespace Human_Resource_Management
         string password;
         private BindingSource bindingSource1;
         private DataTable table;
-        public FormAdminLogin()
+        public FormAdminLogin(DataTable dataTable)
         {
+            table = dataTable;
             InitializeComponent();
             this.components = new Container();
             this.bindingSource1 =
@@ -43,8 +44,8 @@ namespace Human_Resource_Management
         {
             userName = this.textBox1.Text;
             password = this.textBox2.Text;
-            string test = "data/test";
-            table = Readcsv.Read_csv(test + ".csv");
+            //string test = "data/test";
+            //table = Readcsv.Read_csv(test + ".csv");
             bindingSource1.DataSource = table;
             int numOfrows = table.Rows.Count;
             int numOfcolumns = table.Columns.Count;
@@ -52,12 +53,13 @@ namespace Human_Resource_Management
 
             for (int j = 0; j < numOfrows; j++)
             {
-                if (table.Rows[j][0].ToString() == userName)
+                if (table.Rows[j][1].ToString() == userName)
                 {
-                    if (table.Rows[j][3].ToString() == password)
+                    if (table.Rows[j][4].ToString() == password)
                     {
-                        if (table.Rows[j][2].ToString() == admin)
+                        if (table.Rows[j][3].ToString() == admin)
                         {
+
                             MessageBox.Show("Success!");
                             FormViewData form2 = new FormViewData(table);
                             
@@ -67,7 +69,7 @@ namespace Human_Resource_Management
                         }
                         else if (table.Rows[j][2].ToString() != admin)
                         {
-                            MessageBox.Show("only admin can login");
+                            MessageBox.Show("only admin can login to this form");
                         }
                     }
                     else MessageBox.Show("Tryagain");

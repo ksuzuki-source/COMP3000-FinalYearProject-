@@ -42,45 +42,47 @@ namespace Human_Resource_Management
             this.label6 = new System.Windows.Forms.Label();
             this.txtAge = new System.Windows.Forms.TextBox();
             this.label7 = new System.Windows.Forms.Label();
-            this.label8 = new System.Windows.Forms.Label();
             this.RoleBox2 = new System.Windows.Forms.ComboBox();
             this.SexBox1 = new System.Windows.Forms.ComboBox();
             this.S = new System.Windows.Forms.Button();
             this.btnShowBackground = new System.Windows.Forms.Button();
             this.btnWorkingRecord = new System.Windows.Forms.Button();
+            this.DrivingLisence = new System.Windows.Forms.Label();
+            this.txtDrivingLisence = new System.Windows.Forms.TextBox();
+            this.label8 = new System.Windows.Forms.Label();
             this.SuspendLayout();
             // 
             // txtName
             // 
             this.txtName.Font = new System.Drawing.Font("Meiryo UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
             this.txtName.ForeColor = System.Drawing.SystemColors.WindowFrame;
-            this.txtName.Location = new System.Drawing.Point(272, 91);
+            this.txtName.Location = new System.Drawing.Point(85, 136);
             this.txtName.Name = "txtName";
-            this.txtName.ReadOnly = true;
-            this.txtName.Size = new System.Drawing.Size(254, 28);
+            this.txtName.Size = new System.Drawing.Size(288, 28);
             this.txtName.TabIndex = 0;
             // 
             // txtPassword
             // 
             this.txtPassword.Font = new System.Drawing.Font("Meiryo UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.txtPassword.Location = new System.Drawing.Point(271, 250);
+            this.txtPassword.Location = new System.Drawing.Point(85, 454);
             this.txtPassword.Name = "txtPassword";
-            this.txtPassword.Size = new System.Drawing.Size(254, 28);
+            this.txtPassword.Size = new System.Drawing.Size(288, 28);
             this.txtPassword.TabIndex = 3;
+            this.txtPassword.TextChanged += new System.EventHandler(this.txtPassword_TextChanged);
             // 
             // txtPostcode
             // 
             this.txtPostcode.Font = new System.Drawing.Font("Meiryo UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.txtPostcode.Location = new System.Drawing.Point(272, 303);
+            this.txtPostcode.Location = new System.Drawing.Point(379, 184);
             this.txtPostcode.Name = "txtPostcode";
-            this.txtPostcode.Size = new System.Drawing.Size(254, 28);
+            this.txtPostcode.Size = new System.Drawing.Size(284, 28);
             this.txtPostcode.TabIndex = 4;
             // 
             // label1
             // 
             this.label1.AutoSize = true;
             this.label1.Font = new System.Drawing.Font("Meiryo UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.label1.Location = new System.Drawing.Point(271, 68);
+            this.label1.Location = new System.Drawing.Point(85, 101);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(54, 20);
             this.label1.TabIndex = 5;
@@ -91,7 +93,7 @@ namespace Human_Resource_Management
             // 
             this.label2.AutoSize = true;
             this.label2.Font = new System.Drawing.Font("Meiryo UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.label2.Location = new System.Drawing.Point(272, 121);
+            this.label2.Location = new System.Drawing.Point(85, 192);
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(37, 20);
             this.label2.TabIndex = 6;
@@ -101,7 +103,7 @@ namespace Human_Resource_Management
             // 
             this.label3.AutoSize = true;
             this.label3.Font = new System.Drawing.Font("Meiryo UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.label3.Location = new System.Drawing.Point(272, 174);
+            this.label3.Location = new System.Drawing.Point(85, 303);
             this.label3.Name = "label3";
             this.label3.Size = new System.Drawing.Size(43, 20);
             this.label3.TabIndex = 7;
@@ -112,7 +114,7 @@ namespace Human_Resource_Management
             // 
             this.label4.AutoSize = true;
             this.label4.Font = new System.Drawing.Font("Meiryo UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.label4.Location = new System.Drawing.Point(272, 227);
+            this.label4.Location = new System.Drawing.Point(85, 415);
             this.label4.Name = "label4";
             this.label4.Size = new System.Drawing.Size(84, 20);
             this.label4.TabIndex = 8;
@@ -122,7 +124,7 @@ namespace Human_Resource_Management
             // 
             this.label5.AutoSize = true;
             this.label5.Font = new System.Drawing.Font("Meiryo UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.label5.Location = new System.Drawing.Point(271, 280);
+            this.label5.Location = new System.Drawing.Point(379, 148);
             this.label5.Name = "label5";
             this.label5.Size = new System.Drawing.Size(88, 20);
             this.label5.TabIndex = 9;
@@ -132,7 +134,7 @@ namespace Human_Resource_Management
             // 
             this.btnEdit.BackColor = System.Drawing.SystemColors.Highlight;
             this.btnEdit.Font = new System.Drawing.Font("Meiryo UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.btnEdit.Location = new System.Drawing.Point(272, 390);
+            this.btnEdit.Location = new System.Drawing.Point(262, 543);
             this.btnEdit.Name = "btnEdit";
             this.btnEdit.Size = new System.Drawing.Size(111, 48);
             this.btnEdit.TabIndex = 10;
@@ -144,7 +146,7 @@ namespace Human_Resource_Management
             // 
             this.btnDelete.BackColor = System.Drawing.SystemColors.AppWorkspace;
             this.btnDelete.Font = new System.Drawing.Font("Meiryo UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.btnDelete.Location = new System.Drawing.Point(405, 390);
+            this.btnDelete.Location = new System.Drawing.Point(506, 543);
             this.btnDelete.Name = "btnDelete";
             this.btnDelete.Size = new System.Drawing.Size(121, 48);
             this.btnDelete.TabIndex = 11;
@@ -156,40 +158,30 @@ namespace Human_Resource_Management
             // 
             this.label6.AutoSize = true;
             this.label6.Font = new System.Drawing.Font("Meiryo UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.label6.Location = new System.Drawing.Point(272, 333);
+            this.label6.Location = new System.Drawing.Point(379, 244);
             this.label6.Name = "label6";
-            this.label6.Size = new System.Drawing.Size(39, 20);
+            this.label6.Size = new System.Drawing.Size(223, 20);
             this.label6.TabIndex = 12;
-            this.label6.Text = "Age";
+            this.label6.Text = "Date of Birth(yyyy/mm/dd)";
             // 
             // txtAge
             // 
             this.txtAge.Font = new System.Drawing.Font("Meiryo UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.txtAge.Location = new System.Drawing.Point(271, 357);
+            this.txtAge.Location = new System.Drawing.Point(379, 295);
             this.txtAge.Name = "txtAge";
-            this.txtAge.Size = new System.Drawing.Size(254, 28);
+            this.txtAge.Size = new System.Drawing.Size(284, 28);
             this.txtAge.TabIndex = 13;
             // 
             // label7
             // 
             this.label7.AutoSize = true;
             this.label7.Font = new System.Drawing.Font("Meiryo UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.label7.Location = new System.Drawing.Point(303, 9);
+            this.label7.Location = new System.Drawing.Point(139, 25);
             this.label7.Name = "label7";
             this.label7.Size = new System.Drawing.Size(175, 20);
             this.label7.TabIndex = 16;
             this.label7.Text = "Edit the labour\'s data";
             this.label7.TextAlign = System.Drawing.ContentAlignment.TopCenter;
-            // 
-            // label8
-            // 
-            this.label8.AutoSize = true;
-            this.label8.Font = new System.Drawing.Font("Meiryo UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.label8.Location = new System.Drawing.Point(175, 44);
-            this.label8.Name = "label8";
-            this.label8.Size = new System.Drawing.Size(406, 20);
-            this.label8.TabIndex = 17;
-            this.label8.Text = "Please remaind to save the work after edit the data";
             // 
             // RoleBox2
             // 
@@ -201,9 +193,9 @@ namespace Human_Resource_Management
             this.RoleBox2.Items.AddRange(new object[] {
             "User",
             "Admin"});
-            this.RoleBox2.Location = new System.Drawing.Point(272, 197);
+            this.RoleBox2.Location = new System.Drawing.Point(85, 345);
             this.RoleBox2.Name = "RoleBox2";
-            this.RoleBox2.Size = new System.Drawing.Size(254, 28);
+            this.RoleBox2.Size = new System.Drawing.Size(288, 28);
             this.RoleBox2.TabIndex = 22;
             this.RoleBox2.Text = "Select Role(User, Admin)";
             // 
@@ -219,9 +211,9 @@ namespace Human_Resource_Management
             "M",
             "F",
             "O"});
-            this.SexBox1.Location = new System.Drawing.Point(271, 144);
+            this.SexBox1.Location = new System.Drawing.Point(85, 244);
             this.SexBox1.Name = "SexBox1";
-            this.SexBox1.Size = new System.Drawing.Size(255, 28);
+            this.SexBox1.Size = new System.Drawing.Size(288, 28);
             this.SexBox1.TabIndex = 21;
             this.SexBox1.Text = "Select sex(Man, Female, Other)";
             // 
@@ -229,9 +221,9 @@ namespace Human_Resource_Management
             // 
             this.S.BackColor = System.Drawing.SystemColors.GradientInactiveCaption;
             this.S.Font = new System.Drawing.Font("Meiryo UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.S.Location = new System.Drawing.Point(606, 91);
+            this.S.Location = new System.Drawing.Point(726, 148);
             this.S.Name = "S";
-            this.S.Size = new System.Drawing.Size(135, 76);
+            this.S.Size = new System.Drawing.Size(206, 108);
             this.S.TabIndex = 23;
             this.S.Text = "View CV";
             this.S.UseVisualStyleBackColor = false;
@@ -241,9 +233,9 @@ namespace Human_Resource_Management
             // 
             this.btnShowBackground.BackColor = System.Drawing.SystemColors.GradientInactiveCaption;
             this.btnShowBackground.Font = new System.Drawing.Font("Meiryo UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.btnShowBackground.Location = new System.Drawing.Point(606, 200);
+            this.btnShowBackground.Location = new System.Drawing.Point(726, 303);
             this.btnShowBackground.Name = "btnShowBackground";
-            this.btnShowBackground.Size = new System.Drawing.Size(135, 73);
+            this.btnShowBackground.Size = new System.Drawing.Size(206, 109);
             this.btnShowBackground.TabIndex = 24;
             this.btnShowBackground.Text = "View background";
             this.btnShowBackground.UseVisualStyleBackColor = false;
@@ -253,21 +245,51 @@ namespace Human_Resource_Management
             // 
             this.btnWorkingRecord.BackColor = System.Drawing.SystemColors.GradientInactiveCaption;
             this.btnWorkingRecord.Font = new System.Drawing.Font("Meiryo UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.btnWorkingRecord.Location = new System.Drawing.Point(606, 314);
+            this.btnWorkingRecord.Location = new System.Drawing.Point(726, 440);
             this.btnWorkingRecord.Name = "btnWorkingRecord";
-            this.btnWorkingRecord.Size = new System.Drawing.Size(135, 70);
+            this.btnWorkingRecord.Size = new System.Drawing.Size(206, 112);
             this.btnWorkingRecord.TabIndex = 25;
             this.btnWorkingRecord.Text = "View Working record";
             this.btnWorkingRecord.TextImageRelation = System.Windows.Forms.TextImageRelation.TextBeforeImage;
             this.btnWorkingRecord.UseVisualStyleBackColor = false;
             this.btnWorkingRecord.Click += new System.EventHandler(this.btnWorkingRecord_Click);
             // 
+            // DrivingLisence
+            // 
+            this.DrivingLisence.AutoSize = true;
+            this.DrivingLisence.Font = new System.Drawing.Font("Meiryo UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.DrivingLisence.Location = new System.Drawing.Point(379, 377);
+            this.DrivingLisence.Name = "DrivingLisence";
+            this.DrivingLisence.Size = new System.Drawing.Size(165, 20);
+            this.DrivingLisence.TabIndex = 26;
+            this.DrivingLisence.Text = "DrivingLisence(Y/N)";
+            // 
+            // txtDrivingLisence
+            // 
+            this.txtDrivingLisence.Font = new System.Drawing.Font("Yu Gothic UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.txtDrivingLisence.Location = new System.Drawing.Point(379, 412);
+            this.txtDrivingLisence.Name = "txtDrivingLisence";
+            this.txtDrivingLisence.Size = new System.Drawing.Size(294, 29);
+            this.txtDrivingLisence.TabIndex = 27;
+            // 
+            // label8
+            // 
+            this.label8.AutoSize = true;
+            this.label8.Font = new System.Drawing.Font("Meiryo UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.label8.Location = new System.Drawing.Point(336, 25);
+            this.label8.Name = "label8";
+            this.label8.Size = new System.Drawing.Size(406, 20);
+            this.label8.TabIndex = 17;
+            this.label8.Text = "Please remaind to save the work after edit the data";
+            // 
             // FormEdit
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.SystemColors.GradientActiveCaption;
-            this.ClientSize = new System.Drawing.Size(800, 450);
+            this.ClientSize = new System.Drawing.Size(1045, 614);
+            this.Controls.Add(this.txtDrivingLisence);
+            this.Controls.Add(this.DrivingLisence);
             this.Controls.Add(this.btnWorkingRecord);
             this.Controls.Add(this.btnShowBackground);
             this.Controls.Add(this.S);
@@ -310,11 +332,13 @@ namespace Human_Resource_Management
         private System.Windows.Forms.Label label6;
         public System.Windows.Forms.TextBox txtAge;
         private System.Windows.Forms.Label label7;
-        private System.Windows.Forms.Label label8;
         private System.Windows.Forms.ComboBox RoleBox2;
         private System.Windows.Forms.ComboBox SexBox1;
         private System.Windows.Forms.Button S;
         private System.Windows.Forms.Button btnShowBackground;
         private System.Windows.Forms.Button btnWorkingRecord;
+        private System.Windows.Forms.Label DrivingLisence;
+        private System.Windows.Forms.TextBox txtDrivingLisence;
+        private System.Windows.Forms.Label label8;
     }
 }

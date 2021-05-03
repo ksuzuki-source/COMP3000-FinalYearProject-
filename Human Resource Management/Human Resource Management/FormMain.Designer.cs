@@ -29,7 +29,6 @@ namespace Human_Resource_Management
         /// </summary>
         private void InitializeComponent()
         {
-            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(FormMain));
             this.button1 = new System.Windows.Forms.Button();
             this.button2 = new System.Windows.Forms.Button();
             this.label1 = new System.Windows.Forms.Label();
@@ -41,7 +40,7 @@ namespace Human_Resource_Management
             // button1
             // 
             this.button1.AutoSize = true;
-            this.button1.BackColor = System.Drawing.Color.NavajoWhite;
+            this.button1.BackColor = System.Drawing.SystemColors.InactiveBorder;
             this.button1.Font = new System.Drawing.Font("Meiryo UI", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
             this.button1.Location = new System.Drawing.Point(179, 255);
             this.button1.Name = "button1";
@@ -54,7 +53,7 @@ namespace Human_Resource_Management
             // button2
             // 
             this.button2.AutoSize = true;
-            this.button2.BackColor = System.Drawing.Color.NavajoWhite;
+            this.button2.BackColor = System.Drawing.Color.FloralWhite;
             this.button2.Font = new System.Drawing.Font("Meiryo UI", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
             this.button2.Location = new System.Drawing.Point(563, 255);
             this.button2.Name = "button2";
@@ -67,7 +66,7 @@ namespace Human_Resource_Management
             // label1
             // 
             this.label1.AutoSize = true;
-            this.label1.BackColor = System.Drawing.SystemColors.ButtonHighlight;
+            this.label1.BackColor = System.Drawing.SystemColors.ActiveCaption;
             this.label1.Font = new System.Drawing.Font("Meiryo UI", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
             this.label1.ForeColor = System.Drawing.SystemColors.WindowText;
             this.label1.Location = new System.Drawing.Point(301, 49);
@@ -79,7 +78,7 @@ namespace Human_Resource_Management
             // btnRegister
             // 
             this.btnRegister.AutoSize = true;
-            this.btnRegister.BackColor = System.Drawing.Color.LightCoral;
+            this.btnRegister.BackColor = System.Drawing.Color.Linen;
             this.btnRegister.Font = new System.Drawing.Font("Meiryo UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
             this.btnRegister.Location = new System.Drawing.Point(425, 484);
             this.btnRegister.Name = "btnRegister";
@@ -92,7 +91,7 @@ namespace Human_Resource_Management
             // label2
             // 
             this.label2.AutoSize = true;
-            this.label2.BackColor = System.Drawing.SystemColors.ButtonHighlight;
+            this.label2.BackColor = System.Drawing.SystemColors.ActiveCaption;
             this.label2.Font = new System.Drawing.Font("Meiryo UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
             this.label2.Location = new System.Drawing.Point(301, 442);
             this.label2.Name = "label2";
@@ -104,7 +103,7 @@ namespace Human_Resource_Management
             // label3
             // 
             this.label3.AutoSize = true;
-            this.label3.BackColor = System.Drawing.SystemColors.ButtonHighlight;
+            this.label3.BackColor = System.Drawing.SystemColors.ActiveCaption;
             this.label3.Font = new System.Drawing.Font("Meiryo UI", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
             this.label3.Location = new System.Drawing.Point(112, 100);
             this.label3.Name = "label3";
@@ -118,8 +117,7 @@ namespace Human_Resource_Management
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.BackColor = System.Drawing.SystemColors.ButtonHighlight;
-            this.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("$this.BackgroundImage")));
+            this.BackColor = System.Drawing.SystemColors.ActiveCaption;
             this.ClientSize = new System.Drawing.Size(920, 535);
             this.Controls.Add(this.label3);
             this.Controls.Add(this.label2);

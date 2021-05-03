@@ -7,6 +7,7 @@ using System.Text;
 using System.Windows.Forms;
 using System.IO;
 using Microsoft.VisualBasic.FileIO;
+using System.Data.SqlClient;
 
 namespace Human_Resource_Management
 {
@@ -14,6 +15,12 @@ namespace Human_Resource_Management
     public partial class FormViewData : Form
     {
         //using BindingSource and datatable to make the search function more flexible
+        private SqlConnection Cnn;
+        private SqlCommand Cmd;
+        private SqlCommand InsCmd;
+        private SqlCommand UpdCmd;
+        private SqlCommand DelCmd;
+        private SqlDataAdapter Dta;
         public BindingSource bindingSource1;
         public DataTable table;
         public string path;
@@ -27,32 +34,64 @@ namespace Human_Resource_Management
             this.bindingSource1 =
                 new BindingSource(this.components);
             this.dataGridView1.DataSource = this.bindingSource1;
-            path = "data/test.csv";
+            //path = "data/test.csv";
         }
 
         private void Form2_Load(object sender, EventArgs e)
         {
+            Cnn = new SqlConnection(Properties.Settings.Default.sqlServer);
+            Cnn.Open();
 
+            StringBuilder sql = new StringBuilder();
+            sql.AppendLine("SELECT");
+            sql.AppendLine("  *");
+            sql.AppendLine("FROM worker");
+
+            Cmd = new SqlCommand("SELECT * FROM worker", Cnn);
+            Dta = new SqlDataAdapter(Cmd);
+
+            InsCmd = new SqlCommand("INSERT INTO worker (Name, SEX, Role, Password, Postcode, DateofBirth, DrivingLisence) " +
+                     "VALUES ( @Name, @SEX, @Role, @Password, @Postcode, @DateofBirth, @DrivingLisence)", Cnn);
+
+            InsCmd.Parameters.Add("@ID", SqlDbType.Int, 4, "ID");
+            InsCmd.Parameters.Add("@Name", SqlDbType.VarChar, 50, "Name");
+            InsCmd.Parameters.Add("@SEX", SqlDbType.Char, 10, "SEX");
+            InsCmd.Parameters.Add("@Role", SqlDbType.VarChar, 50, "Role");
+            InsCmd.Parameters.Add("@Password", SqlDbType.VarChar, 50, "Password");
+            InsCmd.Parameters.Add("@Postcode", SqlDbType.Char, 10, "Postcode");
+            InsCmd.Parameters.Add("@DateofBirth", SqlDbType.Date, 3, "DateofBirth");
+            InsCmd.Parameters.Add("@DrivingLisence", SqlDbType.Char, 1, "DrivingLisence");
+
+
+
+
+            DelCmd = new SqlCommand("DELETE FROM worker WHERE ID = @ID", Cnn);
+            DelCmd.Parameters.Add("@ID", SqlDbType.Int, 4, "ID");
+
+            Dta.SelectCommand = Cmd;
+            Dta.InsertCommand = InsCmd;
+            Dta.UpdateCommand = UpdCmd;
+            Dta.DeleteCommand = DelCmd;
+            table.Clear();
+            Dta.Fill(table);
+            bindingSource1.DataSource = table;
+            Cnn.Close();
         }
 
         //press btn load to load the file 
         private void btnLoad_Click(object sender, EventArgs e)
         {
+            Dta.Fill(table);
+            //dataGridView1.DataSource = table;
             //OpenFileDialog();
-            table = Readcsv.Read_csv("data/test.csv");
+            //table = Readcsv.Read_csv("data/test.csv");
             bindingSource1.DataSource = table;
         }
 
         //press btn export to save the file 
         private void btnSave_Click(object sender, EventArgs e)
         {
-            if (path != null)
-            {
-                //SavefileDialog();
-                Savecsv sa = new Savecsv();
-                sa.SaveDataTableAsCsv(table, path);
-                MessageBox.Show("Saved");
-            }
+            Update();
         }
 
         //let the user to search with their selected condition 
@@ -65,6 +104,7 @@ namespace Human_Resource_Management
         private void btnDelete_Click(object sender, EventArgs e)
         {
             DeleteRecord();
+            
         }
 
         private void btnReset_Click(object sender, EventArgs e)
@@ -75,17 +115,17 @@ namespace Human_Resource_Management
 
         public void btnEdit_Click(object sender, EventArgs e)
         {
-            if (path != null)
+            if (table != null)
             {
                 //this.bindingSource1.ResetBindings(false);
-                FormEdit fe = new FormEdit(table, dataGridView1.CurrentRow);
+                FormEdit fe = new FormEdit(table, (int)dataGridView1.CurrentRow.Cells[0].Value);
                 fe.Show();
             }
         }
 
         private void btnAdd_Click(object sender, EventArgs e)
         {
-            if (path != null)
+            if (table != null)
             {
                 FormAdminAdd fa = new FormAdminAdd(table, path);
                 fa.Show();
@@ -97,9 +137,10 @@ namespace Human_Resource_Management
 
         private void btnReflesh_Click(object sender, EventArgs e)
         {
-            if (path != null)
+            if (table != null)
             {
-                table = Readcsv.Read_csv(path);
+                table.Clear();
+                Dta.Fill(table);
                 bindingSource1.DataSource = table;
             }
 
@@ -113,59 +154,36 @@ namespace Human_Resource_Management
 
 
 
-        public void OpenFileDialog()
+
+        public void Update()
         {
-            OpenFileDialog op = new OpenFileDialog();
-            op.Title = "OPEN FILE";
-            op.InitialDirectory = @Environment.GetFolderPath(Environment.SpecialFolder.Desktop);
-            op.FileName = null;
-            op.Filter = "CSV file(*.csv)|*.csv";
-            op.FilterIndex = 1;
-            
-            DialogResult result = op.ShowDialog();
-            if (result == DialogResult.OK)
+            for (int i = 0; i <= dataGridView1.Rows.Count - 1; i++)
             {
-                path = op.FileName;
-
-                table =
-                    Readcsv.Read_csv(path);
-
-
-                bindingSource1.DataSource = table;
-               
+                UpdCmd = new SqlCommand("UPDATE worker SET  Name = @Name, SEX = @SEX, Role = @Role," +
+                    " Password = @Password, Postcode = @Postcode, DateofBirth = @DateofBirth, DrivingLisence = @DrivingLisence " +
+                    "WHERE ID = @ID", Cnn);
+                UpdCmd.Parameters.Add("@ID", SqlDbType.Int, 4, "ID");
+                UpdCmd.Parameters.Add("@Name", SqlDbType.VarChar, 50, "Name");
+                UpdCmd.Parameters.Add("@SEX", SqlDbType.Char, 10, "SEX");
+                UpdCmd.Parameters.Add("@Role", SqlDbType.VarChar, 50, "Role");
+                UpdCmd.Parameters.Add("@Password", SqlDbType.VarChar, 50, "Password");
+                UpdCmd.Parameters.Add("@Postcode", SqlDbType.Char, 10, "Postcode");
+                UpdCmd.Parameters.Add("@DateofBirth", SqlDbType.Date, 3, "DateofBirth");
+                UpdCmd.Parameters.Add("@DrivingLisence", SqlDbType.Char, 1, "DrivingLisence");
+                //UpdCmd.Parameters.Add("@ID", SqlDbType.Int, 4, (int)dataGridView1.Rows[i].Cells[0].Value);
+                //UpdCmd.Parameters.Add("@Name", SqlDbType.VarChar, 50, (string)dataGridView1.Rows[i].Cells[1].Value);
+                //UpdCmd.Parameters.Add("@SEX", SqlDbType.Char, 10, (string)dataGridView1.Rows[i].Cells[2].Value);
+                //UpdCmd.Parameters.Add("@Role", SqlDbType.VarChar, 50, (string)dataGridView1.Rows[i].Cells[3].Value);
+                //UpdCmd.Parameters.Add("@Password", SqlDbType.VarChar, 50, (string)dataGridView1.Rows[i].Cells[4].Value);
+                //UpdCmd.Parameters.Add("@Postcode", SqlDbType.Char, 10, (string)dataGridView1.Rows[i].Cells[5].Value);
+                //UpdCmd.Parameters.Add("@DateofBirth", SqlDbType.Date, 3, (string)dataGridView1.Rows[i].Cells[6].Value);
+                //UpdCmd.Parameters.Add("@DrivingLisence", SqlDbType.Char, 1, (string)dataGridView1.Rows[i].Cells[7].Value);
             }
-            else if (result == DialogResult.Cancel)
-            { }
-        }
+            Dta.UpdateCommand = UpdCmd;
 
-
-        public void SavefileDialog()
-        {
-            SaveFileDialog sa = new SaveFileDialog();
-            sa.Title = "OPEN FILE";
-            sa.InitialDirectory = @"C:\";
-            sa.FileName = null;
-            sa.Filter = "CSV file(*.csv)|*.csv";
-            sa.FilterIndex = 1;
-
-            if (table != null)
-            {
-                DialogResult result = sa.ShowDialog();
-                if (result == DialogResult.OK)
-                {
-                    Savecsv csv = new Savecsv();
-                    csv.SaveDataTableAsCsv(table, sa.FileName);
-                    table = Readcsv.Read_csv(sa.FileName);
-
-                    
-                }
-                else if (result == DialogResult.Cancel)
-                { }
-            }
-            else
-            {
-                MessageBox.Show("Table is null");
-            }
+            Dta.Update(table);
+            table.Clear();
+            Dta.Fill(table);
 
         }
 
@@ -231,6 +249,7 @@ namespace Human_Resource_Management
                     {
                         dataGridView1.Rows.Remove(row);
                     }
+                    Dta.Update(table);
                 }
                 else
                 { }

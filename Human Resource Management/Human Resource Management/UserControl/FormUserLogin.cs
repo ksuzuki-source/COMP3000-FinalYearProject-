@@ -14,8 +14,9 @@ namespace Human_Resource_Management
         string password;
         private BindingSource bindingSource1;
         private DataTable table;
-        public FormUserLogin()
+        public FormUserLogin(DataTable dataTable)
         {
+            table = dataTable;
             InitializeComponent();
             this.components = new Container();
             this.bindingSource1 =
@@ -33,8 +34,8 @@ namespace Human_Resource_Management
         {
             userName = this.textBox1.Text;
             password = this.textBox2.Text;
-            string test = "data/test";
-            table = Readcsv.Read_csv(test + ".csv");
+            //string test = "data/test";
+            //table = Readcsv.Read_csv(test + ".csv");
             bindingSource1.DataSource = table;
             int numOfrows = table.Rows.Count;
             int numOfcolumns = table.Columns.Count;
@@ -43,13 +44,14 @@ namespace Human_Resource_Management
 
             for (int j = 0; j < numOfrows; j++)
             {
-                if (table.Rows[j][0].ToString() == userName)
+                if (table.Rows[j][1].ToString() == userName)
                 {
-                    if (table.Rows[j][3].ToString() == password)
+                    if (table.Rows[j][4].ToString() == password)
                     {
+                        string ID =  table.Rows[j][0].ToString(); 
                         MessageBox.Show("Success!");
                         //FormWorkingTime fwt = new FormWorkingTime(userName);
-                        FormUserMain FUM = new FormUserMain(userName);
+                        FormUserMain FUM = new FormUserMain(ID);
                         FUM.Show();
                         //fwt.Show();
                         this.Hide();
