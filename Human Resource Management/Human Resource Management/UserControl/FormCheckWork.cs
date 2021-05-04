@@ -5,6 +5,7 @@ using System.Data;
 using System.Drawing;
 using System.Text;
 using System.Windows.Forms;
+using System.Data.SqlClient;
 
 namespace Human_Resource_Management
 {
@@ -12,21 +13,48 @@ namespace Human_Resource_Management
     {
         public BindingSource bindingSource1;
         DataTable table;
-        string path;
-        public FormCheckWork(string rcvpath)
+        private SqlConnection Cnn;
+        private SqlCommand Cmd;
+        private SqlCommand InsCmd;
+        private SqlCommand UpdCmd;
+        private SqlCommand DelCmd;
+        private SqlDataAdapter Dta;
+        int ID;
+        public FormCheckWork(int rcvID)
         {
             InitializeComponent();
-            path = rcvpath;
-            table = Readcsv.Read_WokingDataCsv(path);
+            ID = rcvID;
+            
             
             this.components = new Container();
             this.bindingSource1 =
                 new BindingSource(this.components);
             this.dataGridView1.DataSource = this.bindingSource1;
+
         }
 
         private void Form1_Load(object sender, EventArgs e)
         {
+            Cnn = new SqlConnection(Properties.Settings.Default.sqlServer);
+                       
+            try
+            {
+                Cmd = new SqlCommand("SELECT * FROM WorkingRecord WHERE " + ID, Cnn);
+                Dta = new SqlDataAdapter(Cmd);
+                Dta.SelectCommand = Cmd;
+                
+                Cnn.Open();                
+                Dta.Fill(table);
+            }
+            catch (Exception exception)
+            {
+                MessageBox.Show(exception.Message);
+                throw;
+            }
+            finally
+            {
+                Cnn.Close();
+            }
             label1.Text = ("This is your working record");
             bindingSource1.DataSource = table;
         }

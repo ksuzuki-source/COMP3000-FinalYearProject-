@@ -142,14 +142,15 @@ namespace Human_Resource_Management
 
         private void btnShowBackground_Click(object sender, EventArgs e)
         {
-            FormBackground FBG = new FormBackground(txtName.Text);
+            string Name = txtName.Text;
+            FormBackground FBG = new FormBackground(ID, Name);
             FBG.Show();
         }
 
         private void btnWorkingRecord_Click(object sender, EventArgs e)
         {
-            string path = ("data/WorkingData/" + txtName.Text + ".csv");
-            FormCheckWork FCW = new FormCheckWork(path);
+            
+            FormCheckWork FCW = new FormCheckWork(ID);
             FCW.Show();
         }
 

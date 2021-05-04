@@ -320,6 +320,7 @@ namespace Human_Resource_Management
             this.Name = "FormAdminAdd";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Form2";
+            this.Load += new System.EventHandler(this.FormAdminAdd_Load);
             this.ResumeLayout(false);
             this.PerformLayout();
 

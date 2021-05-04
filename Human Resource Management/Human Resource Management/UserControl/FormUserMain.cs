@@ -10,37 +10,37 @@ namespace Human_Resource_Management
 {
     public partial class FormUserMain : Form
     {
-        string path;
-        string sendpath;
-        public FormUserMain(string rcvopath)
+
+        int ID;
+        string Name;
+        public FormUserMain(int rcvID, string rcvName)
         {
             InitializeComponent();
-            path = rcvopath;
-            sendpath = rcvopath;
-            
+            ID = rcvID;
+            Name = rcvName;
+
+
         }
 
         private void btnWTR_Click(object sender, EventArgs e)
         {
-            FormWorkingTime FWT = new FormWorkingTime(path);
+            FormWorkingTime FWT = new FormWorkingTime(ID, Name);
             FWT.Show();
         }
 
         private void btnCV_Click(object sender, EventArgs e)
         {
-            FormCV FCV = new FormCV(path);
-            FCV.Show();
         }
 
         private void btnDetail_Click(object sender, EventArgs e)
         {
-            FormBackground FLD = new FormBackground(path);
+            FormBackground FLD = new FormBackground(ID, Name);
             FLD.Show();
         }
 
         private void FormUserMain_Load(object sender, EventArgs e)
         {
-            label1.Text = ("Welcome " + path + "!!");
+            label1.Text = ("Welcome " + Name + "!!");
         }
     }
 }

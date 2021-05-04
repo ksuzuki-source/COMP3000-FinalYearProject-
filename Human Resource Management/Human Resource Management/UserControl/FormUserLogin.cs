@@ -48,16 +48,18 @@ namespace Human_Resource_Management
                 {
                     if (table.Rows[j][4].ToString() == password)
                     {
-                        string ID =  table.Rows[j][0].ToString(); 
+                        string ID =  table.Rows[j][0].ToString();
+                        string Name = table.Rows[j][1].ToString();
+                        int sendID = Int32.Parse(ID);
                         MessageBox.Show("Success!");
                         //FormWorkingTime fwt = new FormWorkingTime(userName);
-                        FormUserMain FUM = new FormUserMain(ID);
+                        FormUserMain FUM = new FormUserMain(sendID, Name);
                         FUM.Show();
                         //fwt.Show();
                         this.Hide();
-                        break;
+                        
                     }
-                    else MessageBox.Show("Tryagain");
+                    break;
                 }
 
                 else if (j == numOfrows - 1)
