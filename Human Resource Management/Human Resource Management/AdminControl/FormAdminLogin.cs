@@ -72,7 +72,6 @@ namespace Human_Resource_Management
                             MessageBox.Show("only admin can login to this form");
                         }
                     }
-                    else MessageBox.Show("Tryagain");
                 }
                 
                 else if (j == numOfrows-1)
@@ -80,10 +79,6 @@ namespace Human_Resource_Management
                     MessageBox.Show("Tryagain");
                 }
 
-                else
-                {
-                    continue;
-                }
             }
             
 

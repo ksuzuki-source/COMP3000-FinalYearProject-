@@ -33,27 +33,26 @@ namespace Human_Resource_Management
         private void FormLabourDetails_Load(object sender, EventArgs e)
         {
             Cnn = new SqlConnection(Properties.Settings.Default.sqlServer);
+
             Cnn.Open();
+
             try
             {
-                Cmd = new SqlCommand("SELECT BackGround FROM BackGrounds WHERE ID = " + ID, Cnn);
+                Cmd = new SqlCommand("SELECT * FROM BackGrounds WHERE ID = " + ID, Cnn);
                 SqlDataReader dr = Cmd.ExecuteReader();
-                while (dr.Read())
-                {
-                    background = (string)dr.GetValue(0);
-                    Name = (string)dr.GetValue(1);
-                    textBox1.Clear();
-                    textBox1.Text = background;
-                }
-                
+                dr.Read();
+                background = dr.GetString(2);
+                Name = dr.GetString(1);
+                textBox1.Clear();
+                textBox1.Text = background;
+                dr.Close();
             }
-            catch (Exception exception)
-            {
-                MessageBox.Show(exception.Message);
-                throw;
-            }
+
+            catch (Exception)
+            { }
             finally
             {
+                
                 Cnn.Close();
             }
         }
@@ -81,15 +80,17 @@ namespace Human_Resource_Management
                 DelCmd.ExecuteNonQuery();
                 InsCmd.ExecuteNonQuery();
                 MessageBox.Show("Saved");
+
             }
             catch(Exception exception)
             {
-                MessageBox.Show(exception.Message);
-                throw;
+                MessageBox.Show("Error!" + exception.Message);
+                
             }
             finally
             {
                 Cnn.Close();
+                this.Close();
             }
 
         }

@@ -42,35 +42,42 @@ namespace Human_Resource_Management
 
             Cmd = new SqlCommand("SELECT * FROM WorkingRecord WHERE ID = " + ID, Cnn);
 
-            InsCmd = new SqlCommand("INSERT INTO WorkingRecord (ID, Name WorkingIn, LeaveWorking, WorkingDuration) " +
-                     "VALUES ( @ID, @Name @WorkingIn, @LeaveWorking, @WorkingDuration)", Cnn);
+            InsCmd = new SqlCommand("INSERT INTO WorkingRecord (ID, Name, WorkingIn, LeaveWorking, WorkingDuration) " +
+                     "VALUES ( @ID, @Name, @WorkingIn, @LeaveWorking, @WorkingDuration)", Cnn);
             InsCmd.Parameters.Add(new SqlParameter("@ID", ID));
             InsCmd.Parameters.Add(new SqlParameter("@Name", name));
-            InsCmd.Parameters.Add(new SqlParameter("@WorkingIn", "WorkingIn"));
-            InsCmd.Parameters.Add(new SqlParameter("@LeaveWorking", "LeaveWorking"));
-            InsCmd.Parameters.Add(new SqlParameter("@WorkingDuration", "WorkingDuration"));
+            InsCmd.Parameters.Add(new SqlParameter("@WorkingIn", WorkIn));
+            InsCmd.Parameters.Add(new SqlParameter("@LeaveWorking", LeaveWork));
+            InsCmd.Parameters.Add(new SqlParameter("@WorkingDuration", WorkingDur));
 
             UpdCmd = new SqlCommand("UPDATE WorkingRecord SET WorkingIn = @WorkingIn, LeaveWorking = @LeaveWorking," +
                 " WorkingDuration = @WorkingDuration WHERE ID = @ID", Cnn);
 
             //UpdCmd.Parameters.Add(new SqlParameter("@ID", "ID"));
-            UpdCmd.Parameters.Add(new SqlParameter("@WorkingIn", "WorkingIn"));
-            UpdCmd.Parameters.Add(new SqlParameter("@LeaveWorking", "LeaveWorking"));
-            UpdCmd.Parameters.Add(new SqlParameter("@WorkingDuration", "WorkingDuration"));
+            UpdCmd.Parameters.Add(new SqlParameter("@WorkingIn", WorkIn));
+            UpdCmd.Parameters.Add(new SqlParameter("@LeaveWorking", LeaveWork));
+            UpdCmd.Parameters.Add(new SqlParameter("@WorkingDuration", WorkingDur));
 
             Dta = new SqlDataAdapter(Cmd);
             Dta.SelectCommand = Cmd;
             Dta.InsertCommand = InsCmd;
             Dta.UpdateCommand = UpdCmd;
             Dta.DeleteCommand = DelCmd;
+
             Dta.Fill(table);
+            table.Columns[2].DataType = typeof(DateTime);
+            table.Columns[3].DataType = typeof(DateTime);
+            table.Columns[4].DataType = typeof(DateTime);
             Cnn.Close();
 
         }
 
         private void btnIn_Click(object sender, EventArgs e)
         {
-            table.Rows.Add(ID, DateTime.Now, null, null);
+            WorkIn = DateTime.Now;
+            //string time = WorkIn.ToString("MM/dd/yyyy HH:mm:ss");
+            
+            table.Rows.Add(ID, Name, WorkIn, null, null);
             try
             {
                 Cnn.Open();
@@ -101,14 +108,14 @@ namespace Human_Resource_Management
             int latestRow = table.Rows.Count - 1;
             if (table.Rows[latestRow][3].ToString() == "")
             {
-                table.Rows[latestRow][2] = DateTime.Now;
-                TmpWorkIn = (string)table.Rows[latestRow][1];
-                TmpLeaveWork = (string)table.Rows[latestRow][2];
+                table.Rows[latestRow][3] = DateTime.Now;
+                TmpWorkIn = (string)table.Rows[latestRow][2];
+                TmpLeaveWork = (string)table.Rows[latestRow][3];
                 WorkIn = DateTime.Parse(TmpWorkIn);
                 LeaveWork = DateTime.Parse(TmpLeaveWork);
 
                 TimeSpan ts1 = LeaveWork - WorkIn;         //culculate the working time with leave time - work in time
-                table.Rows[latestRow][3] = ts1.ToString();
+                table.Rows[latestRow][4] = ts1;
 
                 try
                 {

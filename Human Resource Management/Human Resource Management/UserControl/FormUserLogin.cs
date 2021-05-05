@@ -48,7 +48,7 @@ namespace Human_Resource_Management
                 {
                     if (table.Rows[j][4].ToString() == password)
                     {
-                        string ID =  table.Rows[j][0].ToString();
+                        string ID = table.Rows[j][0].ToString();
                         string Name = table.Rows[j][1].ToString();
                         int sendID = Int32.Parse(ID);
                         MessageBox.Show("Success!");
@@ -56,22 +56,20 @@ namespace Human_Resource_Management
                         FormUserMain FUM = new FormUserMain(sendID, Name);
                         FUM.Show();
                         //fwt.Show();
-                        this.Hide();
-                        
+                        this.Close();
+
                     }
-                    break;
+
+
                 }
 
-                else if (j == numOfrows - 1)
+                else if (j == numOfrows-1)
                 {
                     MessageBox.Show("Tryagain");
                 }
-
-                else
-                {
-                    continue;
-                }
+                
             }
+
 
 
 

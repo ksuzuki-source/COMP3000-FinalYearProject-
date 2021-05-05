@@ -37,23 +37,23 @@ namespace Human_Resource_Management
             InsCmd = new SqlCommand("INSERT INTO worker (Name, SEX, Role, Password, Postcode, DateofBirth, DrivingLisence) " +
                      "VALUES ( @Name, @SEX, @Role, @Password, @Postcode, @DateofBirth, @DrivingLisence)", Cnn);
 
-            InsCmd.Parameters.Add(new SqlParameter("@ID", "ID"));
-            InsCmd.Parameters.Add(new SqlParameter("@Name", "Name"));
-            InsCmd.Parameters.Add(new SqlParameter("@SEX", "SEX"));
-            InsCmd.Parameters.Add(new SqlParameter("@Role", "Role"));
-            InsCmd.Parameters.Add(new SqlParameter("@Password", "Password"));
-            InsCmd.Parameters.Add(new SqlParameter("@Postcode", "Postcode"));
-            InsCmd.Parameters.Add(new SqlParameter("@DateofBirth", "DateofBirth"));
-            InsCmd.Parameters.Add(new SqlParameter("@DrivingLisence", "DrivingLisence"));
+            //InsCmd.Parameters.Add(new SqlParameter("@ID", "ID"));
+            //InsCmd.Parameters.Add(new SqlParameter("@Name", "Name"));
+            //InsCmd.Parameters.Add(new SqlParameter("@SEX", "SEX"));
+            //InsCmd.Parameters.Add(new SqlParameter("@Role", "Role"));
+            //InsCmd.Parameters.Add(new SqlParameter("@Password", "Password"));
+            //InsCmd.Parameters.Add(new SqlParameter("@Postcode", "Postcode"));
+            //InsCmd.Parameters.Add(new SqlParameter("@DateofBirth", "DateofBirth"));
+            //InsCmd.Parameters.Add(new SqlParameter("@DrivingLisence", "DrivingLisence"));
 
-            //InsCmd.Parameters.Add("@ID", SqlDbType.Int, 4, "ID");
-            //InsCmd.Parameters.Add("@Name", SqlDbType.VarChar, 50, "Name");
-            //InsCmd.Parameters.Add("@SEX", SqlDbType.Char, 10, "SEX");
-            //InsCmd.Parameters.Add("@Role", SqlDbType.VarChar, 50, "Role");
-            //InsCmd.Parameters.Add("@Password", SqlDbType.VarChar, 50, "Password");
-            //InsCmd.Parameters.Add("@Postcode", SqlDbType.Char, 10, "Postcode");
-            //InsCmd.Parameters.Add("@DateofBirth", SqlDbType.Date, 3, "DateofBirth");
-            //InsCmd.Parameters.Add("@DrivingLisence", SqlDbType.Char, 1, "DrivingLisence");
+            InsCmd.Parameters.Add("@ID", SqlDbType.Int, 4, "ID");
+            InsCmd.Parameters.Add("@Name", SqlDbType.VarChar, 50, "Name");
+            InsCmd.Parameters.Add("@SEX", SqlDbType.Char, 10, "SEX");
+            InsCmd.Parameters.Add("@Role", SqlDbType.VarChar, 50, "Role");
+            InsCmd.Parameters.Add("@Password", SqlDbType.VarChar, 50, "Password");
+            InsCmd.Parameters.Add("@Postcode", SqlDbType.Char, 10, "Postcode");
+            InsCmd.Parameters.Add("@DateofBirth", SqlDbType.Date, 3, "DateofBirth");
+            InsCmd.Parameters.Add("@DrivingLisence", SqlDbType.Char, 1, "DrivingLisence");
 
 
 
@@ -128,6 +128,5 @@ namespace Human_Resource_Management
         }
 
 
-       
     }
 }

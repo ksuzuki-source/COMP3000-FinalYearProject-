@@ -297,6 +297,7 @@ namespace Human_Resource_Management
             this.btnCancel.TabIndex = 95;
             this.btnCancel.Text = "Cancel";
             this.btnCancel.UseVisualStyleBackColor = true;
+            this.btnCancel.Click += new System.EventHandler(this.btnCancel_Click);
             // 
             // btnAdd
             // 
@@ -307,6 +308,7 @@ namespace Human_Resource_Management
             this.btnAdd.TabIndex = 94;
             this.btnAdd.Text = "Add";
             this.btnAdd.UseVisualStyleBackColor = true;
+            this.btnAdd.Click += new System.EventHandler(this.btnAdd_Click);
             // 
             // label5
             // 

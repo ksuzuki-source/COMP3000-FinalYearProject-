@@ -49,7 +49,7 @@ namespace Human_Resource_Management
             catch (Exception exception)
             {
                 MessageBox.Show(exception.Message);
-                throw;
+               
             }
             finally
             {
