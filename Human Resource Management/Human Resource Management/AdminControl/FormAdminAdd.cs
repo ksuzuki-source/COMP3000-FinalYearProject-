@@ -30,10 +30,13 @@ namespace Human_Resource_Management
 
         private void FormAdminAdd_Load(object sender, EventArgs e)
         {
+            //Connection String from setting prppaty
             Cnn = new SqlConnection(Properties.Settings.Default.sqlServer);
+            //create DataAdapter to communicate with the SQL server
             Dta = new SqlDataAdapter(Cmd);
             Cnn.Open();
 
+            //set the insert command
             InsCmd = new SqlCommand("INSERT INTO worker (Name, SEX, Role, Password, Postcode, DateofBirth, DrivingLisence) " +
                      "VALUES ( @Name, @SEX, @Role, @Password, @Postcode, @DateofBirth, @DrivingLisence)", Cnn);
 
@@ -46,6 +49,7 @@ namespace Human_Resource_Management
             //InsCmd.Parameters.Add(new SqlParameter("@DateofBirth", "DateofBirth"));
             //InsCmd.Parameters.Add(new SqlParameter("@DrivingLisence", "DrivingLisence"));
 
+            //Add the value for insert command parameter
             InsCmd.Parameters.Add("@ID", SqlDbType.Int, 4, "ID");
             InsCmd.Parameters.Add("@Name", SqlDbType.VarChar, 50, "Name");
             InsCmd.Parameters.Add("@SEX", SqlDbType.Char, 10, "SEX");
@@ -91,30 +95,34 @@ namespace Human_Resource_Management
         
         public void addNew()
         {
-
-            if (txtName.Text != null && (SexBox1.Text == "M" || SexBox1.Text == "F" || SexBox1.Text == "O")           //check the input values
+            //Check the validation of input
+            if (txtName.Text != null && (SexBox1.Text == "M" || SexBox1.Text == "F" || SexBox1.Text == "O")          
                 && (RoleBox2.Text == "User" || RoleBox2.Text == "Admin")
                 && txtPassword.Text != null
                 && txtPostcode.Text != null
                 && txtAge.Text != null)
             {
                 DateTime date;
+                //convert to datetime from string
                 if (DateTime.TryParse(txtAge.Text, out date))
                 {
                     int ID = 0;
+                    //Add new row to the table 
                     table.Rows.Add(ID, txtName.Text, SexBox1.Text, RoleBox2.Text,
-                        txtPassword.Text, txtPostcode.Text, date, txtDrivingLisence.Text);   //if the value is valid, add new row to the table                     
+                        txtPassword.Text, txtPostcode.Text, date, txtDrivingLisence.Text);   
+                    //return to view data form
                     FormViewData fvd = new FormViewData(table);
                     try
                     {
+                        //try to update the database
                         Cnn.Open();
                         Dta.Update(table);
                         MessageBox.Show("User is added");
                     }
                     catch(Exception exception)
                     {
+                        //if exception is catch, error message is popped up
                         MessageBox.Show(exception.Message);
-                        throw;
                     }
                     finally
                     {

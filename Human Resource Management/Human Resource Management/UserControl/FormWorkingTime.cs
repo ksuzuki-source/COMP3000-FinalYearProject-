@@ -47,7 +47,7 @@ namespace Human_Resource_Management
             InsCmd.Parameters.Add(new SqlParameter("@ID", ID));
             InsCmd.Parameters.Add(new SqlParameter("@Name", name));
             InsCmd.Parameters.Add(new SqlParameter("@WorkingIn", WorkIn));
-            InsCmd.Parameters.Add(new SqlParameter("@LeaveWorking", LeaveWork));
+            InsCmd.Parameters.Add(new SqlParameter("@LeaveWorking", System.Data.SqlTypes.SqlDateTime.Null)) ;
             InsCmd.Parameters.Add(new SqlParameter("@WorkingDuration", WorkingDur));
 
             UpdCmd = new SqlCommand("UPDATE WorkingRecord SET WorkingIn = @WorkingIn, LeaveWorking = @LeaveWorking," +
@@ -78,14 +78,15 @@ namespace Human_Resource_Management
         private void btnIn_Click(object sender, EventArgs e)
         {
             WorkIn = DateTime.Now;
-            LeaveWork = (DateTime)System.Data.SqlTypes.SqlDateTime.MinValue;
+            //LeaveWork = (DateTime)System.Data.SqlTypes.SqlDateTime.MinValue;
             
             //string time = WorkIn.ToString("MM-dd-yyyy HH:mm:ss");
 
-            table.Rows.Add(ID, Name, WorkIn, LeaveWork, WorkingDur);
+            table.Rows.Add(ID, Name, WorkIn, System.Data.SqlTypes.SqlDateTime.Null, WorkingDur);
             dataGridView1.DataSource = table;
             try
             {
+
                 Cnn.Open();
                 Dta.Update(table);
                 //Dta.InsertCommand.ExecuteNonQuery();

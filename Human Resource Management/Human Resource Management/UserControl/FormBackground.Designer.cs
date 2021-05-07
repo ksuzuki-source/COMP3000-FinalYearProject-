@@ -68,6 +68,7 @@ namespace Human_Resource_Management
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            this.BackColor = System.Drawing.SystemColors.ActiveCaption;
             this.ClientSize = new System.Drawing.Size(872, 555);
             this.Controls.Add(this.button1);
             this.Controls.Add(this.label1);

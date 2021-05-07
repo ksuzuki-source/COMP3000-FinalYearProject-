@@ -33,18 +33,24 @@ namespace Human_Resource_Management
             this.components = new Container();
             this.bindingSource1 =
                 new BindingSource(this.components);
+
+            //set table as the datagridview datasource.  
             this.dataGridView1.DataSource = this.bindingSource1;
             //path = "data/test.csv";
         }
 
         private void Form2_Load(object sender, EventArgs e)
         {
+            //Create sql connection string
             Cnn = new SqlConnection(Properties.Settings.Default.sqlServer);
+
+            //open connection 
             Cnn.Open();
 
+            //create select command
             Cmd = new SqlCommand("SELECT * FROM worker", Cnn);
             Dta = new SqlDataAdapter(Cmd);
-
+            //create insert command
             InsCmd = new SqlCommand("INSERT INTO worker (Name, SEX, Role, Password, Postcode, DateofBirth, DrivingLisence) " +
                      "VALUES ( @Name, @SEX, @Role, @Password, @Postcode, @DateofBirth, @DrivingLisence)", Cnn);
 
@@ -68,17 +74,24 @@ namespace Human_Resource_Management
 
 
 
-
+            //create delete command 
             DelCmd = new SqlCommand("DELETE FROM worker WHERE ID = @ID", Cnn);
             DelCmd.Parameters.Add("@ID", SqlDbType.Int, 4, "ID");
 
+            //set those created commands to dataadapter command for each
             Dta.SelectCommand = Cmd;
             Dta.InsertCommand = InsCmd;
             Dta.UpdateCommand = UpdCmd;
             Dta.DeleteCommand = DelCmd;
+
+            //clear the table
             table.Clear();
+            //call fill method(select) to populate the data table
             Dta.Fill(table);
+
+            //set the table as binding source 
             bindingSource1.DataSource = table;
+            //close connaction 
             Cnn.Close();
         }
 
@@ -86,9 +99,6 @@ namespace Human_Resource_Management
         private void btnLoad_Click(object sender, EventArgs e)
         {
             Dta.Fill(table);
-            //dataGridView1.DataSource = table;
-            //OpenFileDialog();
-            //table = Readcsv.Read_csv("data/test.csv");
             bindingSource1.DataSource = table;
         }
 
@@ -113,6 +123,7 @@ namespace Human_Resource_Management
 
         private void btnReset_Click(object sender, EventArgs e)
         {
+            //reset the row filters 
             this.table.DefaultView.RowFilter = "";
         }
 
@@ -121,7 +132,7 @@ namespace Human_Resource_Management
         {
             if (table != null)
             {
-                //this.bindingSource1.ResetBindings(false);
+                //pass ID as the argument to edit form
                 FormEdit fe = new FormEdit(table, (int)dataGridView1.CurrentRow.Cells[0].Value);
                 fe.Show();
             }
@@ -131,6 +142,7 @@ namespace Human_Resource_Management
         {
             if (table != null)
             {
+                //open user add form
                 FormAdminAdd fa = new FormAdminAdd(table);
                 fa.Show();
                 
@@ -143,9 +155,8 @@ namespace Human_Resource_Management
         {
             if (table != null)
             {
-                table.Clear();
-                Dta.Fill(table);
-                bindingSource1.DataSource = table;
+                //reset row filter
+                this.table.DefaultView.RowFilter = "";
             }
 
         }
@@ -163,6 +174,7 @@ namespace Human_Resource_Management
         {
             for (int i = 0; i <= dataGridView1.Rows.Count - 1; i++)
             {
+                //create update command
                 UpdCmd = new SqlCommand("UPDATE worker SET  Name = @Name, SEX = @SEX, Role = @Role," +
                     " Password = @Password, Postcode = @Postcode, DateofBirth = @DateofBirth, DrivingLisence = @DrivingLisence " +
                     "WHERE ID = @ID", Cnn);
@@ -185,8 +197,10 @@ namespace Human_Resource_Management
             }
             Dta.UpdateCommand = UpdCmd;
 
+            //call update method with data adapter
             Dta.Update(table);
             table.Clear();
+            //fill the table again to reload
             Dta.Fill(table);
 
         }
@@ -197,6 +211,7 @@ namespace Human_Resource_Management
             {
                 if (table != null)
                 {
+                    //if Name radio button is checked, view filter by name
                     if (radioButton1.Checked)
                     {
                         this.table.DefaultView.RowFilter =
@@ -206,7 +221,7 @@ namespace Human_Resource_Management
 
                         this.bindingSource1.ResetBindings(false);
                     }
-
+                    //if Sex radio button is checked, view filter by Sex
                     else if (radioButton2.Checked)
                     {
                         this.table.DefaultView.RowFilter =
@@ -215,7 +230,7 @@ namespace Human_Resource_Management
 
                         this.bindingSource1.ResetBindings(false);
                     }
-
+                    ////Role  radio button is checked, view filter by Role
                     else if (radioButton3.Checked)
                     {
                         this.table.DefaultView.RowFilter =
@@ -246,9 +261,11 @@ namespace Human_Resource_Management
         {
             if (dataGridView1.SelectedRows != null)
             {
+                //if the data row is selected, confirmation is pop
                 DialogResult dr = MessageBox.Show("Are you sure？", "Comfirmation", MessageBoxButtons.YesNo);
                 if (dr == System.Windows.Forms.DialogResult.Yes)
                 {
+                    //if yes is clicked delete the record
                     foreach (DataGridViewRow row in dataGridView1.SelectedRows)
                     {
                         dataGridView1.Rows.Remove(row);
@@ -270,6 +287,11 @@ namespace Human_Resource_Management
         }
 
         private void label1_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void panel1_Paint(object sender, PaintEventArgs e)
         {
 
         }

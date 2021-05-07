@@ -8,6 +8,7 @@ using System.Windows.Forms;
 
 namespace Human_Resource_Management
 {
+    //this is a form to navigate user to other functions
     public partial class FormUserMain : Form
     {
 
@@ -15,6 +16,7 @@ namespace Human_Resource_Management
         string Name;
         public FormUserMain(int rcvID, string rcvName)
         {
+            //recieve the ID and name from prev form 
             InitializeComponent();
             ID = rcvID;
             Name = rcvName;
@@ -24,16 +26,15 @@ namespace Human_Resource_Management
 
         private void btnWTR_Click(object sender, EventArgs e)
         {
+            //send variables to work time record form
             FormWorkingTime FWT = new FormWorkingTime(ID, Name);
             FWT.Show();
         }
 
-        private void btnCV_Click(object sender, EventArgs e)
-        {
-        }
 
         private void btnDetail_Click(object sender, EventArgs e)
         {
+            //send variables to background form
             FormBackground FLD = new FormBackground(ID, Name);
             FLD.Show();
         }

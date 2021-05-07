@@ -108,7 +108,7 @@ namespace Human_Resource_Management
             this.label3.Size = new System.Drawing.Size(43, 20);
             this.label3.TabIndex = 7;
             this.label3.Text = "Role";
-            this.label3.Click += new System.EventHandler(this.label3_Click);
+
             // 
             // label4
             // 

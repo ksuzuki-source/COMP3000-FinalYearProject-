@@ -9,6 +9,7 @@ using System.Data.SqlClient;
 
 namespace Human_Resource_Management
 {
+    //this is a form to check the user working record
     public partial class FormCheckWork : Form
     {
         public BindingSource bindingSource1;
@@ -35,26 +36,32 @@ namespace Human_Resource_Management
 
         private void Form1_Load(object sender, EventArgs e)
         {
+            //create sql connection string
             Cnn = new SqlConnection(Properties.Settings.Default.sqlServer);
                        
             try
             {
+                //create select command
                 Cmd = new SqlCommand("SELECT * FROM WorkingRecord WHERE ID = " + ID, Cnn);
                 Dta = new SqlDataAdapter(Cmd);
                 Dta.SelectCommand = Cmd;
-                
-                Cnn.Open();                
+                //connection open
+                Cnn.Open();               
+                //fill the table and show them up at the datagridview
                 Dta.Fill(Table);
             }
             catch (Exception exception)
             {
+                //if exception is caught, show the error message
                 MessageBox.Show(exception.Message);
                
             }
             finally
             {
+                //close connection 
                 Cnn.Close();
             }
+            //set the user name in label at top of form
             label1.Text = ("This is your working record");
             bindingSource1.DataSource = Table;
         }

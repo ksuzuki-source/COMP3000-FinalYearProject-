@@ -19,6 +19,7 @@ namespace Human_Resource_Management
         private DataTable table;
         public FormAdminLogin(DataTable dataTable)
         {
+            //recieve the datatable form prev form
             table = dataTable;
             InitializeComponent();
             this.components = new Container();
@@ -42,21 +43,25 @@ namespace Human_Resource_Management
 
         public void AdminLogin()
         {
+            //take user input value
             userName = this.textBox1.Text;
             password = this.textBox2.Text;
-            //string test = "data/test";
-            //table = Readcsv.Read_csv(test + ".csv");
+
+            //set the table as binding data source 
             bindingSource1.DataSource = table;
             int numOfrows = table.Rows.Count;
             int numOfcolumns = table.Columns.Count;
             string admin = "Admin";
 
+            //check through the all table rows 
             for (int j = 0; j < numOfrows; j++)
             {
+                //if username and password is matched with registered data, login
                 if (table.Rows[j][1].ToString() == userName)
                 {
                     if (table.Rows[j][4].ToString() == password)
                     {
+                        
                         if (table.Rows[j][3].ToString() == admin)
                         {
 
@@ -67,6 +72,7 @@ namespace Human_Resource_Management
                             this.Close();
                             break;
                         }
+                        //if  the user is not Admin, pop up the error message
                         else if (table.Rows[j][2].ToString() != admin)
                         {
                             MessageBox.Show("only admin can login to this form");

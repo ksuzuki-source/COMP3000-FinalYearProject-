@@ -32,18 +32,24 @@ namespace Human_Resource_Management
 
         private void FormLabourDetails_Load(object sender, EventArgs e)
         {
+            //Connection string 
             Cnn = new SqlConnection(Properties.Settings.Default.sqlServer);
-
+            //connection open
             Cnn.Open();
 
             try
             {
+                //set the select method with ID
                 Cmd = new SqlCommand("SELECT * FROM BackGrounds WHERE ID = " + ID, Cnn);
+                //use sqldatareader becasue only 1 record is needed to load from database table
                 SqlDataReader dr = Cmd.ExecuteReader();
                 dr.Read();
+                //take the strings from background record
                 background = dr.GetString(2);
+                //take name of the user
                 Name = dr.GetString(1);
                 textBox1.Clear();
+                //show user background in the text box
                 textBox1.Text = background;
                 dr.Close();
             }
@@ -59,6 +65,7 @@ namespace Human_Resource_Management
 
         private void button1_Click(object sender, EventArgs e)
         {
+            //To update the record, always delete record and reinsert 1 record
             DelCmd = new SqlCommand("DELETE FROM BackGrounds WHERE ID = @ID", Cnn);
             DelCmd.Parameters.Add(new SqlParameter("@ID", ID));
 
@@ -76,6 +83,7 @@ namespace Human_Resource_Management
 
             try
             {
+                //sql connection open 
                 Cnn.Open();
                 DelCmd.ExecuteNonQuery();
                 InsCmd.ExecuteNonQuery();
@@ -84,12 +92,15 @@ namespace Human_Resource_Management
             }
             catch(Exception exception)
             {
+                //if exception is cought, show the error message
                 MessageBox.Show("Error!" + exception.Message);
                 
             }
             finally
             {
+                //close connection 
                 Cnn.Close();
+                //close form
                 this.Close();
             }
 

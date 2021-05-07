@@ -32,7 +32,6 @@ namespace Human_Resource_Management
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(FormUserMain));
             this.label1 = new System.Windows.Forms.Label();
             this.btnDetail = new System.Windows.Forms.Button();
-            this.btnCV = new System.Windows.Forms.Button();
             this.btnWTR = new System.Windows.Forms.Button();
             this.label2 = new System.Windows.Forms.Label();
             this.SuspendLayout();
@@ -49,29 +48,18 @@ namespace Human_Resource_Management
             // btnDetail
             // 
             this.btnDetail.Font = new System.Drawing.Font("Meiryo UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.btnDetail.Location = new System.Drawing.Point(679, 321);
+            this.btnDetail.Location = new System.Drawing.Point(584, 321);
             this.btnDetail.Name = "btnDetail";
             this.btnDetail.Size = new System.Drawing.Size(192, 120);
             this.btnDetail.TabIndex = 10;
-            this.btnDetail.Text = "View/Edit your \r\nextra details";
+            this.btnDetail.Text = "View/Edit your background";
             this.btnDetail.UseVisualStyleBackColor = true;
             this.btnDetail.Click += new System.EventHandler(this.btnDetail_Click);
-            // 
-            // btnCV
-            // 
-            this.btnCV.Font = new System.Drawing.Font("Meiryo UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.btnCV.Location = new System.Drawing.Point(377, 321);
-            this.btnCV.Name = "btnCV";
-            this.btnCV.Size = new System.Drawing.Size(182, 120);
-            this.btnCV.TabIndex = 9;
-            this.btnCV.Text = "View/Edit your CV";
-            this.btnCV.UseVisualStyleBackColor = true;
-            this.btnCV.Click += new System.EventHandler(this.btnCV_Click);
             // 
             // btnWTR
             // 
             this.btnWTR.Font = new System.Drawing.Font("Meiryo UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.btnWTR.Location = new System.Drawing.Point(73, 321);
+            this.btnWTR.Location = new System.Drawing.Point(217, 321);
             this.btnWTR.Name = "btnWTR";
             this.btnWTR.Size = new System.Drawing.Size(189, 120);
             this.btnWTR.TabIndex = 8;
@@ -83,25 +71,24 @@ namespace Human_Resource_Management
             // 
             this.label2.AutoSize = true;
             this.label2.Font = new System.Drawing.Font("Meiryo UI", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.label2.Location = new System.Drawing.Point(77, 9);
+            this.label2.Location = new System.Drawing.Point(171, 9);
             this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(762, 48);
+            this.label2.Size = new System.Drawing.Size(605, 48);
             this.label2.TabIndex = 12;
             this.label2.Text = "Welcome to RM user main page, at this point you can choose to \r\nrecord your work " +
-    "or viewing/edit your CV or viewing/editing your other details ! \r\n";
+    "or viewing/editing your backgrounds! \r\n";
             this.label2.TextAlign = System.Drawing.ContentAlignment.TopCenter;
             // 
             // FormUserMain
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.BackColor = System.Drawing.SystemColors.ButtonHighlight;
+            this.BackColor = System.Drawing.SystemColors.ActiveCaption;
             this.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("$this.BackgroundImage")));
             this.ClientSize = new System.Drawing.Size(919, 520);
             this.Controls.Add(this.label2);
             this.Controls.Add(this.label1);
             this.Controls.Add(this.btnDetail);
-            this.Controls.Add(this.btnCV);
             this.Controls.Add(this.btnWTR);
             this.Name = "FormUserMain";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
@@ -116,7 +103,6 @@ namespace Human_Resource_Management
 
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.Button btnDetail;
-        private System.Windows.Forms.Button btnCV;
         private System.Windows.Forms.Button btnWTR;
         private System.Windows.Forms.Label label2;
     }

@@ -59,7 +59,7 @@ namespace Human_Resource_Management
             this.btnLeave.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
             | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
-            this.btnLeave.BackColor = System.Drawing.Color.DarkSeaGreen;
+            this.btnLeave.BackColor = System.Drawing.Color.OliveDrab;
             this.btnLeave.Font = new System.Drawing.Font("Meiryo UI", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
             this.btnLeave.Location = new System.Drawing.Point(457, 143);
             this.btnLeave.Name = "btnLeave";
@@ -125,6 +125,7 @@ namespace Human_Resource_Management
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            this.BackColor = System.Drawing.SystemColors.ActiveCaption;
             this.ClientSize = new System.Drawing.Size(800, 450);
             this.Controls.Add(this.textBox1);
             this.Controls.Add(this.dataGridView1);
