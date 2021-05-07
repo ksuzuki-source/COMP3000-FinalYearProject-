@@ -12,7 +12,7 @@ namespace Human_Resource_Management
     public partial class FormCheckWork : Form
     {
         public BindingSource bindingSource1;
-        DataTable table;
+        private DataTable Table = new DataTable();
         private SqlConnection Cnn;
         private SqlCommand Cmd;
         private SqlCommand InsCmd;
@@ -39,12 +39,12 @@ namespace Human_Resource_Management
                        
             try
             {
-                Cmd = new SqlCommand("SELECT * FROM WorkingRecord WHERE " + ID, Cnn);
+                Cmd = new SqlCommand("SELECT * FROM WorkingRecord WHERE ID = " + ID, Cnn);
                 Dta = new SqlDataAdapter(Cmd);
                 Dta.SelectCommand = Cmd;
                 
                 Cnn.Open();                
-                Dta.Fill(table);
+                Dta.Fill(Table);
             }
             catch (Exception exception)
             {
@@ -56,7 +56,7 @@ namespace Human_Resource_Management
                 Cnn.Close();
             }
             label1.Text = ("This is your working record");
-            bindingSource1.DataSource = table;
+            bindingSource1.DataSource = Table;
         }
     }
 }

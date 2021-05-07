@@ -11,11 +11,11 @@ namespace Human_Resource_Management
 {
     public partial class FormWorkingTime : Form
     {
-
+        System.Data.SqlTypes.SqlDateTime time;
         public string TmpWorkIn;
         public string TmpLeaveWork;
-        public DateTime  WorkIn;
-        public DateTime LeaveWork;
+        private DateTime WorkIn;
+        private DateTime LeaveWork;
         public TimeSpan WorkingDur;
         private SqlConnection Cnn;
         private SqlCommand Cmd;
@@ -64,29 +64,36 @@ namespace Human_Resource_Management
             Dta.UpdateCommand = UpdCmd;
             Dta.DeleteCommand = DelCmd;
 
+
+            //table.Columns[2].DataType = typeof(DateTime);
+            //table.Columns[3].DataType = typeof(DateTime);
+            //table.Columns[4].DataType = typeof(DateTime);
             Dta.Fill(table);
-            table.Columns[2].DataType = typeof(DateTime);
-            table.Columns[3].DataType = typeof(DateTime);
-            table.Columns[4].DataType = typeof(DateTime);
+
             Cnn.Close();
 
+            textBox1.Text = name.ToString();
         }
 
         private void btnIn_Click(object sender, EventArgs e)
         {
             WorkIn = DateTime.Now;
-            //string time = WorkIn.ToString("MM/dd/yyyy HH:mm:ss");
+            LeaveWork = (DateTime)System.Data.SqlTypes.SqlDateTime.MinValue;
             
-            table.Rows.Add(ID, Name, WorkIn, null, null);
+            //string time = WorkIn.ToString("MM-dd-yyyy HH:mm:ss");
+
+            table.Rows.Add(ID, Name, WorkIn, LeaveWork, WorkingDur);
+            dataGridView1.DataSource = table;
             try
             {
                 Cnn.Open();
                 Dta.Update(table);
+                //Dta.InsertCommand.ExecuteNonQuery();
             }
             catch (Exception exception)
             {
                 MessageBox.Show(exception.Message);
-                throw;
+                
             }
             finally
             {
@@ -132,6 +139,10 @@ namespace Human_Resource_Management
                     Cnn.Close();
                 }
                 MessageBox.Show("You are work in now!" + DateTime.Now);
+            }
+            else 
+            {
+                MessageBox.Show("You have not worked in");
             }
 
         
