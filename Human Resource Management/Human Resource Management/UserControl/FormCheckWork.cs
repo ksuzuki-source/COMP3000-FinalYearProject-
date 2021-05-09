@@ -65,5 +65,12 @@ namespace Human_Resource_Management
             label1.Text = ("This is your working record");
             bindingSource1.DataSource = Table;
         }
+
+        private void button1_Click(object sender, EventArgs e)
+        {
+            this.Table.DefaultView.RowFilter =
+                        "WorkingIn LIKE '%" +
+                        this.textBox1.Text + "%'";
+        }
     }
 }

@@ -44,19 +44,28 @@ namespace Human_Resource_Management
 
             InsCmd = new SqlCommand("INSERT INTO WorkingRecord (ID, Name, WorkingIn, LeaveWorking, WorkingDuration) " +
                      "VALUES ( @ID, @Name, @WorkingIn, @LeaveWorking, @WorkingDuration)", Cnn);
-            InsCmd.Parameters.Add(new SqlParameter("@ID", ID));
-            InsCmd.Parameters.Add(new SqlParameter("@Name", name));
-            InsCmd.Parameters.Add(new SqlParameter("@WorkingIn", WorkIn));
-            InsCmd.Parameters.Add(new SqlParameter("@LeaveWorking", System.Data.SqlTypes.SqlDateTime.Null)) ;
-            InsCmd.Parameters.Add(new SqlParameter("@WorkingDuration", WorkingDur));
+
+            InsCmd.Parameters.Add("@ID", SqlDbType.Int, 4, "ID");
+            InsCmd.Parameters.Add("@Name", SqlDbType.VarChar, 50, "Name");
+            InsCmd.Parameters.Add("@WorkingIn", SqlDbType.DateTime, 22, "WorkingIn");
+            InsCmd.Parameters.Add("@LeaveWorking", SqlDbType.DateTime, 22, "LeaveWorking");
+            InsCmd.Parameters.Add("@WorkingDuration", SqlDbType.Time, 8, "WorkingDuration");
+
+
+
+            //InsCmd.Parameters.Add(new SqlParameter("@ID", ID));
+            //InsCmd.Parameters.Add(new SqlParameter("@Name", name));
+            //InsCmd.Parameters.Add(new SqlParameter("@WorkingIn", WorkIn));
+            //InsCmd.Parameters.Add(new SqlParameter("@LeaveWorking", LeaveWork)) ;
+            //InsCmd.Parameters.Add(new SqlParameter("@WorkingDuration", WorkingDur));
 
             UpdCmd = new SqlCommand("UPDATE WorkingRecord SET WorkingIn = @WorkingIn, LeaveWorking = @LeaveWorking," +
-                " WorkingDuration = @WorkingDuration WHERE ID = @ID", Cnn);
+                " WorkingDuration = @WorkingDuration WHERE WorkingIn = @WorkingIn", Cnn);
 
-            //UpdCmd.Parameters.Add(new SqlParameter("@ID", "ID"));
-            UpdCmd.Parameters.Add(new SqlParameter("@WorkingIn", WorkIn));
-            UpdCmd.Parameters.Add(new SqlParameter("@LeaveWorking", LeaveWork));
-            UpdCmd.Parameters.Add(new SqlParameter("@WorkingDuration", WorkingDur));
+            UpdCmd.Parameters.Add("@ID", SqlDbType.Int, 4, "ID");
+            UpdCmd.Parameters.Add("@WorkingIn", SqlDbType.DateTime, 22, "WorkingIn");
+            UpdCmd.Parameters.Add("@LeaveWorking", SqlDbType.DateTime, 22, "LeaveWorking");
+            UpdCmd.Parameters.Add("@WorkingDuration", SqlDbType.Time, 8, "WorkingDuration");
 
             Dta = new SqlDataAdapter(Cmd);
             Dta.SelectCommand = Cmd;
@@ -72,18 +81,21 @@ namespace Human_Resource_Management
 
             Cnn.Close();
 
-            textBox1.Text = name.ToString();
+            //textBox1.Text = table.Columns[4].DataType.ToString();
+
+
         }
 
         private void btnIn_Click(object sender, EventArgs e)
         {
             WorkIn = DateTime.Now;
-            //LeaveWork = (DateTime)System.Data.SqlTypes.SqlDateTime.MinValue;
+            LeaveWork = (DateTime)System.Data.SqlTypes.SqlDateTime.Null;
             
             //string time = WorkIn.ToString("MM-dd-yyyy HH:mm:ss");
-
-            table.Rows.Add(ID, Name, WorkIn, System.Data.SqlTypes.SqlDateTime.Null, WorkingDur);
+            //WorkIn = DateTime.Parse(time);
+            table.Rows.Add(ID, name, WorkIn, LeaveWork, WorkingDur);
             dataGridView1.DataSource = table;
+            //textBox1.Text = time;
             try
             {
 
@@ -113,15 +125,18 @@ namespace Human_Resource_Management
 
         public void fncLeaveWork()
         {
+            DateTime minValue = (DateTime)System.Data.SqlTypes.SqlDateTime.Null;
             int latestRow = table.Rows.Count - 1;
-            if (table.Rows[latestRow][3].ToString() == "")
+            textBox1.Text = minValue.ToString();
+            if (table.Rows[latestRow][3].ToString() == minValue.ToString())
             {
                 table.Rows[latestRow][3] = DateTime.Now;
-                TmpWorkIn = (string)table.Rows[latestRow][2];
-                TmpLeaveWork = (string)table.Rows[latestRow][3];
-                WorkIn = DateTime.Parse(TmpWorkIn);
-                LeaveWork = DateTime.Parse(TmpLeaveWork);
-
+                //TmpWorkIn = (string)table.Rows[latestRow][2];
+                //TmpLeaveWork = (string)table.Rows[latestRow][3];
+                //WorkIn = DateTime.Parse(TmpWorkIn);
+                //LeaveWork = DateTime.Parse(TmpLeaveWork);
+                WorkIn = (DateTime)table.Rows[latestRow][2];
+                LeaveWork = (DateTime)table.Rows[latestRow][3];
                 TimeSpan ts1 = LeaveWork - WorkIn;         //culculate the working time with leave time - work in time
                 table.Rows[latestRow][4] = ts1;
 
@@ -133,13 +148,13 @@ namespace Human_Resource_Management
                 catch (Exception exception)
                 {
                     MessageBox.Show(exception.Message);
-                    throw;
+                    
                 }
                 finally
                 {
                     Cnn.Close();
                 }
-                MessageBox.Show("You are work in now!" + DateTime.Now);
+                MessageBox.Show("Well done, you have worked for" + ts1);
             }
             else 
             {
