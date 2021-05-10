@@ -34,6 +34,7 @@ namespace Human_Resource_Management
             this.btnDetail = new System.Windows.Forms.Button();
             this.btnWTR = new System.Windows.Forms.Button();
             this.label2 = new System.Windows.Forms.Label();
+            this.btnEdit = new System.Windows.Forms.Button();
             this.SuspendLayout();
             // 
             // label1
@@ -48,7 +49,7 @@ namespace Human_Resource_Management
             // btnDetail
             // 
             this.btnDetail.Font = new System.Drawing.Font("Meiryo UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.btnDetail.Location = new System.Drawing.Point(584, 321);
+            this.btnDetail.Location = new System.Drawing.Point(638, 321);
             this.btnDetail.Name = "btnDetail";
             this.btnDetail.Size = new System.Drawing.Size(192, 120);
             this.btnDetail.TabIndex = 10;
@@ -59,7 +60,7 @@ namespace Human_Resource_Management
             // btnWTR
             // 
             this.btnWTR.Font = new System.Drawing.Font("Meiryo UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.btnWTR.Location = new System.Drawing.Point(217, 321);
+            this.btnWTR.Location = new System.Drawing.Point(97, 321);
             this.btnWTR.Name = "btnWTR";
             this.btnWTR.Size = new System.Drawing.Size(189, 120);
             this.btnWTR.TabIndex = 8;
@@ -79,6 +80,17 @@ namespace Human_Resource_Management
     "or viewing/editing your backgrounds! \r\n";
             this.label2.TextAlign = System.Drawing.ContentAlignment.TopCenter;
             // 
+            // btnEdit
+            // 
+            this.btnEdit.Font = new System.Drawing.Font("Meiryo UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.btnEdit.Location = new System.Drawing.Point(385, 321);
+            this.btnEdit.Name = "btnEdit";
+            this.btnEdit.Size = new System.Drawing.Size(189, 120);
+            this.btnEdit.TabIndex = 13;
+            this.btnEdit.Text = "Edit your detail";
+            this.btnEdit.UseVisualStyleBackColor = true;
+            this.btnEdit.Click += new System.EventHandler(this.btnEdit_Click);
+            // 
             // FormUserMain
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
@@ -86,6 +98,7 @@ namespace Human_Resource_Management
             this.BackColor = System.Drawing.SystemColors.ActiveCaption;
             this.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("$this.BackgroundImage")));
             this.ClientSize = new System.Drawing.Size(919, 520);
+            this.Controls.Add(this.btnEdit);
             this.Controls.Add(this.label2);
             this.Controls.Add(this.label1);
             this.Controls.Add(this.btnDetail);
@@ -105,5 +118,6 @@ namespace Human_Resource_Management
         private System.Windows.Forms.Button btnDetail;
         private System.Windows.Forms.Button btnWTR;
         private System.Windows.Forms.Label label2;
+        private System.Windows.Forms.Button btnEdit;
     }
 }

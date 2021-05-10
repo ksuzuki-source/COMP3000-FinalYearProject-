@@ -82,7 +82,7 @@ namespace Human_Resource_Management
                 
                 else if (j == numOfrows-1)
                 {
-                    MessageBox.Show("Tryagain");
+                    MessageBox.Show("Username or Password is wrong");
                 }
 
             }

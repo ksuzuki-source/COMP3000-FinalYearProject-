@@ -56,7 +56,7 @@ namespace Human_Resource_Management
                         FUM.Show();
                         //fwt.Show();
                         this.Close();
-
+                        break;
                     }
 
 

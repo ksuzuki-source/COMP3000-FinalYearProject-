@@ -43,5 +43,11 @@ namespace Human_Resource_Management
         {
             label1.Text = ("Welcome " + Name + "!!");
         }
+
+        private void btnEdit_Click(object sender, EventArgs e)
+        {
+            FormUserEdit FUE = new FormUserEdit(ID);
+            FUE.Show();
+        }
     }
 }

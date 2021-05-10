@@ -186,14 +186,7 @@ namespace Human_Resource_Management
                 UpdCmd.Parameters.Add("@Postcode", SqlDbType.Char, 10, "Postcode");
                 UpdCmd.Parameters.Add("@DateofBirth", SqlDbType.Date, 3, "DateofBirth");
                 UpdCmd.Parameters.Add("@DrivingLisence", SqlDbType.Char, 1, "DrivingLisence");
-                //UpdCmd.Parameters.Add("@ID", SqlDbType.Int, 4, (int)dataGridView1.Rows[i].Cells[0].Value);
-                //UpdCmd.Parameters.Add("@Name", SqlDbType.VarChar, 50, (string)dataGridView1.Rows[i].Cells[1].Value);
-                //UpdCmd.Parameters.Add("@SEX", SqlDbType.Char, 10, (string)dataGridView1.Rows[i].Cells[2].Value);
-                //UpdCmd.Parameters.Add("@Role", SqlDbType.VarChar, 50, (string)dataGridView1.Rows[i].Cells[3].Value);
-                //UpdCmd.Parameters.Add("@Password", SqlDbType.VarChar, 50, (string)dataGridView1.Rows[i].Cells[4].Value);
-                //UpdCmd.Parameters.Add("@Postcode", SqlDbType.Char, 10, (string)dataGridView1.Rows[i].Cells[5].Value);
-                //UpdCmd.Parameters.Add("@DateofBirth", SqlDbType.Date, 3, (string)dataGridView1.Rows[i].Cells[6].Value);
-                //UpdCmd.Parameters.Add("@DrivingLisence", SqlDbType.Char, 1, (string)dataGridView1.Rows[i].Cells[7].Value);
+
             }
             Dta.UpdateCommand = UpdCmd;
 
@@ -240,6 +233,23 @@ namespace Human_Resource_Management
                         this.bindingSource1.ResetBindings(false);
                     }
 
+                    else if (radioButton4.Checked)
+                    {
+                        this.table.DefaultView.RowFilter =
+                        "DrivingLisence LIKE '%" +
+                        this.textBox1.Text + "%'";
+
+                        this.bindingSource1.ResetBindings(false);
+                    }
+
+                    else if (radioButton5.Checked)
+                    {
+                        this.table.DefaultView.RowFilter =
+                        "PostCode LIKE '%" +
+                        this.textBox1.Text + "%'";
+
+                        this.bindingSource1.ResetBindings(false);
+                    }
 
                     else
                     {

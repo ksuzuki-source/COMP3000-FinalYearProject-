@@ -23,6 +23,7 @@ namespace Human_Resource_Management
         private SqlCommand UpdCmd;
         private SqlCommand DelCmd;
 
+
         public FormBackground(int rcvID, string rcvName)
         {
             InitializeComponent();
@@ -54,8 +55,10 @@ namespace Human_Resource_Management
                 dr.Close();
             }
 
-            catch (Exception)
-            { }
+            catch (Exception exception)
+            {
+                MessageBox.Show(exception.Message);
+            }
             finally
             {
                 

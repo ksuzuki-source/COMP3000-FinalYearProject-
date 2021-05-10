@@ -6,6 +6,7 @@ using System.Drawing;
 using System.Text;
 using System.Windows.Forms;
 using System.Data.SqlClient;
+using System.IO;
 
 namespace Human_Resource_Management
 {
@@ -68,9 +69,50 @@ namespace Human_Resource_Management
 
         private void button1_Click(object sender, EventArgs e)
         {
-            this.Table.DefaultView.RowFilter =
-                        "WorkingIn LIKE '%" +
-                        this.textBox1.Text + "%'";
+            if (textBox1.Text != null && textBox2.Text != null)
+            {
+                this.Table.DefaultView.RowFilter =
+                          "WorkingIn >= #" + textBox1.Text + " # and WorkingIn <= #" + textBox2.Text + " #";
+
+            }
+            else
+                MessageBox.Show("enter start date and end date");
+        }
+
+        private void btnExport_Click(object sender, EventArgs e)
+        {
+            SaveFileDialog sa = new SaveFileDialog();
+            sa.Title = "OPEN FILE";
+            sa.InitialDirectory = @"C:\";
+            sa.FileName = null;
+            sa.Filter = "CSV file(*.csv)|*.csv";
+            sa.FilterIndex = 1;
+
+            DialogResult result = sa.ShowDialog();
+            if (result == DialogResult.OK)
+            {
+                StreamWriter sw = new StreamWriter(sa.FileName, false, Encoding.Default);
+
+
+                for (int i = 0; i < dataGridView1.RowCount - 1; i++)
+                {
+
+                    for (int j = 0; j < dataGridView1.ColumnCount; j++)
+                    {
+
+                        sw.Write(dataGridView1[j, i].Value + ",");
+
+                    }
+                    sw.WriteLine();
+                }
+                sw.Close();
+                MessageBox.Show("Exported！！");
+            }
+            else if (result == DialogResult.Cancel)
+            { }
+            
+
+            
         }
     }
 }

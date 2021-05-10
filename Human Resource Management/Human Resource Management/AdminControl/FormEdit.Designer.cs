@@ -44,7 +44,6 @@ namespace Human_Resource_Management
             this.label7 = new System.Windows.Forms.Label();
             this.RoleBox2 = new System.Windows.Forms.ComboBox();
             this.SexBox1 = new System.Windows.Forms.ComboBox();
-            this.S = new System.Windows.Forms.Button();
             this.btnShowBackground = new System.Windows.Forms.Button();
             this.btnWorkingRecord = new System.Windows.Forms.Button();
             this.DrivingLisence = new System.Windows.Forms.Label();
@@ -108,7 +107,6 @@ namespace Human_Resource_Management
             this.label3.Size = new System.Drawing.Size(43, 20);
             this.label3.TabIndex = 7;
             this.label3.Text = "Role";
-
             // 
             // label4
             // 
@@ -217,23 +215,11 @@ namespace Human_Resource_Management
             this.SexBox1.TabIndex = 21;
             this.SexBox1.Text = "Select sex(Man, Female, Other)";
             // 
-            // S
-            // 
-            this.S.BackColor = System.Drawing.SystemColors.GradientInactiveCaption;
-            this.S.Font = new System.Drawing.Font("Meiryo UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.S.Location = new System.Drawing.Point(726, 148);
-            this.S.Name = "S";
-            this.S.Size = new System.Drawing.Size(206, 108);
-            this.S.TabIndex = 23;
-            this.S.Text = "View CV";
-            this.S.UseVisualStyleBackColor = false;
-            this.S.Click += new System.EventHandler(this.btnShowCV_Click);
-            // 
             // btnShowBackground
             // 
             this.btnShowBackground.BackColor = System.Drawing.SystemColors.GradientInactiveCaption;
             this.btnShowBackground.Font = new System.Drawing.Font("Meiryo UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.btnShowBackground.Location = new System.Drawing.Point(726, 303);
+            this.btnShowBackground.Location = new System.Drawing.Point(726, 200);
             this.btnShowBackground.Name = "btnShowBackground";
             this.btnShowBackground.Size = new System.Drawing.Size(206, 109);
             this.btnShowBackground.TabIndex = 24;
@@ -245,7 +231,7 @@ namespace Human_Resource_Management
             // 
             this.btnWorkingRecord.BackColor = System.Drawing.SystemColors.GradientInactiveCaption;
             this.btnWorkingRecord.Font = new System.Drawing.Font("Meiryo UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.btnWorkingRecord.Location = new System.Drawing.Point(726, 440);
+            this.btnWorkingRecord.Location = new System.Drawing.Point(726, 369);
             this.btnWorkingRecord.Name = "btnWorkingRecord";
             this.btnWorkingRecord.Size = new System.Drawing.Size(206, 112);
             this.btnWorkingRecord.TabIndex = 25;
@@ -292,7 +278,6 @@ namespace Human_Resource_Management
             this.Controls.Add(this.DrivingLisence);
             this.Controls.Add(this.btnWorkingRecord);
             this.Controls.Add(this.btnShowBackground);
-            this.Controls.Add(this.S);
             this.Controls.Add(this.RoleBox2);
             this.Controls.Add(this.SexBox1);
             this.Controls.Add(this.label8);
@@ -334,7 +319,6 @@ namespace Human_Resource_Management
         private System.Windows.Forms.Label label7;
         private System.Windows.Forms.ComboBox RoleBox2;
         private System.Windows.Forms.ComboBox SexBox1;
-        private System.Windows.Forms.Button S;
         private System.Windows.Forms.Button btnShowBackground;
         private System.Windows.Forms.Button btnWorkingRecord;
         private System.Windows.Forms.Label DrivingLisence;
