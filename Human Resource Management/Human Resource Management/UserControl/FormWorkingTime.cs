@@ -94,7 +94,6 @@ namespace Human_Resource_Management
             //string time = WorkIn.ToString("MM-dd-yyyy HH:mm:ss");
             //WorkIn = DateTime.Parse(time);
             table.Rows.Add(ID, name, WorkIn, LeaveWork, WorkingDur);
-            dataGridView1.DataSource = table;
             //textBox1.Text = time;
             try
             {
@@ -127,7 +126,6 @@ namespace Human_Resource_Management
         {
             DateTime minValue = (DateTime)System.Data.SqlTypes.SqlDateTime.Null;
             int latestRow = table.Rows.Count - 1;
-            textBox1.Text = minValue.ToString();
             if (table.Rows[latestRow][3].ToString() == minValue.ToString())
             {
                 table.Rows[latestRow][3] = DateTime.Now;

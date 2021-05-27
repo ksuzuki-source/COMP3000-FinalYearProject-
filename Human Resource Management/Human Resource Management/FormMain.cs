@@ -43,6 +43,10 @@ namespace Human_Resource_Management
 
         private void button2_Click(object sender, EventArgs e)
         {
+            Cnn.Open();
+            table.Clear();
+            Dta.Fill(table);
+            Cnn.Close();
             FormUserLogin ful = new FormUserLogin(table);
             ful.Show();
         }

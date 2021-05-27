@@ -95,12 +95,13 @@ namespace Human_Resource_Management
         
         public void addNew()
         {
+            DateTime dt1 = DateTime.Parse(txtAge.Text); 
             //Check the validation of input
             if (txtName.Text != null && (SexBox1.Text == "M" || SexBox1.Text == "F" || SexBox1.Text == "O")          
                 && (RoleBox2.Text == "User" || RoleBox2.Text == "Admin")
                 && txtPassword.Text != null
                 && txtPostcode.Text != null
-                && txtAge.Text != null)
+                && txtAge.Text != null && dt1 < DateTime.Now)
             {
                 DateTime date;
                 //convert to datetime from string

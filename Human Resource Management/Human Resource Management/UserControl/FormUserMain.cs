@@ -42,6 +42,7 @@ namespace Human_Resource_Management
         private void FormUserMain_Load(object sender, EventArgs e)
         {
             label1.Text = ("Welcome " + Name + "!!");
+            
         }
 
         private void btnEdit_Click(object sender, EventArgs e)
